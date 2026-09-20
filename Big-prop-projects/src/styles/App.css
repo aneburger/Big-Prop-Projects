@@ -1,0 +1,21 @@
+@import url(https://db.onlinewebfonts.com/c/12ff62164c9778917bddb93c6379cf47?family=Aeonik+Pro+Regular);
+
+
+:root {
+  --blue-body-text: #172940;
+
+  --blue-back-light: #172940;
+  --blue-back-extra-light: #3B4C62;
+  --blue-back-dark: #0E1E32;
+}
+
+
+body {
+    font-family: "Aeonik Pro Regular", sans-serif;
+    /* Aspekta, Verdana, sans-serif */
+}
+
+h1 {
+    margin-top: 10rem;
+    margin-left: 3rem;
+}

@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/***** Nav bar styling *****/
+#example {
+    height: auto;
+    overflow: visible;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* padding-top: 50px; */
+    background-color: var(--blue-back-dark);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+}
+
+/* .header-content {
+   
+    max-width: 100vw;
+    margin: 0 auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+} */
+
+.header-content {
+    max-width: none;   /* let the blocks run edge to edge */
+    margin: 0em;
+    padding: 0;
+    height: 75px;
+    display: flex;
+    align-items: stretch;   /* blocks fill the full 60px height */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: var(--white);
+}
+
+.logo-icon {
+    height: 18px;
+    width: auto;
+}
+
+/* nav {
+    display: flex;
+    gap: 32px;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    display: block;
+}
+
+nav a:hover {
+    opacity: 1;
+} */
+
+nav a {
+    display: block;
+    color: var(--blue-body-text);
+    text-decoration: none;
+}
+
+.content {
+    padding-top: 140px;
+}
+
+.hero {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero p {
+    font-size: 16px;
+    color: var(--white);
+    margin: 0;
+}
+
+.placeholder-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-logo {
+    width: clamp(200px, 40vw, 400px);
+    height: auto;
+    color: var(--white);
+    opacity: 0.04;
+}
+
+@media (max-width: 600px) {
+    nav {
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .header {
+        transition: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding-top: 0;   /* so the call strip sits at the very top */
+    }
+
+    .header-content {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: 0.5fr 1fr;
+        grid-template-areas:
+            "number number"
+            "logo   menu";
+        height: auto;
+    }
+
+    .number-div {
+        grid-area: number;
+        justify-self: center;
+        
+        background: var(--blue-back-extra-light);
+        font-size: 16px;
+    }
+
+    .number-div span {
+        width: 100vw;
+        justify-content: center;
+    }
+
+    .logo-div {
+        grid-area: logo;
+        padding: 16px 20px;
+        background: var(--blue-back-light);
+    }
+
+    .logo-div img {
+        padding: 10px 0px 10px 0px;
+    }
+
+    .menu-div {
+        grid-area: menu;
+        padding: 0 32px;
+        background: var(--blue-back-light);
+    }
+
+   
+}
+
+
+.big-prop-logo {
+    width: 9rem;
+    margin-right: 0.6rem;
+}
+
+.logo-div,
+.menu-div {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    background: var(--blue-back-dark);
+}
+
+.number-div {
+    flex: 1;                    /* takes all the space between logo and menu */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;  /* number sits on the right of the middle block */
+    padding: 0 32px;
+    background: var(--blue-back-light);
+    color: white;
+    font-size: 14px;
+}
+
+.number-div span {
+    display: flex;
+    gap: 0.5em;
+}
+
+.big-prop-number {
+    color: inherit;
+    text-decoration: none;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font: inherit;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
