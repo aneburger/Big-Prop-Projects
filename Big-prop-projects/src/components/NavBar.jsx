@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom"
+import ScrollHideHeader from "./ScrollHideHeader"
 function NavBar() {
   return (
     <nav>
-        <Link to="/">Home</Link>
+        {/* <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/projects">Projects</Link>
-        <Link to="/project">Project</Link>
+        <Link to="/project">Project</Link> */}
+
+        <ScrollHideHeader/>
     </nav>
   )
 }
