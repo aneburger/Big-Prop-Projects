@@ -1,0 +1,266 @@
+.landing-body {
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    margin-left: 0px;
+    background-image: linear-gradient(rgba(5, 19, 50, 0.482), rgba(5, 19, 50, 0.482)), url("../assets/landing.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: var(--blue-back-extra-light);
+    display: flex;
+}
+
+
+
+.landing-body-titles {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-bottom: 5.6rem;
+    align-content: end;
+    color: white;
+    width: 100vw;
+}
+
+
+.landing-body-titles .landing-body-h1, .landing-body-h2 {
+    font-size: 3.8rem;
+    font-weight: 400;
+    letter-spacing: 3%;
+} 
+
+.landing-body-titles .landing-body-h3 {
+    font-size: 2rem;
+    letter-spacing: 3%;
+    font-weight: 400;
+    margin-top: 4rem;
+}
+
+.landing-body-p {
+    font-size: 1.05rem;
+    max-width: 39rem;
+    font-weight: 100;
+    letter-spacing: 0.05rem;
+    margin-top: 1rem;
+}
+
+.landing-body-text-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.landing-buttons-div {
+    max-width: 30rem;
+    align-content: flex-end;
+}
+
+.landing-quote-btn, .landing-services-btn {
+    width: 11rem;
+    height: 3em;
+    font-size: 1.05em;
+    font-family: var(--font-fam);
+    letter-spacing: 5%;
+    border: none;
+    outline: none;
+}
+
+.landing-quote-btn {
+    margin-right: 1.4em;
+    background-color: var(--btn-back-light);
+    color: var(--btn-color-dark);
+    font-weight: 600;
+}
+
+.landing-services-btn {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.756);
+    color: white;
+}
+
+
+
+.convo-div {
+    display: flex;
+    justify-content: space-between;
+    width: 25em;
+    background-color: var(--blue-back-dark);
+    padding: 0.35em;
+    /* margin-right: 11em; */
+}
+
+.convo-img {
+    width: 5em;
+}
+
+.convo-phone {
+    font-size: 2em;
+}
+
+.convo-mail {
+    font-size: 2.2em;
+}
+
+
+ 
+/*****  Media queries for responsive design  *****/
+
+@media screen and (max-width: 768px) {
+    .landing-body {
+        background-image: linear-gradient(rgba(5, 19, 50, 0.482), rgba(5, 19, 50, 0.482)), url('../assets/landing-small.jpeg');
+        background-attachment: scroll; 
+        background-position: center center;
+        min-height: 60vh; 
+    }
+
+    .landing-body-titles {
+        margin-left: 2.6rem;
+        margin-right: 2.6rem;
+        margin-bottom: 2.6rem;
+        
+    }
+
+    .landing-body-titles .landing-body-h1, .landing-body-h2 {
+        font-size: 2.5rem;
+        font-weight: 400;
+        letter-spacing: 4%;
+        max-width: 20.1rem;
+    } 
+
+    .landing-body-titles .landing-body-h3 {
+        font-size: 1.7rem;
+        letter-spacing: 3%;
+        font-weight: 400;
+    }
+    
+}
+
+@media screen and (max-width: 405px) {
+    .landing-body {
+        background-image: linear-gradient(rgba(5, 19, 50, 0.482), rgba(5, 19, 50, 0.482)), url('../assets/landing-small.jpeg');
+        background-attachment: scroll; 
+        background-position: center center;
+        min-height: 60vh; 
+    }
+
+    .landing-body-titles {
+        margin-left: 2.6rem;
+        margin-right: 2.6rem;
+        margin-bottom: 2.6rem;
+        
+    }
+
+    .landing-body-titles .landing-body-h1, .landing-body-h2 {
+        font-size: 1.7rem;
+        font-weight: 400;
+        letter-spacing: 4%;
+        max-width: 20.1rem;
+    } 
+
+    .landing-body-titles .landing-body-h3 {
+        font-size: 1.3rem;
+        letter-spacing: 3%;
+        font-weight: 400;
+        margin-top: 1.7em;
+    }
+
+    .landing-body-titles .landing-body-p {
+        font-size: 0.85em;
+        line-height: 116%;
+    }
+
+    
+    
+}
+
+@media screen and (max-width: 1430px) {
+    .landing-body-text-div {
+        display: block;
+    }
+
+    .landing-quote-btn, .landing-services-btn {
+        width: 13rem;
+        height: 3.3em;
+        font-size: 1.25em;
+        font-family: var(--font-fam);
+        letter-spacing: 5%;
+        border: none;
+        outline: none;
+        margin-top: 1em;
+    }
+
+    .landing-services-btn {
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.756);
+        color: white;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    .landing-quote-btn, .landing-services-btn {
+        width: 11rem;
+        height: 2.8em;
+        font-size: 1.2em;
+        font-family: var(--font-fam);
+        letter-spacing: 5%;
+        border: none;
+        outline: none;
+        margin-top: 1em;
+    }
+
+    .landing-quote-btn {
+        margin-right: 1.2em;
+    }
+
+    .landing-services-btn {
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.756);
+        color: white;
+    }
+}
+
+@media screen and (max-width: 468px) {
+    .landing-quote-btn, .landing-services-btn {
+        width: 9.6rem;
+        height: 3.3em;
+        font-size: 1.1em;
+        font-family: var(--font-fam);
+        letter-spacing: 5%;
+        border: none;
+        outline: none;
+        margin-top: 1em;
+    }
+
+    .landing-quote-btn {
+        margin-right: 1em;
+    }
+
+    .landing-services-btn {
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.756);
+        color: white;
+    }
+}
+
+@media screen and (max-width: 405px) {
+    .landing-quote-btn, .landing-services-btn {
+        width: 7.3rem;
+        height: 3em;
+        font-size: 0.85em;
+        font-family: var(--font-fam);
+        letter-spacing: 5%;
+        border: none;
+        outline: none;
+        margin-top: 1em;
+    }
+
+    .landing-quote-btn {
+        margin-right: 1.3em;
+    }
+
+    .landing-services-btn {
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.756);
+        color: white;
+    }
+}
