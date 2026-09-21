@@ -6,25 +6,29 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  height: 2rem;
-  padding: 0 0.75rem;
+  height: 4.4rem;
   margin: 0;
-  border: 1px solid oklch(14.5% 0 0deg);
-  background-color: white;
+  
+  border: var(--btn-color-dark);
+  background-color: var(--btn-color-dark);
   font-family: inherit;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1;
   white-space: nowrap;
-  color: oklch(14.5% 0 0deg);
+  color: white;
   -webkit-user-select: none;
   user-select: none;
 
-  @media (prefers-color-scheme: dark) {
+  font-size: 1.2em;
+  color: white;
+  padding: 1.2em;
+
+  /* @media (prefers-color-scheme: dark) {
     border: 1px solid white;
     background-color: oklch(14.5% 0 0deg);
     color: white;
-  }
+  } */
 
   @media (hover: hover) {
     &:hover:not([data-disabled]) {
@@ -117,11 +121,11 @@
 .Popup {
   --bleed: 3rem;
   box-sizing: border-box;
-  width: calc(20rem + var(--bleed));
+  width: calc(30rem + var(--bleed));
   max-width: calc(100vw - 3rem + var(--bleed));
   height: 100%;
-  padding: 1.5rem;
-  padding-right: calc(1.5rem + var(--bleed));
+  padding: 0rem 0rem 1.5rem 2.3rem;
+  padding-right: calc(0rem + var(--bleed));
   margin-right: calc(-1 * var(--bleed));
   border-left: 1px solid oklch(100% 0.00011 271.152);
   background-color: white;
@@ -134,7 +138,10 @@
   transition: transform 450ms cubic-bezier(0.32, 0.72, 0, 1);
   will-change: transform;
   transform: translateX(var(--drawer-swipe-movement-x));
-  
+
+  /* Column layout so the buttons can sit at the bottom of the drawer */
+  display: flex;
+  flex-direction: column;
 
   @media (prefers-color-scheme: dark) {
     border-left: 1px solid white;
@@ -174,15 +181,23 @@
   justify-content: space-between;
   width: 100%;
   max-width: 32rem;
-  margin: 0 auto;
+  margin: 0 auto 2rem; /* 2rem = minimum gap above the buttons on short screens */
+  flex: 0 0 auto;
 }
 
 .Title {
-  margin-top: 0;
-  margin-bottom: 0.25rem;
-  font-size: 1rem;
+  margin-top: 6rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
   line-height: 1.5rem;
   font-weight: 700;
+  font-family: var(--font-fam);
+  border-bottom: 0.02rem solid var(--blue-body-text);
+  width: 12rem;
+  padding-bottom: 0.4em;
+  letter-spacing: 4%;
+  font-weight: 200;
+  opacity: 74%;
 }
 
 .Description {
@@ -206,3 +221,200 @@
   margin-top: 10rem;
 }
 
+
+
+/*  Bottom buttons ("Get a Quote" / "CALL")  */
+
+.Popup .DrawerButtons {
+  position: static;     /* in case a global rule positions it */
+  flex-shrink: 0;
+  margin-top: auto;     /* pushes the buttons to the bottom of the drawer... */
+  margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px)); /* ...but stops short of the edge */
+
+  display: flex;
+  gap: 1rem;
+}
+
+.Popup .DrawerButtons div button {
+  background-color: var(--btn-color-dark);
+  color: white;
+  font-family: var(--font-fam);
+  font-size: 1.2rem;
+  padding: 1.2rem 2rem;
+  border: none;
+  height: 4rem;
+  width: 12.4rem;
+}
+
+.Popup .DrawerButtons div {
+  display: flex;
+  background-color: var(--btn-back-lightblue);
+  height: 4rem;
+  width: 12.4rem;
+  font-size: 1.2rem;
+}
+
+span.call-btn-txt {
+    padding: 1.45rem 1.5rem;
+}
+
+span.call-btn-txt a {
+  color: white;
+  font-family: var(--font-fam);
+}
+
+.Popup .DrawerButtons div span a {
+  font-size: 1.01rem;
+  color: white;
+  font-family: var(--font-fam);
+  padding: 1.45rem 1.5rem;
+}
+
+
+/*  Staggered reveal for drawer items  */
+
+.Reveal {
+  /* Tuning knobs (values measured from the reference recording) */
+  --reveal-delay: 250ms;     /* wait before the first item starts */
+  --reveal-stagger: 160ms;   /* gap between each item */
+  --reveal-duration: 700ms;  /* how long each item takes to settle */
+  --reveal-distance: 15px;   /* how far each item travels up */
+}
+
+/* Transforms don't apply to inline elements, so make sure links are blocks */
+.Popup a.Reveal {
+  display: block;
+}
+
+/*
+  Only animate while the drawer is open. The animation restarts every time
+  data-open is re-applied, and items stay fully visible while the drawer
+  is closing (no rule matches then, so they sit at their normal styles).
+  "backwards" holds the first keyframe (invisible) during the delay.
+*/
+.Popup[data-open] .Reveal {
+  animation: reveal var(--reveal-duration) cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+  animation-delay: calc(var(--reveal-delay) + var(--i, 0) * var(--reveal-stagger));
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Popup[data-open] .Reveal {
+    animation: none;
+  }
+}
+
+
+.drawer-buttons-div {
+  display: flex;
+}
+
+
+@media (max-width: 423px) {
+
+  .Popup .DrawerButtons {
+    position: static;     /* in case a global rule positions it */
+    flex-shrink: 0;
+    margin-top: auto;     /* pushes the buttons to the bottom of the drawer... */
+    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px)); /* ...but stops short of the edge */
+
+    display: flex;
+    gap: 0.7rem;
+  }
+    
+  .Popup .DrawerButtons div button {
+    background-color: var(--btn-color-dark);
+    color: white;
+    font-family: var(--font-fam);
+    font-size: 1.2rem;
+    padding: 1rem 1rem;
+    border: none;
+    height: 4rem;
+    width: 11rem;
+  }
+
+  .Popup .DrawerButtons div {
+    display: flex;
+    background-color: var(--btn-back-lightblue);
+    height: 4rem;
+    width: 10.1rem;
+    font-size: 1.2rem;
+  }
+
+  span.call-btn-txt {
+      padding: 1rem 0.2rem;
+  }
+
+  span.call-btn-txt a {
+    color: white;
+    font-family: var(--font-fam);
+  }
+
+  .Popup .DrawerButtons div span a {
+    font-size: 0.91rem;
+    color: white;
+    font-family: var(--font-fam);
+    padding: 1.45rem 1rem;
+  }
+}
+
+
+@media (max-width: 376px) {
+
+  .Popup .DrawerButtons {
+    position: static;     /* in case a global rule positions it */
+    flex-shrink: 0;
+    margin-top: auto;     /* pushes the buttons to the bottom of the drawer... */
+    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px)); /* ...but stops short of the edge */
+
+    display: block;
+  }
+
+    
+  .Popup .DrawerButtons div button {
+    background-color: var(--btn-color-dark);
+    color: white;
+    font-family: var(--font-fam);
+    font-size: 1.2rem;
+    padding: 1rem 1rem;
+    border: none;
+    height: 4rem;
+    width: 15rem;
+  }
+
+  .Popup .DrawerButtons div {
+    display: flex;
+    background-color: var(--btn-back-lightblue);
+    height: 4rem;
+    width: 15rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  span.call-btn-txt {
+      padding: 4rem 2rem;
+  }
+
+  span.call-btn-txt a {
+    color: white;
+    font-family: var(--font-fam);
+  }
+
+  .Popup .DrawerButtons div span a {
+    font-size: 1.2rem;
+    color: white;
+    font-family: var(--font-fam);
+    padding: 1.45rem 2rem;
+  }
+}

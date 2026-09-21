@@ -71,6 +71,8 @@ nav a {
     display: block;
     color: var(--blue-body-text);
     text-decoration: none;
+    font-size: 1.45rem;
+    margin-bottom: 1.5rem;
 }
 
 .content {
@@ -112,7 +114,7 @@ nav a {
     }
 
     nav a {
-        font-size: 13px;
+        font-size: 1.35rem;
     }
 }
 
@@ -130,7 +132,7 @@ nav a {
     .header-content {
         display: grid;
         grid-template-columns: 1fr auto;
-        grid-template-rows: 0.6fr 1fr;
+        grid-template-rows: 0fr 1fr;
         grid-template-areas:
             "number number"
             "logo   menu";
@@ -143,6 +145,7 @@ nav a {
         
         background: var(--blue-back-extra-light);
         font-size: 16px;
+        padding-right: 0;
     }
 
     .number-div span {
@@ -199,7 +202,7 @@ nav a {
     display: flex;
     align-items: center;
     justify-content: flex-end;  /* number sits on the right of the middle block */
-    padding: 0 32px;
+    padding: 1rem 2rem 1rem 0rem;
     background: var(--blue-back-light);
     color: white;
     font-size: 14px;
@@ -210,6 +213,13 @@ nav a {
     gap: 0.5em;
     font-size: 1.2em;
     letter-spacing: 3%;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    .number-div {
+        padding-right: 0px;
+    }
 }
 
 .menu-div button {
@@ -225,6 +235,8 @@ nav a {
 .big-prop-number {
     color: inherit;
     text-decoration: none;
+    font-size: 1.2rem;
+    margin-bottom: 0;
 }
 
 .menu-button {
