@@ -30,6 +30,10 @@
     letter-spacing: 3%;
 } 
 
+.landing-body-h1 {
+    margin-top: 10rem;
+}
+
 .landing-body-titles .landing-body-h3 {
     font-size: 2rem;
     letter-spacing: 3%;
@@ -155,6 +159,36 @@
 
 /*****  Media queries for responsive design  *****/
 
+@media screen and (max-width: 878px) {
+    .landing-body {
+        background-image: linear-gradient(rgba(5, 19, 50, 0.482), rgba(5, 19, 50, 0.482)), url('../assets/landing-small.jpeg');
+        background-attachment: scroll; 
+        background-position: center center;
+        min-height: 60vh; 
+    }
+
+    .landing-body-titles {
+        margin-left: 2.6rem;
+        margin-right: 2.6rem;
+        margin-bottom: 2.6rem;
+        
+    }
+
+    .landing-body-titles .landing-body-h1, .landing-body-h2 {
+        font-size: 3.2rem;
+        font-weight: 400;
+        letter-spacing: 4%;
+        max-width: 39rem;
+    } 
+
+    .landing-body-titles .landing-body-h3 {
+        font-size: 2rem;
+        letter-spacing: 3%;
+        font-weight: 400;
+    }
+    
+}
+
 @media screen and (max-width: 768px) {
     .landing-body {
         background-image: linear-gradient(rgba(5, 19, 50, 0.482), rgba(5, 19, 50, 0.482)), url('../assets/landing-small.jpeg');
@@ -174,7 +208,7 @@
         font-size: 2.5rem;
         font-weight: 400;
         letter-spacing: 4%;
-        max-width: 20.1rem;
+        max-width: 31rem;
     } 
 
     .landing-body-titles .landing-body-h3 {
@@ -182,8 +216,15 @@
         letter-spacing: 3%;
         font-weight: 400;
     }
+
+     .landing-body-titles .landing-body-p {
+        font-size: 1em;
+        line-height: 116%;
+        max-width: 35rem;
+    }
     
 }
+
 
 @media screen and (max-width: 405px) {
     .landing-body {
@@ -271,7 +312,7 @@
 
 @media screen and (max-width: 468px) {
     .landing-quote-btn, .landing-services-btn {
-        width: 9.6rem;
+        width: 8.6rem;
         height: 3.3em;
         font-size: 1.1em;
         font-family: var(--font-fam);

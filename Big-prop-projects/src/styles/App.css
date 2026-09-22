@@ -1,20 +1,29 @@
 @import url(https://db.onlinewebfonts.com/c/12ff62164c9778917bddb93c6379cf47?family=Aeonik+Pro+Regular);
+@import url(https://db.onlinewebfonts.com/c/d95bf2f30035a050142565e03d44da71?family=Aeonik);
+@import url(https://db.onlinewebfonts.com/c/81c9cfcec66a1bb46e90e184f4d04641?family=Aeonik+Pro+Medium);
+@import url(https://db.onlinewebfonts.com/c/362636484f8ad521fec5a297fdc0ab12?family=Aeonik+Pro+Bold);
+@import url(https://db.onlinewebfonts.com/c/c6da2799f8877386e9a261e8744b2885?family=Aeonik+Pro+Light);
 
 
 :root {
     --font-fam: "Aeonik Pro Regular", sans-serif;
-  --blue-body-text: #172940;
+    --font-fam-reg: "Aeonik", sans-serif;
+    --font-fam-med: "Aeonik Pro Medium", sans-serif;
+    --font-fam-bold: "Aeonik Pro Bold", sans-serif;
+    --font-fam-light: "Aeonik Pro Light", sans-serif;
 
-  --blue-back-light: #172940;
-  --blue-back-extra-light: #3B4C62;
-  --blue-back-dark: #0E1E32;
+    --blue-body-text: #172940;
 
-  /* Buttons styling */
-  --btn-back-light: #D7E7FE;
-  --btn-color-dark: #0F2443;
-  --btn-back-lightblue: #809CC7;
+    --blue-back-light: #172940;
+    --blue-back-extra-light: #3B4C62;
+    --blue-back-dark: #0E1E32;
 
+    /* Buttons styling */
+    --btn-back-light: #D7E7FE;
+    --btn-color-dark: #0F2443;
+    --btn-back-lightblue: #809CC7;
 
+    --light-blue-section: #DFECFE;
   
 }
 

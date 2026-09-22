@@ -41,8 +41,6 @@ function LandingPage() {
 
             </section>
         </div>
-        
-        <h1>Landing Page</h1>
            
     </div>
   )
