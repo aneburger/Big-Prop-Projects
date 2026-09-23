@@ -222,7 +222,31 @@
         line-height: 116%;
         max-width: 35rem;
     }
+
     
+    
+}
+
+@media screen and (max-width: 535px) {
+    .landing-body-titles .landing-body-h1, .landing-body-h2 {
+        font-size: 1.8rem;
+        font-weight: 400;
+        letter-spacing: 4%;
+        max-width: 20.1rem;
+    } 
+
+    .landing-body-titles .landing-body-h3 {
+        font-size: 1.2rem;
+        letter-spacing: 3%;
+        font-weight: 400;
+        margin-top: 1.7em;
+    }
+
+    .landing-body-titles .landing-body-p {
+        font-size: 0.75em;
+        line-height: 116%;
+    }
+
 }
 
 
@@ -270,9 +294,9 @@
     }
 
     .landing-quote-btn, .landing-services-btn {
-        width: 13rem;
-        height: 3.3em;
-        font-size: 1.25em;
+        width: 12rem;
+        height: 3em;
+        font-size: 1.1em;
         font-family: var(--font-fam);
         letter-spacing: 5%;
         border: none;
@@ -287,12 +311,34 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+
+    .landing-quote-btn, .landing-services-btn {
+        width: 10rem;
+        height: 3em;
+        font-size: 1em;
+        font-family: var(--font-fam);
+        letter-spacing: 5%;
+        border: none;
+        outline: none;
+        margin-top: 1em;
+    }
+
+    .landing-services-btn {
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.756);
+        color: white;
+    }
+
+}
+
 @media screen and (max-width: 535px) {
     .landing-quote-btn, .landing-services-btn {
-        width: 11rem;
-        height: 2.8em;
-        font-size: 1.2em;
-        font-family: var(--font-fam);
+        width: 9.2rem;
+        height: 3.1em;
+        font-size: 0.8em;
+        font-family: var(--font-fam-reg);
+        padding-bottom: 0.2rem;
         letter-spacing: 5%;
         border: none;
         outline: none;
@@ -312,9 +358,9 @@
 
 @media screen and (max-width: 468px) {
     .landing-quote-btn, .landing-services-btn {
-        width: 8.6rem;
-        height: 3.3em;
-        font-size: 1.1em;
+        width: 7.5rem;
+        height: 3em;
+        font-size: 0.75em;
         font-family: var(--font-fam);
         letter-spacing: 5%;
         border: none;
@@ -335,9 +381,9 @@
 
 @media screen and (max-width: 405px) {
     .landing-quote-btn, .landing-services-btn {
-        width: 8.4rem;
-        height: 3.4em;
-        font-size: 0.9em;
+        width: 7.5rem;
+        height: 3em;
+        font-size: 0.75em;
         font-family: var(--font-fam);
         letter-spacing: 7%;
         border: none;

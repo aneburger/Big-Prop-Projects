@@ -6,7 +6,7 @@ function Services() {
         <div className="services-content">
             <div className="services-left-section">
                 <h1 className="services-title"><span className="blue-title">The right workmanship and the right people </span>
-                    to maintain, protect and transform your property.
+                    <br/>to maintain, protect and transform your property.
                 </h1>
 
                 <div className="services-buttons">
