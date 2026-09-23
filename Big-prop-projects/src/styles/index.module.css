@@ -321,7 +321,13 @@ span.call-btn-txt a {
 }
 
 
-@media (max-width: 423px) {
+
+
+@media (max-width: 859px) {
+
+  .Button {
+    font-size: 1rem;
+  }
 
   .Popup .DrawerButtons {
     position: static;     /* in case a global rule positions it */
@@ -330,25 +336,25 @@ span.call-btn-txt a {
     margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px)); /* ...but stops short of the edge */
 
     display: flex;
-    gap: 0.7rem;
+    gap: 0.9rem;
   }
     
   .Popup .DrawerButtons div button {
     background-color: var(--btn-color-dark);
     color: white;
     font-family: var(--font-fam);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding: 1rem 1rem;
     border: none;
-    height: 4rem;
+    height: 3.7rem;
     width: 11rem;
   }
 
   .Popup .DrawerButtons div {
     display: flex;
     background-color: var(--btn-back-lightblue);
-    height: 4rem;
-    width: 10.1rem;
+    height: 3.7rem;
+    width: 11rem;
     font-size: 1.2rem;
   }
 
@@ -362,15 +368,171 @@ span.call-btn-txt a {
   }
 
   .Popup .DrawerButtons div span a {
-    font-size: 0.91rem;
+    font-size: 1rem;
     color: white;
     font-family: var(--font-fam);
-    padding: 1.45rem 1rem;
+    padding: 1.4rem 1rem;
   }
 }
 
 
-@media (max-width: 376px) {
+@media (max-width: 500px) {
+  .Button {
+    font-size: 1rem;
+  }
+
+  .Popup .DrawerButtons {
+    position: static;     /* in case a global rule positions it */
+    flex-shrink: 0;
+    margin-top: auto;     /* pushes the buttons to the bottom of the drawer... */
+    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px)); /* ...but stops short of the edge */
+
+    display: flex;
+    gap: 0.9rem;
+  }
+    
+  .Popup .DrawerButtons div button {
+    background-color: var(--btn-color-dark);
+    color: white;
+    font-family: var(--font-fam);
+    font-size: 1rem;
+    padding: 1rem 1rem;
+    border: none;
+    height: 3.3rem;
+    width: 10rem;
+  }
+
+  .Popup .DrawerButtons div {
+    display: flex;
+    background-color: var(--btn-back-lightblue);
+    height: 3.3rem;
+    width: 10rem;
+    font-size: 1.2rem;
+  }
+
+  span.call-btn-txt {
+      padding: 1rem 0.2rem;
+  }
+
+  span.call-btn-txt a {
+    color: white;
+    font-family: var(--font-fam);
+  }
+
+  .Popup .DrawerButtons div span a {
+    font-size: 0.9rem;
+    color: white;
+    font-family: var(--font-fam);
+    padding: 1.2rem 1rem;
+  }
+}
+
+
+@media (max-width: 423px) {
+
+  .Button {
+    font-size: 1rem;
+  }
+
+  .Popup .DrawerButtons {
+    position: static;     /* in case a global rule positions it */
+    flex-shrink: 0;
+    margin-top: auto;     /* pushes the buttons to the bottom of the drawer... */
+    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px)); /* ...but stops short of the edge */
+
+    display: flex;
+    gap: 0.9rem;
+  }
+    
+  .Popup .DrawerButtons div button {
+    background-color: var(--btn-color-dark);
+    color: white;
+    font-family: var(--font-fam);
+    font-size: 1rem;
+    padding: 1rem 1rem;
+    border: none;
+    height: 3.3rem;
+    width: 10rem;
+  }
+
+  .Popup .DrawerButtons div {
+    display: flex;
+    background-color: var(--btn-back-lightblue);
+    height: 3.3rem;
+    width: 10rem;
+    font-size: 1.2rem;
+  }
+
+  span.call-btn-txt {
+      padding: 1rem 0.2rem;
+  }
+
+  span.call-btn-txt a {
+    color: white;
+    font-family: var(--font-fam);
+  }
+
+  .Popup .DrawerButtons div span a {
+    font-size: 0.9rem;
+    color: white;
+    font-family: var(--font-fam);
+    padding: 1.2rem 1rem;
+  }
+}
+
+
+@media (max-width: 396px) {
+
+  .Popup .DrawerButtons {
+    position: static;     /* in case a global rule positions it */
+    flex-shrink: 0;
+    margin-top: auto;     /* pushes the buttons to the bottom of the drawer... */
+    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px)); /* ...but stops short of the edge */
+
+    /* display: block; */
+  }
+
+    
+  .Popup .DrawerButtons div button {
+    background-color: var(--btn-color-dark);
+    color: white;
+    font-family: var(--font-fam);
+    font-size: 0.9rem;
+    /* padding: 1rem 1rem; */
+    border: none;
+    height: 3rem;
+    width: 9rem;
+  }
+
+  .Popup .DrawerButtons div {
+    display: flex;
+    background-color: var(--btn-back-lightblue);
+    height: 3rem;
+    width: 9rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  /* span.call-btn-txt {
+      padding: 2rem 2rem;
+  } */
+
+  span.call-btn-txt a {
+    color: white;
+    font-family: var(--font-fam);
+  }
+
+  .Popup .DrawerButtons div span a {
+    font-size: 0.8rem;
+    color: white;
+    font-family: var(--font-fam);
+    padding: 1rem 0.8rem;
+  }
+}
+
+
+
+@media (max-width: 354px) {
 
   .Popup .DrawerButtons {
     position: static;     /* in case a global rule positions it */
@@ -386,25 +548,25 @@ span.call-btn-txt a {
     background-color: var(--btn-color-dark);
     color: white;
     font-family: var(--font-fam);
-    font-size: 1.2rem;
-    padding: 1rem 1rem;
+    font-size: 0.95rem;
+    /* padding: 1rem 1rem; */
     border: none;
-    height: 4rem;
-    width: 15rem;
+    height: 3rem;
+    width: 13rem;
   }
 
   .Popup .DrawerButtons div {
     display: flex;
     background-color: var(--btn-back-lightblue);
-    height: 4rem;
-    width: 15rem;
+    height: 3rem;
+    width: 13rem;
     font-size: 1.2rem;
     margin-bottom: 1rem;
   }
 
-  span.call-btn-txt {
-      padding: 4rem 2rem;
-  }
+  /* span.call-btn-txt {
+      padding: 2rem 2rem;
+  } */
 
   span.call-btn-txt a {
     color: white;
@@ -412,9 +574,9 @@ span.call-btn-txt a {
   }
 
   .Popup .DrawerButtons div span a {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     color: white;
     font-family: var(--font-fam);
-    padding: 1.45rem 2rem;
+    padding: 1rem 2.5rem;
   }
 }
