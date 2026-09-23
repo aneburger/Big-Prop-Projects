@@ -108,13 +108,61 @@
 }
 
 @media (max-width: 500px) {
+    .what-we-do-content h1 {
+        margin-top: 2.3rem;
+        margin-bottom: 1.1rem;
+        margin-left: 0rem;
+        font-weight: 100;
+        font-family: var(--font-fam-med);
+        font-size: 1.4rem;
+    }
+
+    .what-we-do {
+        display: flex;
+        gap: 0.3rem;
+        font-family: var(--font-fam-light);
+        letter-spacing: 5%;
+    }
+
+    .what-we-do svg {
+        font-size: 0.8rem;
+        padding-top: 1px;
+    }
+
+    .what-we-do p {
+        padding-top: 1px;
+        font-size: 0.8rem;
+    }
+
     .what-we-do-content h3 {
         margin-bottom: 1.8rem;
         font-weight: 300;
         font-family: var(--font-fam-reg);
         letter-spacing: 5%;
-        max-width: 25rem;
+        max-width: 18rem;
         opacity: 89%;
-        font-size: 1.05rem;
+        font-size: 0.8rem;
+    }
+
+    .about-us-btn {
+        background-color: var(--blue-back-dark);
+        width: 7.8rem;
+        height: 2.5rem;
+        color: var(--btn-back-light);
+        padding: 0.6rem 0.7rem 0.6rem 1.4rem;
+        gap: 0.4rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .about-us-btn a {
+        color: var(--btn-back-light);
+        text-decoration: none;
+        font-size: 0.85rem;
+    }
+
+    .about-us-btn svg {
+        font-size: 1.5rem;
+        padding-bottom: 3px;
     }
 }
