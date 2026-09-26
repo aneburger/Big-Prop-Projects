@@ -1,6 +1,6 @@
 .services-div {
     border-bottom: 1px solid #172940a8;
-    margin-bottom: 3rem;
+    /* margin-bottom: 3rem; */
 }
 
 .services-content {
@@ -55,7 +55,7 @@
     font-family: var(--font-fam-light);
 }
 
-.services-right-section .paint-section, .services-right-section .roof-section {
+.services-right-section .paint-section, .services-right-section .roof-section, .services-right-section .waterproof-section {
     border-bottom: 1px solid #17294061;
     /* padding-top: 2rem; */
 }
@@ -64,7 +64,7 @@
     padding-top: 2.6rem;
 }
 
-.services-right-section .roof-section, .services-right-section .reno-section {
+.services-right-section .roof-section, .services-right-section .reno-section, .services-right-section .waterproof-section {
     padding-top: 2rem;
 }
 

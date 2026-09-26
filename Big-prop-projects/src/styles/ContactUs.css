@@ -1,0 +1,180 @@
+.contact-us-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+}
+
+.contact-us-titles h1 {
+    margin-top: 0rem;
+    font-weight: 200;
+    font-family: var(--font-fam-reg);
+    letter-spacing: 4%;
+    line-height: 110%;
+    font-size: 2.3rem;
+
+    margin-left: 15rem;
+}
+
+.tell-us {
+    display: flex;
+    margin-left: 15rem;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+.tell-us p {
+    font-family: var(--font-fam-light);
+    letter-spacing: 7%;
+    font-size: 1.1rem;
+}
+
+.tell-us p svg {
+    font-size: 1.2rem;
+}
+
+
+
+
+/* -------------- Contact Form Styling ------------------- */
+
+.contact-form-section {
+    background-color: #1C2C40;
+    border: 1px solid rgba(255, 255, 255, 0.274);
+    max-width: 30.5rem;
+    height: 30.7rem;
+    border-radius: 1.4rem;
+    padding: 1.5rem;
+}
+
+.contact-form-section input, select {
+    background-color: #35465B;
+    outline: none;
+    border: 1px solid transparent;
+    font-family: var(--font-fam-light);
+    color: white;
+    letter-spacing: 4%;
+    border-radius: 0.4rem;
+    width: 13rem;
+    height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    margin-bottom: 1rem;
+}
+
+.contact-form-section input::placeholder, textarea::placeholder {
+    font-family: var(--font-fam-light);
+    color: rgba(255, 255, 255, 0.662);
+    letter-spacing: 5%;
+    font-size: 0.8rem;
+}
+
+.contact-form-section input:focus, select:focus {
+    background-color: #617896c9;
+    border: 1px solid rgba(255, 255, 255, 0.274);
+}
+
+.contact-form-section input:hover, select:hover {
+    cursor: pointer;
+    background-color: #617896c9;
+}
+
+.project-type-select option {
+    font-family: var(--font-fam-light);
+    color: rgba(255, 255, 255, 0.662);
+    letter-spacing: 5%;
+    font-size: 0.8rem;
+}
+
+.contact-form-section textarea {
+    background-color: #35465B;
+    outline: none;
+    border: 1px solid transparent;
+    font-family: var(--font-fam-light);
+    color: white;
+    letter-spacing: 4%;
+    border-radius: 0.4rem;
+    width: 27rem;
+    height: 4rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    margin-bottom: 1.5rem;
+}
+
+.contact-form-section textarea:focus {
+    background-color: #617896c9;
+    border: 1px solid rgba(255, 255, 255, 0.274);
+}
+
+.contact-form-section textarea:hover {
+    cursor: pointer;
+    background-color: #617896c9;
+}
+
+.fullnameInput, .areaInput, .project-type-select {
+    margin-right: 1rem;
+}
+
+.radio-buttons-div {
+    margin-bottom: 2rem;
+}
+
+.radio-buttons-div p {
+    font-family: var(--font-fam-light);
+    letter-spacing: 5%;
+    font-size: 0.95rem;
+}
+
+.radio-items {
+    display: flex;
+}
+
+.radio-items input {
+    width: 1rem;
+}
+
+.radio-items label {
+    font-size: 0.7rem;
+    font-family: var(--font-fam-light);
+    letter-spacing: 4%;
+    padding-top: 1.15rem;
+    padding-left: 0.6rem;
+    margin-right: 1.9rem;
+}
+
+.radio-items label:hover {
+    cursor: pointer;
+}
+
+
+.form-buttons button {
+    font-family: var(--font-fam-light);
+    letter-spacing: 4%;
+    font-size: 0.95rem;
+    margin-right: 1rem;
+}
+
+.form-buttons .submit-btn {
+    background-color: #D1E4FF;
+    border: none;
+    color: #172940;
+    padding: 0.9rem 1.2rem 0.8rem 1.2rem;
+    border-radius: 0.3rem;
+}
+
+.form-buttons .clear-btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+.form-buttons .clear-btn:hover {
+    text-decoration: underline;
+}
+
+.form-buttons button:hover {
+    cursor: pointer;
+}

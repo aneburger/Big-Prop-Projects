@@ -19,8 +19,12 @@ function Services() {
 
             <div className="services-right-section">
                 <section className="paint-section">
-                    <h3>PAINTING AND WATERPROOFING</h3>
-                    <p>Comprehensive painting and waterproofing services to protect and enhance your property.</p>
+                    <h3>PAINTING SERVICES</h3>
+                    <p>Comprehensive painting services to enhance your property.</p>
+                </section>
+                <section className="waterproof-section">
+                    <h3>WATERPROOFING SERVICES</h3>
+                    <p>Comprehensive waterproofing services to protect your property.</p>
                 </section>
                 <section className="roof-section">
                     <h3>ROOF INSTALLATION AND MAINTENANCE</h3>

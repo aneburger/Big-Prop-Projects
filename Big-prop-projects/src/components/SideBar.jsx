@@ -5,8 +5,9 @@ import styles from '../styles/index.module.css';
 const links = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
+  // { to: '/', label: 'Services' },
   { to: '/projects', label: 'Projects' },
-  { to: '/project', label: 'Project' },
+  // { to: '/', label: 'Contact' },
 ];
 
 export default function Sidebar({ open, onOpenChange, container }) {
@@ -35,6 +36,9 @@ export default function Sidebar({ open, onOpenChange, container }) {
                       {label}
                     </Link>
                   ))}
+                  {/* <Link to="/" className={styles.Reveal}>Services</Link>
+                  <Link to="/" className={styles.Reveal}>Contact</Link> */}
+                  
                 </nav>
               </div>
 
