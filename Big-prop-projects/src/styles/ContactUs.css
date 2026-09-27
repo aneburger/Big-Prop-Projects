@@ -13,6 +13,10 @@
     font-weight: 500;
     line-height: 1.2;
     text-transform: uppercase;
+
+    font-family: var(--font-fam-med);
+    letter-spacing: .06em;
+    color: #a0c5fc;
 }
 
 .tell-us {
@@ -21,11 +25,12 @@
     gap: 1rem;
     margin-top: 1.75rem;
     color: #c1ccda;
-    font-size: .85rem;
+    font-size: .87rem;
+    letter-spacing: .1em;
 }
 
 .tell-us svg {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
 }
 
 .contact-form {
@@ -55,6 +60,8 @@
 .contact-field>label {
     color: #e1e8f2;
     font-size: .8rem;
+    letter-spacing: .05em;
+    font-family: var(--font-fam-reg);
 }
 
 .contact-field input,
@@ -70,20 +77,30 @@
     padding: .75rem;
     font-size: 1rem;
     line-height: 1.4;
+
+    font-family: var(--font-fam-light);
+    letter-spacing: .04em;
 }
 
 .contact-field input::placeholder,
 .contact-field textarea::placeholder {
     color: #c2cddd;
     opacity: 1;
+    font-family: var(--font-fam-light);
+    letter-spacing: .04em;
 }
 
 .contact-field input:focus,
 .contact-field textarea:focus,
 .contact-select-trigger:focus-visible {
-    outline: 2px solid #93befe;
-    outline-offset: 2px;
+    /* outline: 2px solid #93befe;
+    outline-offset: 2px; */
+    outline: none;
     border-color: #93befe;
+    background: #4a627e;
+
+    font-family: var(--font-fam-light);
+    letter-spacing: .04em;
 }
 
 .contact-field textarea {
@@ -184,9 +201,11 @@
 }
 
 .radio-buttons-div legend {
-    color: #e1e8f2;
+    color: #ffffff;
     font-size: .875rem;
     margin-bottom: .65rem;
+    letter-spacing: .06em;
+    font-family: var(--font-fam-reg);
 }
 
 .radio-items {
@@ -202,7 +221,9 @@
     min-height: 2.75rem;
     cursor: pointer;
     font-size: .85rem;
-    color: #dce5f1;
+    color: #e1e8f2;
+    letter-spacing: .04em;
+    font-family: var(--font-fam-light);
 }
 
 .radio-option input {

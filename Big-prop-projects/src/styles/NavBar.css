@@ -43,6 +43,8 @@
   padding: .75rem clamp(1rem, 3vw, 3rem);
   background: var(--blue-back-light);
   color: white;
+  font-family: var(--font-fam-light);
+  letter-spacing: 6%;
 }
 
 .number-div span {
@@ -55,6 +57,7 @@
 .big-prop-number {
   color: inherit;
   text-decoration: none;
+  font-family: var(--font-fam-light);
 }
 
 .menu-div button {

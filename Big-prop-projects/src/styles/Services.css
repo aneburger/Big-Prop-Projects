@@ -61,7 +61,7 @@
   color: var(--btn-color-dark);
 }
 
-/* Extend the section boxes through the outer gutter; keep text inset inside them. */
+
 .services-right-section {
   min-width: 0;
   margin-right: calc(-1 * var(--page-inset));
@@ -77,9 +77,11 @@
 }
 
 .services-right-section h3 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.4;
-  font-weight: 600;
+  font-weight: 400;
+  font-family: var(--font-fam-med);
+  letter-spacing: 7%;
 }
 
 .services-right-section p {
@@ -87,6 +89,7 @@
   margin-top: .75rem;
   color: #57667a;
   font-size: .95rem;
+  letter-spacing: 4%;
 }
 
 @media (max-width: 52rem) {

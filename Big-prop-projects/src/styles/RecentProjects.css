@@ -9,7 +9,8 @@
     align-items: center;
     gap: .65rem;
     font-size: .8rem;
-    letter-spacing: .04em;
+    letter-spacing: .12em;
+    font-family: var(--font-fam-light);
 }
 
 .recent-project-sections:empty {

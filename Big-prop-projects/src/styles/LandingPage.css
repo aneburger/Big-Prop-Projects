@@ -5,7 +5,7 @@
   display: flex;
   align-items: flex-end;
   color: white;
-  background: linear-gradient(90deg, #05133299, #05133240), url('../assets/landing.jpeg') center / cover no-repeat;
+  background: linear-gradient(90deg, #05133250, #05133250), url('../assets/landing.jpeg') center / cover no-repeat;
 }
 
 .landing-body-titles {
@@ -96,7 +96,7 @@
   .landing-body {
     min-height: 42rem;
     min-height: max(38rem, 90svh);
-    background-image: linear-gradient(90deg, #05133299, #05133250), url('../assets/landing-smaller.jpeg');
+    background-image: linear-gradient(90deg, #05133250, #05133250), url('../assets/landing-smaller.jpeg');
   }
 }
 

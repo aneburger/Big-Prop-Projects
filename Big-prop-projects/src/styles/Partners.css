@@ -10,7 +10,8 @@
     gap: .65rem;
     color: #e1e8f2;
     font-size: .85rem;
-    letter-spacing: .04em;
+    letter-spacing: .1em;
+    font-family: var(--font-fam-light);
     margin-bottom: 2rem;
 }
 
