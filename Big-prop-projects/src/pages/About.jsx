@@ -1,3 +1,4 @@
+import AboutUsHero from "../components/AboutUsHero"
 import ContactUs from "../components/ContactUs"
 import Footer from "../components/Footer"
 import Partners from "../components/Partners"
@@ -5,7 +6,7 @@ import Partners from "../components/Partners"
 function About() {
   return (
     <div>
-        <h1>About Page</h1>
+        <AboutUsHero />
 
         <Partners />
         <ContactUs />
