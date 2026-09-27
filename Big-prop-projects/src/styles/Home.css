@@ -1,4 +1,4 @@
 .home-footer-section {
-    background-color: var(--blue-body-text);
-    color: white;
+    background: var(--blue-back-dark);
+    color: #f5f7fb;
 }

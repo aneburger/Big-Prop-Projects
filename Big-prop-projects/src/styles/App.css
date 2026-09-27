@@ -24,13 +24,13 @@
     --btn-back-lightblue: #809CC7;
 
     --light-blue-section: #DFECFE;
-  
+
 }
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 body {
@@ -38,10 +38,53 @@ body {
     /* Aspekta, Verdana, sans-serif */
     min-height: 100vh;
     scroll-behavior: smooth;
-    overflow-x: hidden;
+
 }
 
 h1 {
     margin-top: 8.5rem;
     margin-left: 3rem;
+}
+
+/* Shared fluid measurements. Keep content near the left on wide monitors. */
+:root {
+    --page-gutter: clamp(1.25rem, 5vw, 5rem);
+    --section-space: clamp(2.5rem, 6vw, 5.5rem);
+    --page-inset: var(--page-gutter);
+    --header-height: 4.75rem;
+}
+
+html {
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+}
+
+body {
+    line-height: 1.5;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #84b4fc;
+    outline-offset: 4px;
+}
+
+@media (max-width: 37.5rem) {
+    :root {
+        --header-height: 6.5rem;
+    }
 }

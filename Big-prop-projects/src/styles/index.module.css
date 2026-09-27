@@ -8,7 +8,7 @@
   gap: 0.5rem;
   height: 4.4rem;
   margin: 0;
-  
+
   border: var(--btn-color-dark);
   background-color: var(--btn-color-dark);
   font-family: inherit;
@@ -186,7 +186,8 @@
   justify-content: space-between;
   width: 100%;
   max-width: 32rem;
-  margin: 0 auto 2rem; /* 2rem = minimum gap above the buttons on short screens */
+  margin: 0 auto 2rem;
+  /* 2rem = minimum gap above the buttons on short screens */
   flex: 0 0 auto;
 }
 
@@ -231,10 +232,13 @@
 /*  Bottom buttons ("Get a Quote" / "CALL")  */
 
 .Popup .DrawerButtons {
-  position: static;     /* in case a global rule positions it */
+  position: static;
+  /* in case a global rule positions it */
   flex-shrink: 0;
-  margin-top: auto;     /* pushes the buttons to the bottom of the drawer... */
-  margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px)); /* ...but stops short of the edge */
+  margin-top: auto;
+  /* pushes the buttons to the bottom of the drawer... */
+  margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px));
+  /* ...but stops short of the edge */
 
   display: flex;
   gap: 1rem;
@@ -264,7 +268,7 @@
 }
 
 span.call-btn-txt {
-    padding: 1.45rem 1.5rem;
+  padding: 1.45rem 1.5rem;
 }
 
 span.call-btn-txt a {
@@ -284,10 +288,14 @@ span.call-btn-txt a {
 
 .Reveal {
   /* Tuning knobs (values measured from the reference recording) */
-  --reveal-delay: 250ms;     /* wait before the first item starts */
-  --reveal-stagger: 160ms;   /* gap between each item */
-  --reveal-duration: 700ms;  /* how long each item takes to settle */
-  --reveal-distance: 15px;   /* how far each item travels up */
+  --reveal-delay: 250ms;
+  /* wait before the first item starts */
+  --reveal-stagger: 160ms;
+  /* gap between each item */
+  --reveal-duration: 700ms;
+  /* how long each item takes to settle */
+  --reveal-distance: 15px;
+  /* how far each item travels up */
 }
 
 /* Transforms don't apply to inline elements, so make sure links are blocks */
@@ -339,15 +347,18 @@ span.call-btn-txt a {
   }
 
   .Popup .DrawerButtons {
-    position: static;     /* in case a global rule positions it */
+    position: static;
+    /* in case a global rule positions it */
     flex-shrink: 0;
-    margin-top: auto;     /* pushes the buttons to the bottom of the drawer... */
-    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px)); /* ...but stops short of the edge */
+    margin-top: auto;
+    /* pushes the buttons to the bottom of the drawer... */
+    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px));
+    /* ...but stops short of the edge */
 
     display: flex;
     gap: 0.9rem;
   }
-    
+
   .Popup .DrawerButtons div button {
     background-color: var(--btn-color-dark);
     color: white;
@@ -368,7 +379,7 @@ span.call-btn-txt a {
   }
 
   span.call-btn-txt {
-      padding: 1rem 0.2rem;
+    padding: 1rem 0.2rem;
   }
 
   span.call-btn-txt a {
@@ -391,15 +402,18 @@ span.call-btn-txt a {
   }
 
   .Popup .DrawerButtons {
-    position: static;     /* in case a global rule positions it */
+    position: static;
+    /* in case a global rule positions it */
     flex-shrink: 0;
-    margin-top: auto;     /* pushes the buttons to the bottom of the drawer... */
-    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px)); /* ...but stops short of the edge */
+    margin-top: auto;
+    /* pushes the buttons to the bottom of the drawer... */
+    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px));
+    /* ...but stops short of the edge */
 
     display: flex;
     gap: 0.9rem;
   }
-    
+
   .Popup .DrawerButtons div button {
     background-color: var(--btn-color-dark);
     color: white;
@@ -420,7 +434,7 @@ span.call-btn-txt a {
   }
 
   span.call-btn-txt {
-      padding: 1rem 0.2rem;
+    padding: 1rem 0.2rem;
   }
 
   span.call-btn-txt a {
@@ -444,15 +458,18 @@ span.call-btn-txt a {
   }
 
   .Popup .DrawerButtons {
-    position: static;     /* in case a global rule positions it */
+    position: static;
+    /* in case a global rule positions it */
     flex-shrink: 0;
-    margin-top: auto;     /* pushes the buttons to the bottom of the drawer... */
-    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px)); /* ...but stops short of the edge */
+    margin-top: auto;
+    /* pushes the buttons to the bottom of the drawer... */
+    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px));
+    /* ...but stops short of the edge */
 
     display: flex;
     gap: 0.9rem;
   }
-    
+
   .Popup .DrawerButtons div button {
     background-color: var(--btn-color-dark);
     color: white;
@@ -473,7 +490,7 @@ span.call-btn-txt a {
   }
 
   span.call-btn-txt {
-      padding: 1rem 0.2rem;
+    padding: 1rem 0.2rem;
   }
 
   span.call-btn-txt a {
@@ -493,15 +510,18 @@ span.call-btn-txt a {
 @media (max-width: 396px) {
 
   .Popup .DrawerButtons {
-    position: static;     /* in case a global rule positions it */
+    position: static;
+    /* in case a global rule positions it */
     flex-shrink: 0;
-    margin-top: auto;     /* pushes the buttons to the bottom of the drawer... */
-    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px)); /* ...but stops short of the edge */
+    margin-top: auto;
+    /* pushes the buttons to the bottom of the drawer... */
+    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px));
+    /* ...but stops short of the edge */
 
     /* display: block; */
   }
 
-    
+
   .Popup .DrawerButtons div button {
     background-color: var(--btn-color-dark);
     color: white;
@@ -544,15 +564,18 @@ span.call-btn-txt a {
 @media (max-width: 354px) {
 
   .Popup .DrawerButtons {
-    position: static;     /* in case a global rule positions it */
+    position: static;
+    /* in case a global rule positions it */
     flex-shrink: 0;
-    margin-top: auto;     /* pushes the buttons to the bottom of the drawer... */
-    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px)); /* ...but stops short of the edge */
+    margin-top: auto;
+    /* pushes the buttons to the bottom of the drawer... */
+    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px));
+    /* ...but stops short of the edge */
 
     display: block;
   }
 
-    
+
   .Popup .DrawerButtons div button {
     background-color: var(--btn-color-dark);
     color: white;
@@ -588,4 +611,59 @@ span.call-btn-txt a {
     font-family: var(--font-fam);
     padding: 1rem 2.5rem;
   }
+}
+
+/* Fluid drawer controls, including short landscape screens. */
+.Popup {
+  padding-left: clamp(1rem, 5vw, 2.3rem);
+}
+
+.Content>div:first-child {
+  min-width: 0;
+  flex: 1;
+}
+
+.Title {
+  width: min(12rem, 100%);
+  margin-top: clamp(2rem, 12vh, 6rem);
+}
+
+.Popup .DrawerButtons {
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 1rem;
+  gap: .75rem;
+}
+
+.Popup .DrawerButtons>div {
+  width: auto;
+  flex: 1 1 10rem;
+  min-width: 0;
+  height: auto;
+  margin: 0;
+}
+
+.Popup .DrawerButtons div button {
+  width: 100%;
+  min-height: 3rem;
+  height: auto;
+  padding: .75rem;
+  font-size: 1rem;
+}
+
+.Popup .DrawerButtons div span {
+  display: flex;
+  width: 100%;
+  padding: 0;
+}
+
+.Popup .DrawerButtons div span a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3rem;
+  padding: .75rem;
+  font-size: .95rem;
+  text-decoration: none;
 }
