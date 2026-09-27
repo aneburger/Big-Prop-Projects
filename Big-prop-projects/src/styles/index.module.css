@@ -105,6 +105,10 @@
   }
 }
 
+.Button:hover {
+  cursor: pointer;
+}
+
 .Viewport {
   --viewport-padding: 0px;
   position: fixed;
@@ -245,6 +249,10 @@
   border: none;
   height: 4rem;
   width: 12.4rem;
+}
+
+.Popup .DrawerButtons div button:hover {
+  cursor: pointer;
 }
 
 .Popup .DrawerButtons div {

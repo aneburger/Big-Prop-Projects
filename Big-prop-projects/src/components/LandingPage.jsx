@@ -21,7 +21,7 @@ function LandingPage() {
 
                     <div className="landing-buttons-div">
                         <button className="landing-quote-btn">Get a Quote</button>
-                        <button className="landing-services-btn">Services {/* <span><FaArrowRightLong /></span>*/}</button>
+                        <button className="landing-services-btn" href="#servicesH1">Services {/* <span><FaArrowRightLong /></span>*/}</button>
                     </div>
                 </div>
 

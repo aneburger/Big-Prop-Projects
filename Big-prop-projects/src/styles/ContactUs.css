@@ -1,10 +1,12 @@
 .contact-us-div {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+    /* margin-top: 6rem; */
+    padding-bottom: 6rem;
     padding-top: 6rem;
     border-top: 1px solid rgba(255, 255, 255, 0.274);
+
+    background-color: #172940;
 }
 
 .contact-us-titles h1 {
@@ -24,12 +26,14 @@
     margin-left: 15rem;
     margin-top: 2rem;
     gap: 1rem;
+    color: white;
 }
 
 .tell-us p {
     font-family: var(--font-fam-light);
     letter-spacing: 7%;
     font-size: 1.1rem;
+    color: white;
 }
 
 .tell-us p svg {
@@ -129,6 +133,7 @@
     font-family: var(--font-fam-light);
     letter-spacing: 5%;
     font-size: 0.95rem;
+    color: white;
 }
 
 .radio-items {
@@ -146,6 +151,7 @@
     padding-top: 1.15rem;
     padding-left: 0.6rem;
     margin-right: 1.9rem;
+    color: white;
 }
 
 .radio-items label:hover {

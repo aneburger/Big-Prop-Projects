@@ -16,10 +16,12 @@ function WhatWeDo() {
 
             <h3>Professional property maintenance and renovation solutions for homeowners, businesses, and commercial properties.</h3>
 
-            <div className="about-us-btn">
-                <Link to="/about">About Us</Link>
-                <IoIosArrowRoundForward />
-            </div>
+            <Link to="/about">
+                <div className="about-us-btn">
+                    <p>About Us</p>
+                    <IoIosArrowRoundForward />
+                </div>
+            </Link>
         </div>
     </div>
   )

@@ -10,6 +10,9 @@
     padding-left: 3rem;
     padding-right: 2rem;
     padding-bottom: 1rem;
+
+    background-color: #172940;
+    color: white;
 }
 
 .footer-title {
@@ -89,6 +92,15 @@
     padding-top: 5px;
 }
 
+.footer-big-prop-number, .footer-big-prop-email {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-big-prop-number:hover, .footer-big-prop-email:hover {
+    text-decoration: underline;
+}
+
 .footer-email svg {
     align-self: center;
     font-size: 1.1rem;
@@ -105,13 +117,14 @@
     grid-row: 2/3;
 }
 
-.socials-logos svg {
+.socials-logos a svg {
+    color: white;
     font-size: 1.5rem;
     margin-right: 0.5rem;
     opacity: 80%;
 }
 
-.socials-logos svg:hover {
+.socials-logos a svg:hover {
     opacity: 100%;
     cursor: pointer;
 }
@@ -170,6 +183,9 @@
     display: flex;
     justify-content: space-between;
     border-top: 1px solid rgba(255, 255, 255, 0.367);
+
+    background-color: #172940;
+    color: white;
 }
 
 .mini-footer-div p {

@@ -241,6 +241,10 @@ nav a {
     font-family: var(--font-fam);
 }
 
+.menu-div button:hover {
+    cursor: pointer;
+}
+
 .big-prop-number {
     color: inherit;
     text-decoration: none;

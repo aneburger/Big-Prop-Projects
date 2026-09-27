@@ -21,27 +21,29 @@ function Footer() {
             </div>
 
             <div className="footer-logo-div">
-                <img src={logoImage} alt="Big Prop Projects white logo with transparent background" className="footer-big-prop-logo"/>
+                <Link to="/">
+                    <img src={logoImage} alt="Big Prop Projects white logo with transparent background" className="footer-big-prop-logo"/>
+                </Link>
             </div>
 
             <div className="get-in-touch-div">
                 <h3>GET IN TOUCH</h3>
                 <div className="footer-call">
                     <PiPhoneLight />
-                    <p>+27 12 345 6789</p>
+                    <p><a href="tel:+27810450505" className="footer-big-prop-number">+27 81 045 0505</a></p>
                 </div>
 
                 <div className="footer-email">
                     <MdOutlineMail />
-                    <p>roelof@bigpropprojects.co.za</p>
+                    <p><a href="mailto:roelof@bigpropprojects.co.za" className="footer-big-prop-email">roelof@bigpropprojects.co.za</a></p>
                 </div>
             </div>
 
             <div className="follow-us-div">
                 <h3>FOLLOW US</h3>
                 <div className="socials-logos">
-                    <FaSquareInstagram />
-                    <FaFacebookSquare />
+                    <a href="https://instagram.com"><FaSquareInstagram /></a>
+                    <a href="https://facebook.com"><FaFacebookSquare /></a>
                 </div>
             </div>
 

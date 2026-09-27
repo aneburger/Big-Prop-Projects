@@ -9,7 +9,7 @@ import bertsImg from "../assets/logos/berts.png"
 
 function Partners() {
   return (
-        <div>
+        <div className="partners-div">
             <div className="partners-and-clients">
               <IoIosArrowForward />
               <p>TRUSTED BY OUR CLIENTS & PARTNERS</p>

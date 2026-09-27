@@ -59,7 +59,7 @@
     align-content: flex-end;
 }
 
-.landing-quote-btn, .landing-services-btn {
+.landing-quote-btn, .landing-services-btn, .landing-buttons-div a {
     width: 11rem;
     height: 3em;
     font-size: 1.05em;
@@ -67,7 +67,10 @@
     letter-spacing: 5%;
     border: none;
     outline: none;
+
 }
+
+
 
 .landing-quote-btn {
     margin-right: 1.4em;
@@ -76,10 +79,15 @@
     font-weight: 600;
 }
 
-.landing-services-btn {
+.landing-services-btn, .landing-buttons-div a {
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.756);
     color: white;
+    text-decoration: none;
+}
+
+.landing-quote-btn:hover, .landing-services-btn:hover {
+    cursor: pointer;
 }
 
 

@@ -32,6 +32,7 @@
 
 .services-right-section section:hover {
     background-color: #E3E5E8;
+    cursor: pointer;
 }
 
 .services-right-section section h3, .services-right-section section p {
@@ -103,6 +104,10 @@
     letter-spacing: 6%;
     font-family: var(--font-fam-light);
     margin-right: 1rem;
+}
+
+.services-buttons button:hover {
+    cursor: pointer;
 }
 
 .services-buttons .services-nr-btn {

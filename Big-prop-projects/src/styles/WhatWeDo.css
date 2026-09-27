@@ -52,7 +52,11 @@
     align-items: center;
 }
 
-.about-us-btn a {
+.about-us-btn:hover {
+    cursor: pointer;
+}
+
+.what-we-do-content a {
     color: var(--btn-back-light);
     text-decoration: none;
     font-size: 0.85rem;

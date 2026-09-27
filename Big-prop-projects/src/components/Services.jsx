@@ -2,10 +2,10 @@ import "../styles/Services.css"
 
 function Services() {
   return (
-    <div className="services-div">
+    <div className="services-div" id="servicesH1">
         <div className="services-content">
             <div className="services-left-section">
-                <h1 className="services-title"><span className="blue-title">The right workmanship and the right people </span>
+                <h1 className="services-title" ><span className="blue-title">The right workmanship and the right people </span>
                     <br/>to maintain, protect and transform your property.
                 </h1>
 
