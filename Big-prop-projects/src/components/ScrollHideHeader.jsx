@@ -28,8 +28,11 @@ export default function ScrollHideHeader() {
             >
                 <div className="header-content">
                     <div className="logo-div">
-                        <img src={logoImage} alt="Big Prop Projects white logo with transparent background" className="big-prop-logo"/>
+                        <Link to="/">
+                            <img src={logoImage} alt="Big Prop Projects white logo with transparent background" className="big-prop-logo"/>
+                        </Link>
                     </div>
+                    
 
                     <div className="number-div">
                         <span>CALL <a href="tel:+27810450505" className="big-prop-number">+27 81 045 0505</a></span>

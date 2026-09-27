@@ -1,0 +1,28 @@
+.projects-div {
+    margin-top: 5rem;
+    margin-left: 5rem;
+    margin-bottom: 4rem;
+}
+
+.recent-projects {
+    display: flex;
+    gap: 0.5rem;
+    font-family: var(--font-fam-light);
+    letter-spacing: 5%;
+}
+
+.view-all-projects {
+    margin-top: 3rem;
+}
+
+.view-all-projects .view-all-projects-button {
+    background-color: var(--btn-back-light);
+    outline: none;
+    border: 1px solid transparent;
+    color: var(--blue-body-text);
+    font-family: var(--font-fam-reg);
+    letter-spacing: 4%;
+    font-size: 0.95rem;
+    padding: 0.8rem 1rem 1rem 1rem;
+    text-decoration: none;
+}

@@ -2,6 +2,7 @@ import ContactUs from "../components/ContactUs"
 import Footer from "../components/Footer"
 import LandingPage from "../components/LandingPage"
 import Partners from "../components/Partners"
+import RecentProjects from "../components/RecentProjects"
 import Services from "../components/Services"
 import WhatWeDo from "../components/WhatWeDo"
 
@@ -13,6 +14,7 @@ function Home() {
         <LandingPage />
         <WhatWeDo />
         <Services />
+        <RecentProjects />
 
         <div className="home-footer-section">
           <Partners />
