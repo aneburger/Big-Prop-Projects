@@ -153,6 +153,7 @@
 .members-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    max-width: 95%;
 
     margin-top: 3em;
     row-gap: 3em;
@@ -163,7 +164,7 @@
 
 .about-member-card-div {
     border: 1px solid #17294030;
-    width: 20em;
+    width: 23em;
 }
 
 .about-member-card-div p {
