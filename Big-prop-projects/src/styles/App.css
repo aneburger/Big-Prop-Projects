@@ -37,7 +37,6 @@ body {
     font-family: "Aeonik Pro Regular", sans-serif;
     /* Aspekta, Verdana, sans-serif */
     min-height: 100vh;
-    scroll-behavior: smooth;
 
 }
 
@@ -56,6 +55,8 @@ h1 {
 
 html {
     scroll-padding-top: calc(var(--header-height) + 1rem);
+    /* Anchor links and native programmatic scrolling. Wheel easing is handled in JS. */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -86,5 +87,11 @@ a:focus-visible {
 @media (max-width: 37.5rem) {
     :root {
         --header-height: 6.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
 }

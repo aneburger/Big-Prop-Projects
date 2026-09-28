@@ -4,11 +4,13 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import IndividualProject from "./pages/IndividualProject";
 import NavBar from "./components/NavBar";
+import ScrollManager from "./components/ScrollManager";
 import './styles/App.css'
 
 function App() {
   return (
     <BrowserRouter>
+        <ScrollManager />
         <NavBar/>
 
         <Routes>
