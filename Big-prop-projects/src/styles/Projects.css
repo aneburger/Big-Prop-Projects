@@ -1,0 +1,59 @@
+.all-projects-div {
+    margin-top: 8em;
+    margin-left: 4em;
+    margin-bottom: 5em;
+}
+
+.all-projects {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    font-size: .8rem;
+    letter-spacing: .04em;
+}
+
+.project-type-filter {
+    margin-top: 2em;
+    display: flex;
+    gap: 4em;
+}
+
+.project-type-filter button {
+    background-color: transparent;
+    border: 1px solid transparent;
+    font-family: var(--font-fam-reg);
+    letter-spacing: 6%;
+    padding-bottom: 0.2em;
+    color: #172940aa;
+
+    transition: border-color 0.3 ease;
+}
+
+.project-type-filter button:hover {
+    border-bottom: 1px solid #172940;
+    border-bottom-color: #172940;
+    
+    color: #172940;
+}
+
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 3em;
+    row-gap: 3em;
+
+    margin-top: 2em;
+
+    max-width: 95%;
+}
+
+
+.card-text {
+    display: flex;
+    justify-content: space-between;
+    color: var(--blue-body-text);
+    font-size: 1.7em;
+
+    font-family: var(--font-fam-med);
+}
