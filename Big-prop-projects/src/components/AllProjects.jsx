@@ -1,32 +1,70 @@
-import { IoIosArrowForward } from "react-icons/io";
-import "../styles/Projects.css"
-import AllProjectsCard from "./AllProjectsCard";
+import { useId, useState } from 'react';
+import { Select } from '@base-ui/react/select';
+import { IoIosArrowForward } from 'react-icons/io';
+import { HiChevronDown, HiCheck } from 'react-icons/hi2';
+import AllProjectsCard from './AllProjectsCard';
+import '../styles/Projects.css';
+
+const projectTypes = [
+  { value: 'all', label: 'All' },
+  { value: 'painting', label: 'Painting' },
+  { value: 'waterproofing', label: 'Waterproofing' },
+  { value: 'residential', label: 'Residential Renovation' },
+  { value: 'commercial', label: 'Commercial Renovation' },
+  { value: 'development', label: 'Development' },
+];
 
 function AllProjects() {
+  const id = useId();
+  // Visual selection only: no filtering or backend request is performed yet.
+  // Both controls share state so the selection survives viewport changes.
+  const [projectType, setProjectType] = useState('all');
+
   return (
-    <div className="all-projects-div">
-        <div className="all-projects">
-            <IoIosArrowForward />
-            <p>ALL PROJECTS</p>
-        </div>
+    <main className="all-projects-div">
+      <div className="all-projects">
+        <IoIosArrowForward aria-hidden="true" />
+        <h1>ALL PROJECTS</h1>
+      </div>
 
-        <div className="project-type-filter">
-            <button>All</button>
-            <button>Painting</button>
-            <button>Waterproofing</button>
-            <button>Residential Renovation</button>
-            <button>Commercial Renovation</button>
-            <button>Development</button>
-        </div>
+      <div className="project-type-filter" role="group" aria-label="Filter by project type">
+        {projectTypes.map(({ value, label }) => (
+          <button key={value} type="button" aria-pressed={projectType === value}
+            onClick={() => setProjectType(value)}>{label}</button>
+        ))}
+      </div>
 
-        <div className="projects-grid">
-            <AllProjectsCard />
-            <AllProjectsCard />
-            <AllProjectsCard />
-        </div>
+      <div className="project-filter-mobile">
+        <label id={id + '-label'} htmlFor={id}>Filter by project type:</label>
+        <Select.Root items={projectTypes} value={projectType} onValueChange={setProjectType}>
+          <Select.Trigger id={id} aria-labelledby={id + '-label'} className="project-filter-trigger">
+            <Select.Value />
+            <Select.Icon className="project-filter-icon"><HiChevronDown aria-hidden="true" /></Select.Icon>
+          </Select.Trigger>
+          <Select.Portal>
+            <Select.Positioner className="project-filter-positioner" sideOffset={6} alignItemWithTrigger={false}>
+              <Select.Popup className="project-filter-popup">
+                <Select.List className="project-filter-list">
+                  {projectTypes.map(({ value, label }) => (
+                    <Select.Item key={value} value={value} className="project-filter-item">
+                      <Select.ItemText>{label}</Select.ItemText>
+                      <Select.ItemIndicator className="project-filter-check"><HiCheck aria-hidden="true" /></Select.ItemIndicator>
+                    </Select.Item>
+                  ))}
+                </Select.List>
+              </Select.Popup>
+            </Select.Positioner>
+          </Select.Portal>
+        </Select.Root>
+      </div>
 
-    </div>
-  )
+      <div className="projects-grid">
+        <AllProjectsCard />
+        <AllProjectsCard />
+        <AllProjectsCard />
+      </div>
+    </main>
+  );
 }
 
-export default AllProjects
+export default AllProjects;

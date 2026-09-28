@@ -1,59 +1,355 @@
-.all-projects-div {
-    margin-top: 8em;
-    margin-left: 4em;
-    margin-bottom: 5em;
+/* Page-specific styles; shared navigation, partners, form and footer are unchanged. */
+.projects-page {
+  --projects-gutter: var(--page-gutter, clamp(1.25rem, 5vw, 5rem));
+  --projects-space: var(--section-space, clamp(2.5rem, 6vw, 5.5rem));
+  --project-overlay-opacity: .48;
+  --project-hover-overlay-opacity: .28;
+  --project-muted-overlay-opacity: .88;
+  color: var(--blue-body-text, #172940);
 }
 
-.all-projects {
+.projects-page .all-projects-div {
+  padding: calc(var(--header-height, 4.75rem) + clamp(2rem, 4vw, 3.5rem)) var(--projects-gutter) clamp(4rem, 12vw, 12rem);
+}
+
+.projects-page .all-projects {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+}
+
+.projects-page .all-projects svg {
+  flex: 0 0 auto;
+}
+
+.projects-page .all-projects h1 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: .04em;
+}
+
+/* A pseudo-element draws the underline without changing button height. */
+.projects-page .project-type-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem clamp(1.25rem, 2.5vw, 3rem);
+  margin-top: 1.25rem;
+}
+
+.projects-page .project-type-filter button {
+  position: relative;
+  min-height: 2.55rem;
+  padding: .5rem 0;
+  border: 0;
+  background: transparent;
+  color: #172940;
+  opacity: .65;
+  font-family: var(--font-fam-reg, sans-serif);
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: opacity .2s ease;
+}
+
+.projects-page .project-type-filter button::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+
+.projects-page .project-type-filter button:is([aria-pressed='true'], :hover, :focus-visible) {
+  opacity: 1;
+}
+
+.projects-page .project-type-filter button:is([aria-pressed='true'], :hover, :focus-visible)::after {
+  transform: scaleX(1);
+}
+
+.projects-page .project-type-filter button[aria-pressed='true'] {
+  font-weight: 600;
+}
+
+.projects-page .project-filter-mobile {
+  display: none;
+}
+
+.projects-page .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.25vw, 2.5rem);
+  margin-top: clamp(2rem, 5vw, 4rem);
+}
+
+/* Layers: photograph, navy overlay, then white text. Only the photograph zooms. */
+.projects-page .all-projects-card-div {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+ 
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 14rem;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #172940;
+  color: #fff;
+  text-decoration: none;
+
+  border-radius: 0.1em;
+}
+
+.projects-page .project-card-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s cubic-bezier(.2, .65, .3, 1);
+}
+
+.projects-page .all-projects-card-div::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: #172940;
+  opacity: var(--project-overlay-opacity);
+  transition: opacity .3s ease;
+}
+
+.projects-page .card-text {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-width: 0;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.projects-page .project-title {
+  min-width: 0;
+  margin: 0;
+  font-family: var(--font-fam-med, sans-serif);
+  font-size: clamp(1.5rem, 1.1rem + 1.1vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: .01em;
+  overflow-wrap: anywhere;
+}
+
+.projects-page .card-text svg {
+  /* Reserve the final width so growth cannot push the title or card sideways. */
+  flex: 0 0 2.25rem;
+  width: 2.25rem;
+  height: 1.75rem;
+  /* transform: scaleX(.75);
+  transform-origin: left center;
+  transition: transform .3s ease; */
+}
+
+/* Fine-pointer hover avoids sticky darkening after a tap on touch screens.
+   The :has() condition requires an actual hovered card, not empty grid space. */
+@media (hover: hover) and (pointer: fine) {
+  .projects-page .all-projects-card-div:hover .project-card-image {
+    transform: scale(1.07);
+  }
+
+  .projects-page .all-projects-card-div:hover::before {
+    opacity: var(--project-hover-overlay-opacity);
+  }
+
+  /* .projects-page .all-projects-card-div:hover .card-text svg {
+    transform: scaleX(1);
+  } */
+
+  .projects-page .projects-grid:has(.all-projects-card-div:hover) .all-projects-card-div:not(:hover)::before {
+    opacity: var(--project-muted-overlay-opacity);
+  }
+}
+
+/* Keyboard equivalent applies once cards are supplied with real link destinations. */
+.projects-page .all-projects-card-div:focus-visible {
+  outline: 3px solid #84b4fc;
+  outline-offset: 4px;
+}
+
+.projects-page .all-projects-card-div:focus-visible .project-card-image {
+  transform: scale(1.07);
+}
+
+.projects-page .all-projects-card-div:focus-visible::before {
+  opacity: var(--project-hover-overlay-opacity);
+}
+
+.projects-page .all-projects-card-div:focus-visible .card-text svg {
+  transform: scaleX(1);
+}
+
+.projects-page .projects-grid:has(.all-projects-card-div:focus-visible) .all-projects-card-div:not(:focus-visible)::before {
+  opacity: var(--project-muted-overlay-opacity);
+}
+
+/* Switch early enough for the long renovation labels. */
+@media (max-width: 56rem) {
+  .projects-page .project-type-filter {
+    display: none;
+  }
+
+  .projects-page .project-filter-mobile {
     display: flex;
-    align-items: center;
-    gap: .65rem;
-    font-size: .8rem;
-    letter-spacing: .04em;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+    max-width: 20rem;
+    margin-top: 1.5rem;
+  }
 }
 
-.project-type-filter {
-    margin-top: 2em;
-    display: flex;
-    gap: 4em;
+.projects-page .project-filter-mobile label {
+  font-size: .9rem;
+  opacity: 70%;
+  font-family: var(--font-fam-light);
 }
 
-.project-type-filter button {
-    background-color: transparent;
-    border: 1px solid transparent;
-    font-family: var(--font-fam-reg);
-    letter-spacing: 6%;
-    padding-bottom: 0.2em;
-    color: #172940aa;
-
-    transition: border-color 0.3 ease;
+.projects-page .project-filter-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 3rem;
+  padding: .75rem 1rem;
+  border: 1px solid #17294055;
+  border-radius: .25rem;
+  background: #fff;
+  color: #172940;
+  font: inherit;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
 }
 
-.project-type-filter button:hover {
-    border-bottom: 1px solid #172940;
-    border-bottom-color: #172940;
-    
-    color: #172940;
+.projects-page .project-filter-trigger>span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 3em;
-    row-gap: 3em;
-
-    margin-top: 2em;
-
-    max-width: 95%;
+.projects-page .project-filter-icon {
+  display: flex;
+  flex: 0 0 auto;
+  transition: transform .2s ease;
 }
 
+.projects-page .project-filter-trigger[data-popup-open] .project-filter-icon {
+  transform: rotate(180deg);
+}
 
-.card-text {
-    display: flex;
-    justify-content: space-between;
-    color: var(--blue-body-text);
-    font-size: 1.7em;
+.projects-page .project-filter-trigger:focus-visible {
+  outline: 2px solid #6599ed;
+  outline-offset: 3px;
+}
 
-    font-family: var(--font-fam-med);
+/* Dropdown is portalled outside .projects-page, so its styles stand alone. */
+.project-filter-positioner {
+  z-index: 1200;
+  max-width: calc(100vw - 2rem);
+}
+
+.project-filter-popup {
+  width: var(--anchor-width);
+  max-width: calc(100vw - 2rem);
+  padding: .35rem;
+  border: 1px solid #17294040;
+  border-radius: .3rem;
+  background: #fff;
+  color: #172940;
+  font-family: var(--font-fam-reg, sans-serif);
+  box-shadow: 0 .75rem 2rem #17294026;
+}
+
+.project-filter-list {
+  max-height: min(22rem, var(--available-height));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.project-filter-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  min-height: 2.75rem;
+  padding: .65rem .75rem;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.project-filter-item[data-highlighted] {
+  background: #dfecfe;
+  outline: none;
+}
+
+.project-filter-item[data-selected] {
+  font-weight: 600;
+}
+
+.project-filter-check {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 56rem) {
+  .projects-page .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 37.5rem) {
+  .projects-page .all-projects-div {
+    padding-top: calc(var(--header-height, 6.5rem) + 2rem);
+  }
+
+  .projects-page .projects-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .projects-page .project-card-image,
+  .projects-page .all-projects-card-div::before,
+  .projects-page .project-type-filter button,
+  .projects-page .project-type-filter button::after,
+  .projects-page .project-filter-icon {
+    transition: none;
+  }
+
+  .projects-page .card-text svg {
+    transition: none;
+    transform: none;
+  }
+
+  .projects-page .all-projects-card-div:is(:hover, :focus-visible) .card-text svg {
+    transform: none;
+  }
+
+  .projects-page .all-projects-card-div:is(:hover, :focus-visible) .project-card-image {
+    transform: none;
+  }
 }
