@@ -1,187 +1,208 @@
-.about-hero-div {
-    margin-top: 11em;
-    margin-left: 5rem;
+.about-page {
+  --about-gutter: var(--page-gutter, clamp(1.25rem, 5vw, 5rem));
+  --about-space: var(--section-space, clamp(2.5rem, 6vw, 5.5rem));
+  color: var(--blue-body-text, #172940);
 }
 
-.about-us {
-    display: flex;
-    align-items: center;
-    gap: .65rem;
-    font-size: .8rem;
-    letter-spacing: .04em;
-    color: var(--blue-body-text);
+.about-page .about-hero-div {
+  padding: calc(var(--header-height, 4.75rem) + var(--about-space)) var(--about-gutter) var(--about-space);
 }
 
-
-.about-us-titles {
-    color: var(--blue-body-text);
+.about-page :is(.about-us, .what-sets-us-apart, .who-we-are) {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  font-size: .95rem;
+  line-height: 1.5;
+  letter-spacing: .04em;
 }
 
-.about-us-titles h1 {
-    margin-left: 0;
-    margin-top: 1em;
-    letter-spacing: 3%;
-    font-family: var(--font-fam-reg);
-    line-height: 122%;
-    margin-bottom: 1em;
-
-    font-size: 2.4em;
+.about-page :is(.about-us, .what-sets-us-apart, .who-we-are) svg {
+  flex: 0 0 auto;
 }
 
-.about-us-titles h2 {
-    margin-left: 0;
-    margin-top: 1em;
-    letter-spacing: 4%;
-    font-weight: 200;
-    font-family: var(--font-fam-light);
-    line-height: 143%;
-    margin-bottom: 5em;
-    font-size: 1.65em;
-    opacity: 80%;
-
+.about-page .about-us-titles h1 {
+  max-width: 28ch;
+  margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
+  font-family: var(--font-fam-reg, sans-serif);
+  font-size: clamp(2rem, 1.5rem + 1.8vw, 3.25rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: .015em;
+  overflow-wrap: anywhere;
 }
 
-
-
-
-/*********    About Story Div Styling    ***********/
-
-.about-story-div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.about-page .about-us-titles h2 {
+  max-width: 46ch;
+  margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
+  font-family: var(--font-fam-light, sans-serif);
+  font-size: clamp(1.125rem, .95rem + .8vw, 1.65rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: .01em;
+  color: #46566b;
 }
 
-.about-story-image {
-    width: 50vw;
+/* Equal desktop columns. The text determines the row height; the photo fills it. */
+.about-page .about-story-div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  background: var(--blue-body-text, #172940);
 }
 
-.about-story-text {
-    padding-left: 4em;
-    padding-right: 2em;
-    padding-top: 2.5em;
-
-    background-color: var(--blue-body-text);
+.about-page .about-story-media {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
 }
 
-.about-story-text h2 {
-    color: white;
-    font-family: var(--font-fam-reg);
-    letter-spacing: 6%;
-    line-height: 126%;
-
-    max-width: 20em;
-    margin-bottom: 1em;
-    font-size: 1.9em;
+.about-page .about-story-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-.about-story-text p {
-    color: rgba(255, 255, 255, 0.86);
-    font-family: var(--font-fam-light);
-    letter-spacing: 5%;
-
-    margin-bottom: 1em;
-    max-width: 27em;
-
-    font-size: 1.2em;
+.about-page .about-story-text {
+  min-width: 0;
+  padding: clamp(2rem, 4vw, 4rem) var(--about-gutter) clamp(2rem, 4vw, 4rem) clamp(1.5rem, 4vw, 4rem);
 }
 
-
-
-
-
-/*********    About Set Apart Div Styling    ***********/
-
-.about-set-apart-div {
-    background: var(--light-blue-section);
-    border-bottom: 1px solid #17294030;
-    color: var(--blue-body-text);
+.about-page .about-story-text h2 {
+  max-width: 30ch;
+  margin: 0 0 1.25rem;
+  color: #fff;
+  font-family: var(--font-fam-reg, sans-serif);
+  font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: .015em;
+  overflow-wrap: anywhere;
 }
 
-.what-sets-us-apart {
-    display: flex;
-    align-items: center;
-    gap: .65rem;
-    font-size: .8rem;
-    letter-spacing: .04em;
-
-    padding-top: 5em;
-    margin-left: 6em;
+.about-page .about-story-text p {
+  max-width: 52ch;
+  margin: 0 0 1rem;
+  color: #e0e6ee;
+  font-family: var(--font-fam-light, sans-serif);
+  font-size: clamp(1rem, .95rem + .3vw, 1.2rem);
+  line-height: 1.65;
 }
 
-.about-set-apart-text {
-    margin-left: 5em;
+.about-page .about-story-text p:last-child {
+  margin-bottom: 0;
 }
 
-.about-set-apart-text h1 {
-    margin-left: 0;
-    margin-top: 1em;
-    margin-bottom: 1em;
-
-    letter-spacing: 3%;
+.about-page .about-set-apart-div {
+  padding: var(--about-space) var(--about-gutter);
+  background: var(--light-blue-section, #dfecfe);
+  border-bottom: 1px solid #17294030;
 }
 
-.about-set-apart-text p {
-    font-family: var(--font-fam-light);
-    font-size: 1.4em;
-    margin-bottom: 3em;
-
-    max-width: 28em;
-    line-height: 130%;
+.about-page .about-set-apart-text h2 {
+  max-width: 38ch;
+  margin: 1.75rem 0 1rem;
+  font-size: clamp(1.5rem, 1.1rem + 1.3vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: .015em;
+  overflow-wrap: anywhere;
 }
 
-
-
-
-/*********    About Who we are div Styling    ***********/
-
-
-.about-who-we-are-div{
-    margin-top: 4em;
-    margin-left: 5em;
-    margin-bottom: 4em;
+.about-page .about-set-apart-text p {
+  max-width: 52ch;
+  margin: 0;
+  font-family: var(--font-fam-light, sans-serif);
+  font-size: clamp(1rem, .9rem + .65vw, 1.4rem);
+  line-height: 1.6;
 }
 
-.who-we-are {
-    display: flex;
-    align-items: center;
-    gap: .65rem;
-    font-size: .8rem;
-    letter-spacing: .04em;
+.about-page .about-who-we-are-div {
+  padding: var(--about-space) var(--about-gutter);
 }
 
-
-.members-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    max-width: 95%;
-
-    margin-top: 3em;
-    row-gap: 3em;
+/* Cap portrait size on wide monitors, keeping the grid left-aligned. */
+.about-page .members-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+  width: 100%;
+  max-width: 80rem;
+  margin-top: clamp(1.75rem, 4vw, 3rem);
 }
 
-
-/*** Members card styling ***/
-
-.about-member-card-div {
-    border: 1px solid #17294030;
-    width: 23em;
+.about-page .about-member-card-div {
+  min-width: 0;
+  width: 100%;
+  border: 1px solid #17294030;
+  background: #fff;
 }
 
-.about-member-card-div p {
-    padding-left: 1em;
+.about-page .about-member-card-div img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.about-member-card-div .member-name {
-    padding-top: 0.6em;
-    font-family: var(--font-fam-med);
-    letter-spacing: 6%;
-    font-size: 1.15em;
+.about-page .about-member-card-div p {
+  padding-inline: clamp(1rem, 2vw, 1.5rem);
+  overflow-wrap: anywhere;
 }
 
-.about-member-card-div .member-role {
-    padding-bottom: 1em;
-    font-size: 0.8em;
-    color: #17294093;
-    letter-spacing: 6%;
-    padding-left: 1.4em;
+.about-page .about-member-card-div .member-name {
+  margin: 0;
+  padding-top: 1rem;
+  font-family: var(--font-fam-med, sans-serif);
+  font-size: clamp(1rem, .95rem + .25vw, 1.15rem);
+  line-height: 1.4;
+  letter-spacing: .025em;
+}
+
+.about-page .about-member-card-div .member-role {
+  margin: .35rem 0 0;
+  padding-bottom: 1.25rem;
+  color: #56667b;
+  font-size: .8rem;
+  line-height: 1.5;
+  letter-spacing: .04em;
+}
+
+/* Stack before story text becomes cramped; two cards per row on tablets. */
+@media (max-width: 56rem) {
+  .about-page .about-story-div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-page .about-story-image {
+    position: static;
+    height: auto;
+  }
+
+  .about-page .about-story-text {
+    padding: var(--about-space) var(--about-gutter);
+  }
+
+  .about-page .about-story-text h2 {
+    max-width: 36ch;
+  }
+
+  .about-page .members-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 37.5rem) {
+  .about-page .about-hero-div {
+    padding-top: calc(var(--header-height, 6.5rem) + var(--about-space));
+  }
+
+  .about-page .members-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

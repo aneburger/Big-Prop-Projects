@@ -10,12 +10,12 @@ function AboutUsHero() {
         </div>
 
         <div className="about-us-titles">
-            <h1>We're here to look after <br/>
-                what you've built — <br/>
+            <h1>We're here to look after{' '}
+                what you've built —{' '}
                 and help shape what comes next.</h1>
 
-            <h2>Big Prop brings maintenance and renovations <br/>
-                together with dependable workmanship and a <br/>
+            <h2>Big Prop brings maintenance and renovations{' '}
+                together with dependable workmanship and a{' '}
                 relationship-first way of doing business.</h2>
         </div>
     </div>

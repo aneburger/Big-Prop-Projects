@@ -10,7 +10,7 @@ function AboutUsSetApart() {
         </div>
 
         <div className="about-set-apart-text">
-            <h1>Quality gets the job done. Trust brings people back.</h1>
+            <h2>Quality gets the job done. Trust brings people back.</h2>
             <p> We combine dependable workmanship and cost-effective 
                 solutions with a personal approach that puts long-term 
                 relationships ahead of short-term business.</p>

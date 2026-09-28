@@ -4,9 +4,9 @@ import guysImg from "../assets/guys.jpeg"
 function AboutUsStory() {
   return (
     <div className="about-story-div">
-        {/* <div className="about-story-image"> */}
+        <div className="about-story-media">
             <img className="about-story-image" src={guysImg} alt="big-prop painters" />
-        {/* </div> */}
+        </div>
         <div className="about-story-text">
             <h2>Big Prop started with a simple belief: Good work and good relationships should go hand in hand.</h2>
             

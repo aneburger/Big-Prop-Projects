@@ -8,7 +8,7 @@ import Partners from "../components/Partners"
 
 function About() {
   return (
-    <div>
+    <div className="about-page">
         <AboutUsHero />
         <AboutUsStory />
         <AboutUsSetApart />
