@@ -1,6 +1,7 @@
 .what-we-do-div {
     background: var(--light-blue-section);
-    border-bottom: 1px solid #17294030;
+    border-bottom: 1px solid #17294092;
+    border-top: 1px solid #17294092;
     color: var(--blue-body-text);
 }
 

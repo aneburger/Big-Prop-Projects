@@ -4,7 +4,7 @@
     grid-template-areas: 'title contact links' 'quote contact links' 'logo social links';
     gap: 1.5rem clamp(1.5rem, 4vw, 4rem);
     padding: var(--section-space) var(--page-inset) 2.5rem;
-    border-top: 1px solid #ffffff26;
+    border-top: 1px solid #dfecfe7a;
     background: var(--blue-back-dark);
     color: #dce5f1;
 }

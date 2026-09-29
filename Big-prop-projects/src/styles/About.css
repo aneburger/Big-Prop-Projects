@@ -6,6 +6,8 @@
 
 .about-page .about-hero-div {
   padding: calc(var(--header-height, 4.75rem) + var(--about-space)) var(--about-gutter) var(--about-space);
+
+  border-bottom: 1px solid #17294092;
 }
 
 .about-page :is(.about-us, .what-sets-us-apart, .who-we-are) {
@@ -102,7 +104,8 @@
 .about-page .about-set-apart-div {
   padding: var(--about-space) var(--about-gutter);
   background: var(--light-blue-section, #dfecfe);
-  border-bottom: 1px solid #17294030;
+  border-bottom: 1px solid #17294092;
+  border-top: 1px solid #17294092;
 }
 
 .about-page .about-set-apart-text h2 {

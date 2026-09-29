@@ -15,7 +15,7 @@
   justify-content: space-between;
   gap: 2.5rem;
   padding: var(--section-space) clamp(1.5rem, 4vw, 4rem) var(--section-space) 0;
-  border-right: 1px dashed #17294040;
+  border-right: 1px dashed #17294092;
   min-width: 0;
 }
 
@@ -69,7 +69,14 @@
 
 .services-right-section section {
   padding: clamp(1.5rem, 3vw, 2.5rem) var(--page-inset) clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 4rem);
-  border-bottom: 1px solid #17294030;
+  border-bottom: 1px solid #17294092;
+
+  transition: background-color 0.4s ease;
+}
+
+.services-right-section section:hover {
+  cursor: pointer;
+  background-color: #E3E5E8;
 }
 
 .services-right-section section:last-child {
