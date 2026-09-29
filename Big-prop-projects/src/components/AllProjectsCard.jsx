@@ -4,7 +4,7 @@ import projectImg from '../assets/olive-hill.jpg';
 import '../styles/Projects.css';
 
 // Supply a real project route through `to` when project navigation is ready.
-function AllProjectsCard({ title = 'Olive Hill', image = projectImg, imageAlt = 'Olive Hill building', to }) {
+function AllProjectsCard({ title = 'Olive Hill', image = projectImg, imageAlt = 'Olive Hill building', to = '/project'}) {
   const content = (
     <>
       <img className="project-card-image" src={image} alt={imageAlt} loading="lazy" decoding="async" />

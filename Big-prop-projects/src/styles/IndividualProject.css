@@ -1,0 +1,136 @@
+.back-to-projects a {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    font-size: .9rem;
+    letter-spacing: .04em;
+
+    text-decoration: none;
+    color: var(--blue-body-text);
+}
+
+.back-to-projects a:hover {
+    cursor: pointer;
+}
+
+.individual-project-div {
+    margin-top: 8em;
+    margin-bottom: 5em;
+    margin-left: 4em;
+}
+
+
+.individual-project-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 2fr 1fr;
+    margin-top: 2em;
+    margin-left: 3em;
+
+    column-gap: 6em;
+}
+
+.individual-project-grid .project-info {
+    grid-column: 1/2;
+    grid-row: 1/2;
+
+    margin-left: 2em;
+}
+
+.individual-project-grid .project-info h1 {
+    margin-top: 1.4em;
+    margin-left: 0;
+
+    font-family: var(--font-fam-light);
+    font-size: 2.8em;
+    letter-spacing: 4%;
+
+    color: var(--blue-body-text);
+}
+
+.individual-project-grid .project-info p {
+    margin-top: 1em;
+    font-family: var(--font-fam-reg);
+    letter-spacing: 5%;
+    
+
+    font-size: 1.2em;
+    max-width: 20em;
+    color: var(--blue-body-text);
+}
+
+.individual-project-grid .project-info .project-description {
+    line-height: 120%;
+}
+
+.individual-project-grid .project-info .project-location {
+    font-size: 1.1em;
+}
+
+.individual-project-grid .project-info .project-location svg {
+    margin-right: 0.5em;
+}
+
+.individual-project-grid .project-button-section {
+    grid-column: 1/2;
+    grid-row: 2/3;
+
+    margin-left: 2em;
+    align-self: end;
+}
+
+
+.project-button-section p {
+    font-family: var(--font-fam-med);
+    letter-spacing: 5%;
+    max-width: 12em;
+    font-size: 1.2em;
+    line-height: 120%;
+
+    color: var(--blue-body-text);
+}
+
+.individual-project-grid .project-images {
+    grid-column: 2/3;
+    grid-row: 1/3;
+
+    align-self: end;
+}
+
+.individual-project-grid .project-images img {
+    height: 30em;
+    border-radius: 0.7em;
+}
+
+
+.project-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+
+  max-width: 25em;
+  margin-top: 0.7em;
+}
+
+.project-contact-btn,
+.project-nr-btn {
+  display: inline-flex;
+  flex: 1 1 9rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 3rem;
+  padding: .75rem;
+  border: 0;
+  font-size: .95rem;
+  text-decoration: none;
+}
+
+.project-contact-btn {
+  background: var(--blue-back-dark);
+  color: var(--btn-back-light);
+}
+
+.project-nr-btn {
+  background: var(--btn-back-light);
+  color: var(--btn-color-dark);
+}
