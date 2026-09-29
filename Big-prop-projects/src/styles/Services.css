@@ -99,6 +99,10 @@
   letter-spacing: 4%;
 }
 
+
+
+
+
 @media (max-width: 52rem) {
   .services-content {
     grid-template-columns: minmax(0, 1fr);
@@ -121,4 +125,41 @@
   .services-buttons {
     max-width: 30rem;
   }
+}
+
+
+/******************   Link styling ****************/
+
+.services-right-section a section {
+  padding: clamp(1.5rem, 3vw, 2.5rem) var(--page-inset) clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 4rem);
+  border-bottom: 1px solid #17294092;
+
+  transition: background-color 0.4s ease;
+}
+
+.services-right-section a:hover {
+  cursor: pointer;
+  background-color: #E3E5E8;
+}
+
+.services-right-section a:last-child {
+  border-bottom: 0;
+}
+
+.services-right-section a h3 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  font-weight: 400;
+  font-family: var(--font-fam-med);
+  letter-spacing: 7%;
+
+  text-decoration: none;
+}
+
+.services-right-section a p {
+  max-width: 48ch;
+  margin-top: .75rem;
+  color: #57667a;
+  font-size: .95rem;
+  letter-spacing: 4%;
 }

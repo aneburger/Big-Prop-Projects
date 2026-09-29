@@ -6,6 +6,7 @@ import IndividualProject from "./pages/IndividualProject";
 import NavBar from "./components/NavBar";
 import ScrollManager from "./components/ScrollManager";
 import './styles/App.css'
+import ServicesTypes from "./components/ServicesTypes";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/about" element={ <About/> } />
             <Route path="/projects" element={ <Projects/> } />
             <Route path="/project" element={ <IndividualProject/> } />
+            <Route path="/service" element={ <ServicesTypes/> } />
             {/* <Route path="*" element={ <NotFound/> } /> */}
         </Routes>
     </BrowserRouter>
