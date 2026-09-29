@@ -148,11 +148,11 @@
 .projects-page .project-title {
   min-width: 0;
   margin: 0;
-  font-family: var(--font-fam-med, sans-serif);
+  font-family: var(--font-fam-reg, sans-serif);
   font-size: clamp(1.5rem, 1.1rem + 1.1vw, 2.25rem);
   font-weight: 500;
   line-height: 1.15;
-  letter-spacing: .01em;
+  letter-spacing: .04em;
   overflow-wrap: anywhere;
 }
 

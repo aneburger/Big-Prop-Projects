@@ -5,6 +5,8 @@
     padding: var(--section-space) var(--page-inset);
     background: var(--blue-back-dark);
     color: #f5f7fb;
+
+    /* border-top: 1px solid #dfecfe7a; */
 }
 
 .contact-us-titles h1 {

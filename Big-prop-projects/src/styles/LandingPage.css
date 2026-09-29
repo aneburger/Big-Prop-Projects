@@ -5,7 +5,7 @@
   display: flex;
   align-items: flex-end;
   color: white;
-  background: linear-gradient(90deg, #05133250, #05133250), url('../assets/landing.jpeg') center / cover no-repeat;
+  background: linear-gradient(90deg, #0217452b, #0217452b), url('../assets/landing.jpeg') center / cover no-repeat;
 }
 
 .landing-body-titles {

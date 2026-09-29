@@ -48,7 +48,7 @@ h1 {
 /* Shared fluid measurements. Keep content near the left on wide monitors. */
 :root {
     --page-gutter: clamp(1.25rem, 5vw, 5rem);
-    --section-space: clamp(2.5rem, 6vw, 3.5rem);
+    --section-space: clamp(2.5rem, 6vw, 5.5rem);
     --page-inset: var(--page-gutter);
     --header-height: 4.75rem;
 }
