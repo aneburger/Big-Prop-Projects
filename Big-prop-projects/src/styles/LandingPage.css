@@ -89,20 +89,9 @@
   color: white;
 }
 
-.landing-body-titles {
-  animation: landing-fade-up .8s ease both;
-}
-
-@keyframes landing-fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(1rem);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
+.landing-body-titles:focus-within .landing-reveal {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 @media (max-width: 48rem) {
@@ -121,7 +110,8 @@
     inset: 0;
   }
 
-  .landing-body-titles {
-    animation: none;
+  .landing-reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

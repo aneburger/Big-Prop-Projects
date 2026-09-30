@@ -1,48 +1,49 @@
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowRoundForward } from "react-icons/io";
-import { Link } from "react-router-dom"
-import "../styles/WhatWeDo.css"
+import { IoIosArrowForward, IoIosArrowRoundForward } from 'react-icons/io';
+import { Link } from 'react-router-dom';
+import { motion, useReducedMotion } from 'framer-motion';
+import '../styles/WhatWeDo.css';
 import '../styles/ButtonEffects.css';
-import { useRef, useState } from 'react';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
+
+const contentReveal = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (order) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1, delay: order * 0.3, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
 
 function WhatWeDo() {
-  const contentRef = useRef(null);
-  const inView = useInView(contentRef, { once: true, amount: .15 });
   const reducedMotion = useReducedMotion();
-  const [focused, setFocused] = useState(false);
-  const visible = inView || reducedMotion || focused;
-  const item = {
-    hidden: { opacity: 0, y: 16 },
-    visible: { opacity: 1, y: 0, transition: { duration: reducedMotion ? 0 : .8, ease: 'easeOut' } },
-  };
-  const group = {
-    hidden: {},
-    visible: { transition: { staggerChildren: reducedMotion ? 0 : .15 } },
-  };
+  const reveal = (order) => ({
+    custom: order,
+    variants: contentReveal,
+    initial: reducedMotion ? false : 'hidden',
+    // Observe each actual element, never the surrounding section padding.
+    // The lower 48px are excluded so a reveal starts inside the visible area.
+    whileInView: reducedMotion ? undefined : 'visible',
+    animate: reducedMotion ? { opacity: 1, y: 0, transition: { duration: 0 } } : undefined,
+    viewport: { once: true, amount: 0.35, margin: '0px 0px -48px 0px' },
+  });
+
   return (
     <div className="what-we-do-div">
-        <motion.div className="what-we-do-content" ref={contentRef}
-            initial={reducedMotion ? false : 'hidden'} animate={visible ? 'visible' : 'hidden'}
-            variants={group} onFocusCapture={() => setFocused(true)}>
-            <motion.div className="what-we-do" variants={item}>
-                <IoIosArrowForward />
-                <p>WHAT WE DO</p>
-            </motion.div>
-            
-            <motion.h1 variants={item}>WE TAKE CARE OF WHAT MATTERS</motion.h1>
-
-            <motion.h3 variants={item}>Professional property maintenance and renovation solutions for homeowners, businesses, and commercial properties.</motion.h3>
-
-            <motion.div className="what-we-do-action" variants={item}>
-              <Link to="/about" className="about-us-btn button-swap">
-                    <p>About Us</p>
-                    <IoIosArrowRoundForward />
-              </Link>
-            </motion.div>
+      <div className="what-we-do-content">
+        <motion.div className="what-we-do" {...reveal(0)}>
+          <IoIosArrowForward />
+          <p>WHAT WE DO</p>
         </motion.div>
+        <motion.h1 {...reveal(1)}>WE TAKE CARE OF WHAT MATTERS</motion.h1>
+        <motion.h3 {...reveal(2)}>Professional property maintenance and renovation solutions for homeowners, businesses, and commercial properties.</motion.h3>
+        <motion.div className="what-we-do-action" {...reveal(3)}>
+          <Link to="/about" className="about-us-btn button-swap">
+            <p>About Us</p>
+            <IoIosArrowRoundForward />
+          </Link>
+        </motion.div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default WhatWeDo
+export default WhatWeDo;
