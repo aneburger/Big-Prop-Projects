@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import '../styles/SectionReveal.css';
 
-const elements = { div: motion.div, h1: motion.h1, h2: motion.h2, p: motion.p };
+const elements = { div: motion.div, section: motion.section, h1: motion.h1, h2: motion.h2, p: motion.p };
 
 // Uses the existing element rather than an extra wrapper, preserving grid areas.
 export default function SectionReveal({

@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import ContactUs from "../components/ContactUs"
 import Footer from "../components/Footer"
 import Partners from "../components/Partners"
+import SectionReveal from './SectionReveal';
+import ScrollRevealText from './ScrollRevealText';
 
 function ServicesTypes() {
   return (
@@ -15,53 +17,52 @@ function ServicesTypes() {
       <main>
       <div className="service-types-body">
         <div className="service-types-content">
-          <div className="back-to-services">
+          <SectionReveal className="back-to-services" onEnter delay={0.2}>
             <Link to="/#servicesH1">
               <IoIosArrowBack aria-hidden="true" />
               <p>BACK</p>
             </Link>
-          </div>
+          </SectionReveal>
 
-          <h1>Painting Services</h1>
+          <SectionReveal as="h1" onEnter delay={0.65}>Painting Services</SectionReveal>
         </div>
       </div>
 
       <div className="services-types-titles">
         <div className="services-types-heading">
-          <h2>Different spaces have different needs. <br/>
-            We provide the right painting solution for each one.</h2>
+          <ScrollRevealText as="h2" text={'Different spaces have different needs.\nWe provide the right painting solution for each one.'} />
         </div>
 
-        <div className="services-types-button">
+        <SectionReveal className="services-types-button" delay={0.3}>
           <p>Ready for a fresh coat?</p>
           <a href="#contact-us" state={{ smoothSection: true }} className="button-swap">Contact Us</a>
-        </div>
+        </SectionReveal>
       </div>
 
       <div className="services-types-grid">
-        <section className="service-type">
+        <SectionReveal as="section" className="service-type">
           <h2>Interior Painting</h2>
           <p>Refresh and transform your interior spaces with quality finishes and careful attention to detail.</p>
           <img src={interiorImg} alt="Interior painting" loading="lazy" decoding="async"/>
-        </section>
+        </SectionReveal>
 
-        <section className="service-type">
+        <SectionReveal as="section" className="service-type" delay={0.2}>
           <h2>Exterior Painting</h2>
           <p>Protect and improve the outside of your property with durable finishes made to look good and last.</p>
           <img src={exteriorImg} alt="Exterior painting" loading="lazy" decoding="async"/>
-        </section>
+        </SectionReveal>
 
-        <section className="service-type">
+        <SectionReveal as="section" className="service-type" delay={0.4}>
           <h2>Office & Retail Painting</h2>
           <p>Create professional, welcoming spaces with painting solutions suited to offices, shops and other commercial environments.</p>
           <img src={retailImg} alt="Office and retail painting" loading="lazy" decoding="async"/>
-        </section>
+        </SectionReveal>
 
-        <section className="service-type">
+        <SectionReveal as="section" className="service-type" delay={0.6}>
           <h2>Industrial Painting</h2>
           <p>Practical, durable painting for industrial environments where preparation, performance and lasting results matter.</p>
           <img src={industrialImg} alt="Industrial painting" loading="lazy" decoding="async"/>
-        </section>
+        </SectionReveal>
       </div>
       </main>
       <Partners />
