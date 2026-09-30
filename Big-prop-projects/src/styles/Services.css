@@ -225,7 +225,7 @@
 .service-types-page .services-types-heading h2 {
   margin: 0;
   max-width: 42ch;
-  font-family: var(--font-fam-light, sans-serif);
+  font-family: var(--font-fam-reg, sans-serif);
   font-size: clamp(1.25rem, 1rem + 1vw, 1.8rem);
   font-weight: 400;
   line-height: 1.35;
@@ -254,8 +254,8 @@
   min-height: 3rem;
   width: min(100%, 13rem);
   padding: .75rem 1.25rem;
-  background: #afd0ff;
-  color: #172940;
+  background: #172940;
+  color: #bfd8fc;
   font-size: 1rem;
   text-decoration: none;
 }
@@ -264,7 +264,7 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: stretch;
-  gap: clamp(.75rem, 1.5vw, 1rem);
+  gap: clamp(.25rem, 1.5vw, .4rem);
   padding: var(--service-space) var(--service-gutter);
 }
 
@@ -294,7 +294,6 @@
 }
 
 .service-types-page .service-type img {
-  /* Equal aspect ratios plus auto top margins align both image edges in each row. */
   display: block;
   width: 100%;
   min-width: 0;
@@ -302,7 +301,7 @@
   aspect-ratio: 3 / 2;
   object-fit: cover;
   margin-top: auto;
-  border-radius: .3rem;
+  border-radius: .2rem;
 }
 
 @media (max-width: 64rem) {

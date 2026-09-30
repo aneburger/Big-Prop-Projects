@@ -28,7 +28,7 @@ function ServicesTypes() {
 
       <div className="services-types-titles">
         <div className="services-types-heading">
-          <h2>Different spaces have different needs.{' '}
+          <h2>Different spaces have different needs. <br/>
             We provide the right painting solution for each one.</h2>
         </div>
 
