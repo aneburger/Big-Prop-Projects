@@ -105,7 +105,7 @@
 .individual-project-page .project-contact-btn {
   background: var(--blue-back-dark);
   color: var(--btn-back-light);
-  font-family: var(--font-fam-light);
+  font-family: var(--font-fam-med);
 }
 
 .individual-project-page .project-nr-btn {
@@ -128,8 +128,8 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: clamp(.5rem, 1.2vw, 1rem);
-  background: #172940;
+  border-radius: clamp(.3rem, 1.2vw, .3rem);
+  background: #6083b0;
 }
 
 .project-gallery-image {
@@ -217,7 +217,7 @@
   aspect-ratio: 1;
   padding: 0;
   border: 2px solid transparent;
-  border-radius: .5rem;
+  border-radius: .3rem;
   background: transparent;
   overflow: hidden;
   cursor: pointer;

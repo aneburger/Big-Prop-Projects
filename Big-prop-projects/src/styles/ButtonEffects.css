@@ -99,6 +99,16 @@
   font-family: var(--font-fam-med);
 }
 
+.project-nr-btn.button-swap {
+  --swap-bg: #c1dbff;
+  --swap-fg: #0e1e32; 
+}
+
+.project-contact-btn.button-swap {
+  --swap-fg: #c1dbff;
+  --swap-bg: #0e1e32;
+}
+
 @media (hover: hover) {
   .button-swap.button-swap:hover {
     color: var(--swap-hover-text, var(--swap-bg));

@@ -37,10 +37,10 @@ function IndividualProject() {
           <section className="project-button-section">
             <p>Now, let's talk about your project.</p>
             <div className="project-buttons">
-              <a className="project-contact-btn" href="#project-contact">
+              <a className="project-contact-btn button-swap" href="#project-contact">
                 Contact Us
               </a>
-              <a href="tel:+27810450505" className="project-nr-btn">+27 81 045 0505</a>
+              <a href="tel:+27810450505" className="project-nr-btn button-swap">+27 81 045 0505</a>
             </div>
           </section>
 

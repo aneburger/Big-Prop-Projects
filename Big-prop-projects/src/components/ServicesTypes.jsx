@@ -34,7 +34,7 @@ function ServicesTypes() {
 
         <div className="services-types-button">
           <p>Ready for a fresh coat?</p>
-          <a href="#service-contact">Contact Us</a>
+          <a href="#contact-us" state={{ smoothSection: true }} className="button-swap">Contact Us</a>
         </div>
       </div>
 

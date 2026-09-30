@@ -52,9 +52,9 @@ function Footer() {
                 <div className="quick-link-items">
                     <Link to="/">Home</Link>
                     <Link to="/about">About</Link>
-                    <Link to="/services">Services</Link>
+                    <Link to="/#servicesH1" state={{ smoothSection: true }}>Services</Link>
                     <Link to="/projects">Projects</Link>
-                    <Link to="/contact">Contact</Link>
+                    <Link to="/#contact-us" state={{ smoothSection: true }}>Contact</Link>
                 </div>
             </div>
 
