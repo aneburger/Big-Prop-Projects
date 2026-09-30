@@ -33,6 +33,28 @@
   color: #6599ed;
 }
 
+/* Wrap between words, keeping the individually revealed letters together. */
+.services-title .services-reveal-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.services-title .services-reveal-letter {
+  opacity: .22;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-title .services-reveal-letter {
+    opacity: 1 !important;
+  }
+}
+
+@media print {
+  .services-title .services-reveal-letter {
+    opacity: 1 !important;
+  }
+}
+
 .services-buttons {
   display: flex;
   flex-wrap: wrap;
