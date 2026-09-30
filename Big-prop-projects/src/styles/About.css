@@ -4,6 +4,49 @@
   color: var(--blue-body-text, #172940);
 }
 
+/* Keep letter reveals wrapping at word boundaries, without moving the text. */
+.about-page .about-story-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.about-page .about-story-letter {
+  opacity: .22;
+}
+
+/* Screen readers receive complete sentences instead of individual letters. */
+.about-page .about-story-readable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.about-page .about-member-reveal {
+  min-width: 0;
+}
+
+.about-page .about-member-reveal>.about-member-card-div {
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page .about-story-letter {
+    opacity: 1 !important;
+  }
+}
+
+@media print {
+  .about-page .about-story-letter {
+    opacity: 1 !important;
+  }
+}
+
 .about-page .about-hero-div {
   padding: calc(var(--header-height, 4.75rem) + var(--about-space)) var(--about-gutter) var(--about-space);
 
