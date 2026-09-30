@@ -19,12 +19,12 @@ function Services() {
             </div>
 
             <div className="services-right-section">
-                {/* <Link to="/service"> */}
+                <Link to="/service" className="service-section-link">
                     <section className="paint-section">
                         <h3>PAINTING SERVICES</h3>
                         <p>Comprehensive painting services to enhance your property.</p>
                     </section>
-                {/* </Link> */}
+                </Link>
                 <section className="waterproof-section">
                     <h3>WATERPROOFING SERVICES</h3>
                     <p>Comprehensive waterproofing services to protect your property.</p>

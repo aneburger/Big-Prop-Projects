@@ -1,3 +1,4 @@
+/* Shared home-page services section. */
 .services-div {
   background: white;
   color: var(--blue-body-text);
@@ -79,7 +80,7 @@
   background-color: #E3E5E8;
 }
 
-.services-right-section section:last-child {
+.services-right-section>section:last-child {
   border-bottom: 0;
 }
 
@@ -88,7 +89,7 @@
   line-height: 1.4;
   font-weight: 400;
   font-family: var(--font-fam-med);
-  letter-spacing: 7%;
+  letter-spacing: .07em;
 }
 
 .services-right-section p {
@@ -96,7 +97,7 @@
   margin-top: .75rem;
   color: #57667a;
   font-size: .95rem;
-  letter-spacing: 4%;
+  letter-spacing: .04em;
 }
 
 
@@ -127,171 +128,216 @@
   }
 }
 
-
-/******************   Link styling ****************/
-
-.services-right-section a section {
-  padding: clamp(1.5rem, 3vw, 2.5rem) var(--page-inset) clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 4rem);
-  border-bottom: 1px solid #17294092;
-
-  transition: background-color 0.4s ease;
-}
-
-.services-right-section a:hover {
-  cursor: pointer;
-  background-color: #E3E5E8;
-}
-
-.services-right-section a:last-child {
-  border-bottom: 0;
-}
-
-.services-right-section a h3 {
-  font-size: 1.1rem;
-  line-height: 1.4;
-  font-weight: 400;
-  font-family: var(--font-fam-med);
-  letter-spacing: 7%;
-
+/* The whole Painting section is a keyboard-accessible link. */
+.services-right-section>.service-section-link {
+  display: block;
+  color: inherit;
   text-decoration: none;
 }
 
-.services-right-section a p {
-  max-width: 48ch;
-  margin-top: .75rem;
-  color: #57667a;
-  font-size: .95rem;
-  letter-spacing: 4%;
+.services-right-section>.service-section-link:focus-visible {
+  outline: 2px solid #81b4ff;
+  outline-offset: -4px;
 }
 
+.services-right-section>.service-section-link:focus-visible section {
+  background: #e3e5e8;
+}
 
+.services-right-section>.service-section-link:last-child section {
+  border-bottom: 0;
+}
 
+/* Painting service page. Gutters remain left-aligned on wide monitors. */
+.service-types-page {
+  --service-gutter: var(--page-gutter, clamp(1.25rem, 5vw, 5rem));
+  --service-space: var(--service-section-space, clamp(2.5rem, 6vw, 5.5rem));
+  color: var(--blue-body-text, #172940);
+}
 
-
-/***************   Service Types Page *******************/
-
-.service-types-body {
-  min-height: 42rem;
-  min-height: min(54rem, 90svh);
-  padding: calc(var(--header-height) + 5rem) var(--page-inset) var(--section-space);
+.service-types-page .service-types-body {
   display: flex;
-  align-items: flex-end;
-  color: white;
-  background: linear-gradient(90deg, #0217452b, #0217452b), url('../assets/painting-service.jpeg') center / cover no-repeat;
+  min-height: 34rem;
+  min-height: clamp(30rem, 70svh, 40rem);
+  padding: calc(var(--header-height, 4.75rem) + 1.5rem) var(--service-gutter) clamp(2rem, 5vw, 4rem);
+  color: #fff;
+  background: linear-gradient(90deg, #02174555, #02174530),
+    url('../assets/painting-service.jpeg') center / cover no-repeat;
 }
 
-/* .service-types-content {
-  margin-top: 8em; 
-  margin-left: 5em;
-} */
+.service-types-page .service-types-content {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(6rem, 16vh, 12rem);
+}
 
-.service-types-body .back-to-services a {
+.service-types-page .back-to-services a {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  gap: .85rem;
   min-height: 2.75rem;
   color: inherit;
   text-decoration: none;
   font-size: .95rem;
   letter-spacing: .04em;
-  
 }
 
-.service-types-body .back-to-services {
-  align-self: flex-start;
+.service-types-page .back-to-services svg {
+  flex: 0 0 auto;
 }
 
-
-.service-types-content h1 {
-  margin-left: 0;
-  margin-top: 2em;
-
-  font-family: var(--font-fam-reg);
-  font-size: 2.9em;
-  letter-spacing: 7%;
-  /* font-weight: 100; */
+.service-types-page .back-to-services a:focus-visible {
+  outline-color: white;
 }
 
+.service-types-page .service-types-content h1 {
+  margin: 0;
+  max-width: 22ch;
+  font-family: var(--font-fam-reg, sans-serif);
+  font-size: clamp(2rem, 1.3rem + 2.5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: .015em;
+  overflow-wrap: anywhere;
+}
 
-.services-types-titles {
+.service-types-page .services-types-titles {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-
-  column-gap: 2em;
+  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+  padding-inline: var(--service-gutter);
+  /* border-block: 1px solid #17294040; */
   border-bottom: 1px solid #17294092;
   border-top: 1px solid #17294092;
-  margin-bottom: 3em;
 }
 
-.services-types-titles div h2 {
-  color: var(--blue-body-text);
-  font-family: var(--font-fam-light);
-  font-size: 1.8em;
-  letter-spacing: 5%;
-  line-height: 125%;
-
-  padding-left: 2.7em;
-  padding-top: 2em;
-  padding-bottom: 2em;
-}
-
-.services-types-heading {
+.service-types-page .services-types-heading {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: clamp(1.75rem, 3.5vw, 3rem) clamp(1.5rem, 4vw, 4rem) clamp(1.75rem, 3.5vw, 3rem) 0;
   border-right: 1px dashed #17294092;
 }
 
-.services-types-button {
-  padding-left: 2em;
-  padding-top: 3em;
+.service-types-page .services-types-heading h2 {
+  margin: 0;
+  max-width: 42ch;
+  font-family: var(--font-fam-light, sans-serif);
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.8rem);
+  font-weight: 400;
+  line-height: 1.35;
 }
 
-.services-types-button p {
-  font-family: var(--font-fam-reg);
-  font-size: 1.4em;
-  margin-bottom: 0.4em;
+.service-types-page .services-types-button {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: .75rem;
+  padding: 1.75rem 0 1.75rem clamp(1.5rem, 4vw, 4rem);
 }
 
-.services-types-button button {
-  font-family: var(--font-fam-med);
-  letter-spacing: 4%;
-  color: var(--blue-body-text);
-  background-color: #AFD0FF;
-  border: 1px solid transparent;
-  width: 13em;
-  min-height: 3em;
+.service-types-page .services-types-button p {
+  margin: 0;
+  font-size: clamp(1.1rem, .95rem + .6vw, 1.4rem);
+  line-height: 1.35;
 }
 
+.service-types-page .services-types-button a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  width: min(100%, 13rem);
+  padding: .75rem 1.25rem;
+  background: #afd0ff;
+  color: #172940;
+  font-size: 1rem;
+  text-decoration: none;
+}
 
-
-.services-types-grid {
+.service-types-page .services-types-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  max-width: 90%;
-  min-height: 20em;
-  margin: auto;
-
-  margin-bottom: 5em;
-
-  column-gap: 0.6em;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(.75rem, 1.5vw, 1rem);
+  padding: var(--service-space) var(--service-gutter);
 }
 
-.services-types-grid section {
-  background-color: #DFECFE;
-  border-radius: 0.4em;
-
-  padding: 1em;
+.service-types-page .service-type {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(1rem, 1.6vw, 1rem);
+  border-radius: .25rem;
+  background: #dfecfe;
 }
 
-.services-types-grid section h2 {
-  font-size: 1.6em;
-  font-family: var(--font-fam-med);
-  font-weight: 100;
-  color: var(--blue-body-text);
-  letter-spacing: 2%;
-
-  margin-bottom: 0.8em;
+.service-types-page .service-type h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-fam-med, sans-serif);
+  font-size: clamp(1.15rem, 1rem + .5vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
-.services-types-grid section img {
-  border-radius: 0.3em;
-  margin-top: 2em;
+.service-types-page .service-type p {
+  margin: 0 0 2.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.service-types-page .service-type img {
+  /* Equal aspect ratios plus auto top margins align both image edges in each row. */
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  margin-top: auto;
+  border-radius: .3rem;
+}
+
+@media (max-width: 64rem) {
+  .service-types-page .services-types-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 48rem) {
+  .service-types-page .services-types-titles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .service-types-page .services-types-heading {
+    border-right: 0;
+    padding-right: 0;
+  }
+
+  .service-types-page .services-types-button {
+    padding: 0 0 2rem;
+  }
+}
+
+@media (max-width: 37.5rem) {
+  .service-types-page .service-types-body {
+    padding-top: calc(var(--header-height, 6.5rem) + 1rem);
+  }
+
+  .service-types-page .services-types-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-right-section section {
+    transition: none;
+  }
 }
