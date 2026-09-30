@@ -7,26 +7,27 @@ import { FaFacebookSquare } from "react-icons/fa";
 import logoImage from "../assets/full-logo.svg"
 import "../styles/Footer.css";
 import { Link } from "react-router-dom";
+import SectionReveal from './SectionReveal';
 
 function Footer() {
   return (
     <div>
         <div className="main-footer-div">
-            <div className="footer-title">
+            <SectionReveal className="footer-title" margin="0px">
                 <h2>YOUR NEXT PROJECT STARTS HERE.</h2>
-            </div>
+            </SectionReveal>
 
-            <div className="free-quote-button">
+            <SectionReveal className="free-quote-button" delay={0.2} margin="0px">
                 <Link className="free-quote button-swap" to="/#contact-us" state={{ smoothSection: true }}>GET A FREE QUOTE <HiArrowLongRight /></Link>
-            </div>
+            </SectionReveal>
 
-            <div className="footer-logo-div">
+            <SectionReveal className="footer-logo-div" delay={0.4} margin="0px">
                 <Link to="/">
                     <img src={logoImage} alt="Big Prop Projects white logo with transparent background" className="footer-big-prop-logo"/>
                 </Link>
-            </div>
+            </SectionReveal>
 
-            <div className="get-in-touch-div">
+            <SectionReveal className="get-in-touch-div" delay={0.2} margin="0px">
                 <h3>GET IN TOUCH</h3>
                 <div className="footer-call">
                     <PiPhoneLight />
@@ -37,17 +38,17 @@ function Footer() {
                     <MdOutlineMail />
                     <p><a href="mailto:roelof@bigpropprojects.co.za" className="footer-big-prop-email">roelof@bigpropprojects.co.za</a></p>
                 </div>
-            </div>
+            </SectionReveal>
 
-            <div className="follow-us-div">
+            <SectionReveal className="follow-us-div" delay={0.4} margin="0px">
                 <h3>FOLLOW US</h3>
                 <div className="socials-logos">
                     <a href="https://instagram.com"><FaSquareInstagram /></a>
                     <a href="https://facebook.com"><FaFacebookSquare /></a>
                 </div>
-            </div>
+            </SectionReveal>
 
-            <div className="quick-links-div">
+            <SectionReveal className="quick-links-div" delay={0.6} margin="0px">
                 <h3>QUICK LINKS</h3>
                 <div className="quick-link-items">
                     <Link to="/">Home</Link>
@@ -56,13 +57,13 @@ function Footer() {
                     <Link to="/projects">Projects</Link>
                     <Link to="/#contact-us" state={{ smoothSection: true }}>Contact</Link>
                 </div>
-            </div>
+            </SectionReveal>
 
         </div>
 
         <div className="mini-footer-div">
-            <p>© 2026 Big Prop Projects. All rights reserved.</p>
-            <p className="hours"><span><FaRegClock /></span>Mon - Fri: 09:00 - 17:00</p>
+            <SectionReveal as="p" margin="0px">© 2026 Big Prop Projects. All rights reserved.</SectionReveal>
+            <SectionReveal as="p" className="hours" delay={0.2} margin="0px"><span><FaRegClock /></span>Mon - Fri: 09:00 - 17:00</SectionReveal>
         </div>
     </div>
   )

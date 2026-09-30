@@ -1,21 +1,22 @@
 import { HiArrowLongRight } from "react-icons/hi2";
 import ContactForm from "./ContactForm";
 import "../styles/ContactUs.css"
+import SectionReveal from './SectionReveal';
 
 function ContactUs() {
   return (
     <div className="contact-us-div" id="contact-us">
         <div className="contact-us-titles">
-          <h1>Big plans for <br/> your property?</h1>
-          <div className="tell-us">
+          <SectionReveal as="h1">Big plans for <br/> your property?</SectionReveal>
+          <SectionReveal className="tell-us" delay={0.3}>
               <p>TELL US WHAT YOU NEED</p>
               <HiArrowLongRight />
-          </div>
+          </SectionReveal>
         </div>
 
-        <div className="contact-form">
+        <SectionReveal className="contact-form" delay={0.6} amount={0.08}>
           <ContactForm />
-        </div>
+        </SectionReveal>
     </div>
   )
 }

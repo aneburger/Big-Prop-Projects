@@ -6,37 +6,38 @@ import fotonImg from "../assets/logos/foton.png"
 import catImg from "../assets/logos/cat.png"
 import safalImg from "../assets/logos/safal.png"
 import bertsImg from "../assets/logos/berts.png"
+import SectionReveal from './SectionReveal';
 
 function Partners() {
   return (
         <div className="partners-div">
-            <div className="partners-and-clients">
+            <SectionReveal className="partners-and-clients">
               <IoIosArrowForward />
               <p>TRUSTED BY OUR CLIENTS & PARTNERS</p>
-            </div>
+            </SectionReveal>
 
             <div className="partners-grid">
-              <div className="duluxDiv">
+              <SectionReveal className="duluxDiv" delay={0.15}>
                 <img src={duluxImg} alt="dulux logo" />
-              </div>
+              </SectionReveal>
 
-              <div className="plasconDiv">
+              <SectionReveal className="plasconDiv" delay={0.3}>
                 <img src={plasconImg} alt="plascon logo" />
-              </div>
+              </SectionReveal>
 
-              <div className="fotonDiv">
+              <SectionReveal className="fotonDiv" delay={0.45}>
                 <img src={fotonImg} alt="foton logo" />
-              </div>
+              </SectionReveal>
 
-              <div className="catDiv">
+              <SectionReveal className="catDiv" delay={0.6}>
                 <img src={catImg} alt="cat logo" />
-              </div>
-              <div className="safalDiv">
+              </SectionReveal>
+              <SectionReveal className="safalDiv" delay={0.75}>
                 <img src={safalImg} alt="safal logo" />
-              </div>
-              <div className="bertsDiv">
+              </SectionReveal>
+              <SectionReveal className="bertsDiv" delay={0.9}>
                 <img src={bertsImg} alt="berts logo" />
-              </div>
+              </SectionReveal>
             </div>
         </div>
   )

@@ -1,0 +1,19 @@
+/* Never leave a keyboard-focused link or form inside a hidden reveal. */
+.section-reveal:focus-within {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media print {
+  .section-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
