@@ -28,7 +28,7 @@
     grid-area: quote;
 }
 
-.free-quote-button button {
+.free-quote-button a {
     display: inline-flex;
     align-items: center;
     gap: .75rem;
@@ -40,6 +40,11 @@
     font-size: .85rem;
     letter-spacing: .1em;
     font-family: var(--font-fam-light);
+    text-decoration: none;
+}
+
+.free-quote-button a:hover {
+    text-decoration: none;
 }
 
 .footer-logo-div {

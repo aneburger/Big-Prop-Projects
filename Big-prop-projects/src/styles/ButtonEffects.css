@@ -99,6 +99,10 @@
   font-family: var(--font-fam-med);
 }
 
+.free-quote.button-swap:hover {
+  text-decoration: none;
+}
+
 .project-nr-btn.button-swap {
   --swap-bg: #c1dbff;
   --swap-fg: #0e1e32; 

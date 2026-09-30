@@ -17,7 +17,7 @@ function Footer() {
             </div>
 
             <div className="free-quote-button">
-                <button className="free-quote button-swap">GET A FREE QUOTE <HiArrowLongRight /></button>
+                <Link className="free-quote button-swap" to="/#contact-us" state={{ smoothSection: true }}>GET A FREE QUOTE <HiArrowLongRight /></Link>
             </div>
 
             <div className="footer-logo-div">

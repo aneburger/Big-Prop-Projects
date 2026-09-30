@@ -65,7 +65,7 @@ function ServicesTypes() {
       </div>
       </main>
       <Partners />
-      <div id="service-contact"><ContactUs /></div>
+      <div id="contact-us"><ContactUs /></div>
       <Footer />
       
     </div>
