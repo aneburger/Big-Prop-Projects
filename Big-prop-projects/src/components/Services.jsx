@@ -1,5 +1,6 @@
 import "../styles/Services.css"
 import { Link } from "react-router-dom"
+import { IoIosArrowRoundForward } from "react-icons/io";
 import '../styles/ButtonEffects.css';
 
 function Services() {
@@ -22,20 +23,20 @@ function Services() {
             <div className="services-right-section">
                 <Link to="/service" className="service-section-link">
                     <section className="paint-section">
-                        <h3>PAINTING SERVICES</h3>
+                        <h3>PAINTING SERVICES <IoIosArrowRoundForward /></h3>
                         <p>Comprehensive painting services to enhance your property.</p>
                     </section>
                 </Link>
                 <section className="waterproof-section">
-                    <h3>WATERPROOFING SERVICES</h3>
+                    <h3>WATERPROOFING SERVICES <IoIosArrowRoundForward /></h3>
                     <p>Comprehensive waterproofing services to protect your property.</p>
                 </section>
                 <section className="roof-section">
-                    <h3>ROOF INSTALLATION AND MAINTENANCE</h3>
+                    <h3>ROOF INSTALLATION AND MAINTENANCE <IoIosArrowRoundForward /></h3>
                     <p>Expert roofing solutions including repairs, maintenance, and complete roof installations.</p>
                 </section>
                 <section className="reno-section">
-                    <h3>RESIDENTIAL & COMMERCIAL RENOVATIONS</h3>
+                    <h3>RESIDENTIAL & COMMERCIAL RENOVATIONS <IoIosArrowRoundForward /></h3>
                     <p>Transform existing spaces with expert renovation and alteration services tailored to your vision.</p>
                 </section>
             </div>
