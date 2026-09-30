@@ -1,8 +1,6 @@
 import "../styles/LandingPage.css"
-import personImg from "../assets/person.jpeg"
-import { FaPhone } from "react-icons/fa6";
-import { IoMail } from "react-icons/io5";
-import { FaArrowRightLong } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
+import '../styles/ButtonEffects.css';
 
 function LandingPage() {
   return (
@@ -20,8 +18,8 @@ function LandingPage() {
                             we believe in work that lasts and relationships that do too.</p> */}
 
                     <div className="landing-buttons-div">
-                        <button className="landing-quote-btn">Get a Quote</button>
-                        <button className="landing-services-btn" href="#servicesH1">Services {/* <span><FaArrowRightLong /></span>*/}</button>
+                        <Link className="landing-quote-btn button-swap" to="/#contact-us" state={{ smoothSection: true }}>Get a Quote</Link>
+                        <Link className="landing-services-btn button-swap" to="/#servicesH1" state={{ smoothSection: true }}>Services</Link>
                     </div>
                 </div>
 

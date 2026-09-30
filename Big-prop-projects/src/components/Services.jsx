@@ -1,5 +1,6 @@
 import "../styles/Services.css"
 import { Link } from "react-router-dom"
+import '../styles/ButtonEffects.css';
 
 function Services() {
   return (
@@ -11,10 +12,10 @@ function Services() {
                 </h1>
 
                 <div className="services-buttons">
-                    <button className="services-contact-btn">
+                    <Link className="services-contact-btn button-swap" to="/#contact-us" state={{ smoothSection: true }}>
                         Contact Us
-                    </button>
-                    <a href="tel:+27810450505" className="services-nr-btn">+27 81 045 0505</a>
+                    </Link>
+                    <a href="tel:+27810450505" className="services-nr-btn button-swap">+27 81 045 0505</a>
                 </div>
             </div>
 

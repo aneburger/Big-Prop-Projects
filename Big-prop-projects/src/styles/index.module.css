@@ -1,323 +1,160 @@
-/*  Side drawer styling  */
-
-.Button {
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  height: 4.4rem;
-  margin: 0;
-
-  border: var(--btn-color-dark);
-  background-color: var(--btn-color-dark);
-  font-family: inherit;
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1;
-  white-space: nowrap;
-  color: white;
-  -webkit-user-select: none;
-  user-select: none;
-
-  font-size: 1.2em;
-  color: white;
-  padding: 1.2em;
-
-  /* @media (prefers-color-scheme: dark) {
-    border: 1px solid white;
-    background-color: oklch(14.5% 0 0deg);
-    color: white;
-  } */
-
-  @media (hover: hover) {
-    &:hover:not([data-disabled]) {
-      background-color: oklch(97% 0 0deg);
-
-      @media (prefers-color-scheme: dark) {
-        background-color: oklch(26.9% 0 0deg);
-      }
-    }
-  }
-
-  &:active:not([data-disabled]) {
-    background-color: oklch(92.2% 0 0deg);
-
-    @media (prefers-color-scheme: dark) {
-      background-color: oklch(37.1% 0 0deg);
-    }
-  }
-
-  &[data-disabled] {
-    color: oklch(55.6% 0 0deg);
-    border-color: oklch(55.6% 0 0deg);
-
-    @media (prefers-color-scheme: dark) {
-      color: oklch(70.8% 0 0deg);
-      border-color: oklch(70.8% 0 0deg);
-    }
-  }
-
-  &:focus-visible {
-    outline: 2px solid oklch(14.5% 0 0deg);
-    outline-offset: -1px;
-
-    @media (prefers-color-scheme: dark) {
-      outline-color: white;
-    }
-  }
-}
-
 .Backdrop {
-  --backdrop-opacity: 0.2;
-  --bleed: 3rem;
   position: fixed;
-  min-height: 100dvh;
   inset: 0;
-  background-color: black;
-  opacity: calc(var(--backdrop-opacity) * (1 - var(--drawer-swipe-progress)));
-  transition-duration: 450ms;
-  transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
   z-index: 1100;
-
-
-  /* iOS 26+: Ensure the backdrop covers the entire visible viewport. */
-  @supports (-webkit-touch-callout: none) {
-    position: absolute;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    --backdrop-opacity: 0.7;
-  }
-
-  &[data-starting-style],
-  &[data-ending-style] {
-    opacity: 0;
-  }
-
-  &[data-swiping] {
-    transition-duration: 0ms;
-  }
-
-  &[data-ending-style] {
-    transition-duration: calc(var(--drawer-swipe-strength) * 400ms);
-  }
+  background: #000;
+  opacity: calc(.3 * (1 - var(--drawer-swipe-progress, 0)));
+  transition: opacity 350ms ease;
 }
 
-.Button:hover {
-  cursor: pointer;
+.Backdrop[data-starting-style],
+.Backdrop[data-ending-style] {
+  opacity: 0;
+}
+
+.Backdrop[data-swiping] {
+  transition-duration: 0ms;
 }
 
 .Viewport {
-  --viewport-padding: 0px;
   position: fixed;
   inset: 0;
+  z-index: 1101;
   display: flex;
   justify-content: flex-end;
-  padding: var(--viewport-padding);
-  z-index: 1101;
-
-  @supports (-webkit-touch-callout: none) {
-    --viewport-padding: 0.625rem;
-  }
+  padding: 0;
 }
 
 .Popup {
-  --bleed: 3rem;
+  position: relative;
   box-sizing: border-box;
-  width: calc(30rem + var(--bleed));
-  max-width: calc(100vw - 3rem + var(--bleed));
-  height: 100%;
-  padding: 0rem 0rem 1.5rem 2.3rem;
-  padding-right: calc(0rem + var(--bleed));
-  margin-right: calc(-1 * var(--bleed));
-  border-left: 1px solid oklch(100% 0.00011 271.152);
-  background-color: white;
-  color: var(--blue-body-text);
-  outline: 0;
-  box-shadow: 0.25rem 0.25rem 0 rgb(0 0 0 / 12%);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  touch-action: auto;
-  transition: transform 450ms cubic-bezier(0.32, 0.72, 0, 1);
-  will-change: transform;
-  transform: translateX(var(--drawer-swipe-movement-x));
-
-  /* Column layout so the buttons can sit at the bottom of the drawer */
   display: flex;
   flex-direction: column;
+  width: min(30rem, 100%);
+  height: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #172940;
+  outline: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transform: translateX(var(--drawer-swipe-movement-x, 0px));
+  transition: transform 450ms cubic-bezier(.32, .72, 0, 1);
+}
 
-  @media (prefers-color-scheme: dark) {
-    border-left: 1px solid white;
-    background-color: white;
-    color: var(--blue-body-text);
-    box-shadow: none;
-  }
+.Popup[data-starting-style],
+.Popup[data-ending-style] {
+  transform: translateX(100%);
+}
 
-  &[data-starting-style],
-  &[data-ending-style] {
-    transform: translateX(calc(100% - var(--bleed) + var(--viewport-padding) + 2px));
-  }
+.Popup[data-swiping] {
+  transition-duration: 0ms;
+}
 
-  &[data-ending-style] {
-    transition-duration: calc(var(--drawer-swipe-strength) * 400ms);
-  }
+/* Separate Close from padded content: its right edge is the viewport edge. */
+.Actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
 
-  @supports (-webkit-touch-callout: none) {
-    --bleed: 0px;
-    margin-right: 0;
-    border: 1px solid oklch(14.5% 0 0deg);
-
-    @media (prefers-color-scheme: dark) {
-      border: 1px solid white;
-    }
-  }
-
-  /* Full-width drawer on phones */
-  @media (max-width: 500px) {
-    width: calc(100% + var(--bleed));
-    max-width: none;
-  }
+.Button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.5rem;
+  padding: 1rem 1.5rem;
+  margin: 0;
+  border: 0;
+  font-size: 1rem;
+  font-family: inherit;
 }
 
 .Content {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 32rem;
-  margin: 0 auto 2rem;
-  /* 2rem = minimum gap above the buttons on short screens */
-  flex: 0 0 auto;
+  padding: clamp(1.5rem, 5vh, 3rem) clamp(1.25rem, 5vw, 2.3rem) 2rem;
 }
 
 .Title {
-  margin-top: 6rem;
-  margin-bottom: 2.5rem;
+  width: min(12rem, 100%);
+  margin: 0 0 2rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid #17294070;
   font-size: 1.1rem;
-  line-height: 1.5rem;
-  font-weight: 700;
-  font-family: var(--font-fam);
-  border-bottom: 0.02rem solid var(--blue-body-text);
-  width: 12rem;
-  padding-bottom: 0.4em;
-  letter-spacing: 4%;
-  font-weight: 200;
-  opacity: 74%;
+  font-weight: 400;
+  letter-spacing: .04em;
 }
 
-.Description {
-  margin: 0 0 1.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: oklch(43.9% 0 0deg);
+.NavLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .75rem;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color: oklch(70.8% 0 0deg);
+.NavLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding-block: .35rem;
+  color: #172940;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+.NavLink::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s ease;
+}
+
+@media (hover: hover) {
+  .NavLink:hover::after {
+    transform: scaleX(1);
   }
 }
 
-/* .Actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.75rem; 
-} */
-
-.nav-title-links {
-  margin-top: 10rem;
+.NavLink:focus-visible::after {
+  transform: scaleX(1);
 }
 
-
-
-/*  Bottom buttons ("Get a Quote" / "CALL")  */
-
-.Popup .DrawerButtons {
-  position: static;
-  /* in case a global rule positions it */
+.DrawerButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
   flex-shrink: 0;
   margin-top: auto;
-  /* pushes the buttons to the bottom of the drawer... */
-  margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px));
-  /* ...but stops short of the edge */
-
-  display: flex;
-  gap: 1rem;
+  padding: 1rem clamp(1.25rem, 5vw, 2.3rem) calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px));
 }
 
-.Popup .DrawerButtons div button {
-  background-color: var(--btn-color-dark);
-  color: white;
-  font-family: var(--font-fam);
-  font-size: 1.2rem;
-  padding: 1.2rem 2rem;
-  border: none;
-  height: 4rem;
-  width: 12.4rem;
+.DrawerButtons a {
+  display: inline-flex;
+  flex: 1 1 10rem;
+  min-width: 0;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  padding: .85rem .6rem;
+  font-size: .95rem;
+  text-align: center;
 }
 
-.Popup .DrawerButtons div button:hover {
-  cursor: pointer;
-}
-
-.Popup .DrawerButtons div {
-  display: flex;
-  background-color: var(--btn-back-lightblue);
-  height: 4rem;
-  width: 12.4rem;
-  font-size: 1.2rem;
-}
-
-span.call-btn-txt {
-  padding: 1.45rem 1.5rem;
-}
-
-span.call-btn-txt a {
-  color: white;
-  font-family: var(--font-fam);
-}
-
-.Popup .DrawerButtons div span a {
-  font-size: 1.01rem;
-  color: white;
-  font-family: var(--font-fam);
-  padding: 1.45rem 1.5rem;
-}
-
-
-/*  Staggered reveal for drawer items  */
-
-.Reveal {
-  /* Tuning knobs (values measured from the reference recording) */
-  --reveal-delay: 250ms;
-  /* wait before the first item starts */
-  --reveal-stagger: 160ms;
-  /* gap between each item */
-  --reveal-duration: 700ms;
-  /* how long each item takes to settle */
-  --reveal-distance: 15px;
-  /* how far each item travels up */
-}
-
-/* Transforms don't apply to inline elements, so make sure links are blocks */
-.Popup a.Reveal {
-  display: block;
-}
-
-/*
-  Only animate while the drawer is open. The animation restarts every time
-  data-open is re-applied, and items stay fully visible while the drawer
-  is closing (no rule matches then, so they sit at their normal styles).
-  "backwards" holds the first keyframe (invisible) during the delay.
-*/
 .Popup[data-open] .Reveal {
-  animation: reveal var(--reveal-duration) cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
-  animation-delay: calc(var(--reveal-delay) + var(--i, 0) * var(--reveal-stagger));
+  animation: reveal .6s ease backwards;
+  animation-delay: calc(150ms + var(--i, 0) * 100ms);
 }
 
 @keyframes reveal {
   from {
     opacity: 0;
-    transform: translateY(var(--reveal-distance));
+    transform: translateY(12px);
   }
 
   to {
@@ -326,344 +163,21 @@ span.call-btn-txt a {
   }
 }
 
+@media (max-width: 31.25rem) {
+  .Popup {
+    width: 100%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+
+  .Popup,
+  .Backdrop,
+  .NavLink::after {
+    transition: none;
+  }
+
   .Popup[data-open] .Reveal {
     animation: none;
   }
-}
-
-
-.drawer-buttons-div {
-  display: flex;
-}
-
-
-
-
-@media (max-width: 859px) {
-
-  .Button {
-    font-size: 1rem;
-  }
-
-  .Popup .DrawerButtons {
-    position: static;
-    /* in case a global rule positions it */
-    flex-shrink: 0;
-    margin-top: auto;
-    /* pushes the buttons to the bottom of the drawer... */
-    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px));
-    /* ...but stops short of the edge */
-
-    display: flex;
-    gap: 0.9rem;
-  }
-
-  .Popup .DrawerButtons div button {
-    background-color: var(--btn-color-dark);
-    color: white;
-    font-family: var(--font-fam);
-    font-size: 1.1rem;
-    padding: 1rem 1rem;
-    border: none;
-    height: 3.7rem;
-    width: 11rem;
-  }
-
-  .Popup .DrawerButtons div {
-    display: flex;
-    background-color: var(--btn-back-lightblue);
-    height: 3.7rem;
-    width: 11rem;
-    font-size: 1.2rem;
-  }
-
-  span.call-btn-txt {
-    padding: 1rem 0.2rem;
-  }
-
-  span.call-btn-txt a {
-    color: white;
-    font-family: var(--font-fam);
-  }
-
-  .Popup .DrawerButtons div span a {
-    font-size: 1rem;
-    color: white;
-    font-family: var(--font-fam);
-    padding: 1.4rem 1rem;
-  }
-}
-
-
-@media (max-width: 500px) {
-  .Button {
-    font-size: 1rem;
-  }
-
-  .Popup .DrawerButtons {
-    position: static;
-    /* in case a global rule positions it */
-    flex-shrink: 0;
-    margin-top: auto;
-    /* pushes the buttons to the bottom of the drawer... */
-    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px));
-    /* ...but stops short of the edge */
-
-    display: flex;
-    gap: 0.9rem;
-  }
-
-  .Popup .DrawerButtons div button {
-    background-color: var(--btn-color-dark);
-    color: white;
-    font-family: var(--font-fam);
-    font-size: 1rem;
-    padding: 1rem 1rem;
-    border: none;
-    height: 3.3rem;
-    width: 10rem;
-  }
-
-  .Popup .DrawerButtons div {
-    display: flex;
-    background-color: var(--btn-back-lightblue);
-    height: 3.3rem;
-    width: 10rem;
-    font-size: 1.2rem;
-  }
-
-  span.call-btn-txt {
-    padding: 1rem 0.2rem;
-  }
-
-  span.call-btn-txt a {
-    color: white;
-    font-family: var(--font-fam);
-  }
-
-  .Popup .DrawerButtons div span a {
-    font-size: 0.9rem;
-    color: white;
-    font-family: var(--font-fam);
-    padding: 1.2rem 1rem;
-  }
-}
-
-
-@media (max-width: 423px) {
-
-  .Button {
-    font-size: 1rem;
-  }
-
-  .Popup .DrawerButtons {
-    position: static;
-    /* in case a global rule positions it */
-    flex-shrink: 0;
-    margin-top: auto;
-    /* pushes the buttons to the bottom of the drawer... */
-    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px));
-    /* ...but stops short of the edge */
-
-    display: flex;
-    gap: 0.9rem;
-  }
-
-  .Popup .DrawerButtons div button {
-    background-color: var(--btn-color-dark);
-    color: white;
-    font-family: var(--font-fam);
-    font-size: 1rem;
-    padding: 1rem 1rem;
-    border: none;
-    height: 3.3rem;
-    width: 10rem;
-  }
-
-  .Popup .DrawerButtons div {
-    display: flex;
-    background-color: var(--btn-back-lightblue);
-    height: 3.3rem;
-    width: 10rem;
-    font-size: 1.2rem;
-  }
-
-  span.call-btn-txt {
-    padding: 1rem 0.2rem;
-  }
-
-  span.call-btn-txt a {
-    color: white;
-    font-family: var(--font-fam);
-  }
-
-  .Popup .DrawerButtons div span a {
-    font-size: 0.9rem;
-    color: white;
-    font-family: var(--font-fam);
-    padding: 1.2rem 1rem;
-  }
-}
-
-
-@media (max-width: 396px) {
-
-  .Popup .DrawerButtons {
-    position: static;
-    /* in case a global rule positions it */
-    flex-shrink: 0;
-    margin-top: auto;
-    /* pushes the buttons to the bottom of the drawer... */
-    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px));
-    /* ...but stops short of the edge */
-
-    /* display: block; */
-  }
-
-
-  .Popup .DrawerButtons div button {
-    background-color: var(--btn-color-dark);
-    color: white;
-    font-family: var(--font-fam);
-    font-size: 0.9rem;
-    /* padding: 1rem 1rem; */
-    border: none;
-    height: 3rem;
-    width: 9rem;
-  }
-
-  .Popup .DrawerButtons div {
-    display: flex;
-    background-color: var(--btn-back-lightblue);
-    height: 3rem;
-    width: 9rem;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-
-  /* span.call-btn-txt {
-      padding: 2rem 2rem;
-  } */
-
-  span.call-btn-txt a {
-    color: white;
-    font-family: var(--font-fam);
-  }
-
-  .Popup .DrawerButtons div span a {
-    font-size: 0.8rem;
-    color: white;
-    font-family: var(--font-fam);
-    padding: 1rem 0.8rem;
-  }
-}
-
-
-
-@media (max-width: 354px) {
-
-  .Popup .DrawerButtons {
-    position: static;
-    /* in case a global rule positions it */
-    flex-shrink: 0;
-    margin-top: auto;
-    /* pushes the buttons to the bottom of the drawer... */
-    margin-bottom: calc(clamp(1.5rem, 8vh, 4rem) + env(safe-area-inset-bottom, 0px));
-    /* ...but stops short of the edge */
-
-    display: block;
-  }
-
-
-  .Popup .DrawerButtons div button {
-    background-color: var(--btn-color-dark);
-    color: white;
-    font-family: var(--font-fam);
-    font-size: 0.95rem;
-    /* padding: 1rem 1rem; */
-    border: none;
-    height: 3rem;
-    width: 13rem;
-  }
-
-  .Popup .DrawerButtons div {
-    display: flex;
-    background-color: var(--btn-back-lightblue);
-    height: 3rem;
-    width: 13rem;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-
-  /* span.call-btn-txt {
-      padding: 2rem 2rem;
-  } */
-
-  span.call-btn-txt a {
-    color: white;
-    font-family: var(--font-fam);
-  }
-
-  .Popup .DrawerButtons div span a {
-    font-size: 0.9rem;
-    color: white;
-    font-family: var(--font-fam);
-    padding: 1rem 2.5rem;
-  }
-}
-
-/* Fluid drawer controls, including short landscape screens. */
-.Popup {
-  padding-left: clamp(1rem, 5vw, 2.3rem);
-}
-
-.Content>div:first-child {
-  min-width: 0;
-  flex: 1;
-}
-
-.Title {
-  width: min(12rem, 100%);
-  margin-top: clamp(2rem, 12vh, 6rem);
-}
-
-.Popup .DrawerButtons {
-  display: flex;
-  flex-wrap: wrap;
-  padding-right: 1rem;
-  gap: .75rem;
-}
-
-.Popup .DrawerButtons>div {
-  width: auto;
-  flex: 1 1 10rem;
-  min-width: 0;
-  height: auto;
-  margin: 0;
-}
-
-.Popup .DrawerButtons div button {
-  width: 100%;
-  min-height: 3rem;
-  height: auto;
-  padding: .75rem;
-  font-size: 1rem;
-}
-
-.Popup .DrawerButtons div span {
-  display: flex;
-  width: 100%;
-  padding: 0;
-}
-
-.Popup .DrawerButtons div span a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 3rem;
-  padding: .75rem;
-  font-size: .95rem;
-  text-decoration: none;
 }

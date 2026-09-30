@@ -2,6 +2,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom"
 import "../styles/WhatWeDo.css"
+import '../styles/ButtonEffects.css';
 
 function WhatWeDo() {
   return (
@@ -16,11 +17,9 @@ function WhatWeDo() {
 
             <h3>Professional property maintenance and renovation solutions for homeowners, businesses, and commercial properties.</h3>
 
-            <Link to="/about">
-                <div className="about-us-btn">
+            <Link to="/about" className="about-us-btn button-swap">
                     <p>About Us</p>
                     <IoIosArrowRoundForward />
-                </div>
             </Link>
         </div>
     </div>

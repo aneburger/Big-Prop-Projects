@@ -68,6 +68,8 @@
   background: var(--btn-back-light);
   color: var(--btn-color-dark);
   font-weight: 600;
+
+  border: 1px solid transparent;
 }
 
 .landing-services-btn {

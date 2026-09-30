@@ -16,7 +16,7 @@ function RecentProjects() {
         </div>
 
         <div className="view-all-projects">
-            <Link to="/projects" className="view-all-projects-button">View all projects <HiArrowLongRight /></Link>
+            <Link to="/projects" className="button-swap view-all-projects-button">View all projects <HiArrowLongRight /></Link>
         </div>
     </div>
   )

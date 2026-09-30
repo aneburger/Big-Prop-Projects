@@ -93,6 +93,10 @@
     font-size: 1.2rem;
 }
 
+.footer-email svg {
+    opacity: 75%;
+}
+
 .footer-email p {
     min-width: 0;
     overflow-wrap: anywhere;

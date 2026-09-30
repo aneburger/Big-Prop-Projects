@@ -4,7 +4,7 @@ import "../styles/ContactUs.css"
 
 function ContactUs() {
   return (
-    <div className="contact-us-div">
+    <div className="contact-us-div" id="contact-us">
         <div className="contact-us-titles">
           <h1>Big plans for <br/> your property?</h1>
           <div className="tell-us">

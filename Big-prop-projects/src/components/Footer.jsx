@@ -17,7 +17,7 @@ function Footer() {
             </div>
 
             <div className="free-quote-button">
-                <button>GET A FREE QUOTE <HiArrowLongRight /></button>
+                <button className="free-quote button-swap">GET A FREE QUOTE <HiArrowLongRight /></button>
             </div>
 
             <div className="footer-logo-div">

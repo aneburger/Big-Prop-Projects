@@ -4,12 +4,12 @@ import { useState } from "react"
 import Sidebar from "./SideBar"
 import "../styles/NavBar.css"
 import logoImage from "../assets/full-logo.svg"
+import '../styles/ButtonEffects.css';
 
 export default function ScrollHideHeader() {
     const { scrollY } = useScroll()
     const [hidden, setHidden] = useState(false)
     const [show, setShow] = useState(false)
-    const [container, setContainer] = useState(null)
 
     useMotionValueEvent(scrollY, "change", (current) => {
         const previous = scrollY.getPrevious() ?? 0
@@ -17,12 +17,12 @@ export default function ScrollHideHeader() {
     })
 
     return (
-        <div id="example" ref={setContainer}>
+        <div id="example">
             <motion.header
                 className="header"
                 animate={{
-                    y: hidden ? -140 : 0,
-                    opacity: hidden ? 0 : 1,
+                    y: hidden && !show ? -140 : 0,
+                    opacity: hidden && !show ? 0 : 1,
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
             >
@@ -39,16 +39,16 @@ export default function ScrollHideHeader() {
                     </div>
 
                     <div className="menu-div">
-                        <button onClick={() => setShow(true)} aria-expanded={show}>
+                        <button type="button" className="menu-toggle" onClick={() => setShow(true)} aria-expanded={show} aria-label="Open navigation menu">
                             Menu
                         </button>
                     </div>
                     
-                    <Sidebar open={show} onOpenChange={setShow} container={container}/>
                 </div>
 
                 
             </motion.header>
+            <Sidebar open={show} onOpenChange={setShow}/>
         </div>
     )
 }

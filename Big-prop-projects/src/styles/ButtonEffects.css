@@ -1,0 +1,132 @@
+/* A shared colour wipe; only controls with button-swap opt in. */
+.button-swap.button-swap {
+  --swap-bg: #0e1e32;
+  --swap-fg: #d7e7fe;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--swap-bg);
+  color: var(--swap-fg);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color .35s ease, border-color .35s ease;
+}
+
+.button-swap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--swap-fg);
+  transform: translateY(101%);
+  transition: transform .4s cubic-bezier(.22, .61, .36, 1);
+  pointer-events: none;
+  
+}
+
+.button-swap.landing-quote-btn,
+.button-swap.services-nr-btn {
+  --swap-bg: #d7e7fe;
+  --swap-fg: #0f2443;
+
+  font-family: var(--font-fam-light);
+}
+
+.button-swap.landing-services-btn {
+  --swap-bg: transparent;
+  --swap-fg: #fff;
+  --swap-hover-text: #172940;
+
+  font-family: var(--font-fam-med);
+}
+
+.button-swap.drawer-call-btn {
+  --swap-bg: #a9cbff;
+  --swap-fg: #0e1e32;
+  --swap-hover-text: #d7e7fe;
+}
+
+.button-swap.drawer-close,
+.button-swap.menu-toggle {
+  --swap-bg: #0e1e32;
+  --swap-fg: #fff;
+}
+
+.drawer-close {
+  background-color: #172940;
+  color: white;
+}
+
+.menu-toggle, .drawer-close {
+  transition: background-color 0.4s ease;
+}
+
+.menu-toggle:hover {
+  background-color: #3c4b60;
+}
+
+.drawer-close:hover {
+  background-color: #5077ab;
+  color: white;
+}
+
+.what-we-do-content a.about-us-btn {
+  display: inline-flex;
+}
+
+
+.button-swap.about-us-btn {
+  --swap-bg: #0e1e32;
+  --swap-fg: #a8ccff;
+}
+
+.button-swap.services-contact-btn {
+  --swap-bg: var(--btn-color-dark); 
+  --swap-fg: var(--btn-back-light);
+
+}
+
+.view-all-projects-button.button-swap {
+  --swap-bg: #BED8FF;
+  --swap-fg: #34537d;
+}
+
+.free-quote.button-swap {
+  --swap-bg: transparent;
+  --swap-fg: #84b4fc;
+  --swap-hover-text: #172940;
+
+  font-family: var(--font-fam-med);
+}
+
+@media (hover: hover) {
+  .button-swap.button-swap:hover {
+    color: var(--swap-hover-text, var(--swap-bg));
+    border-color: var(--swap-fg);
+  }
+
+  .button-swap:hover::before {
+    transform: translateY(0);
+  }
+}
+
+.button-swap.button-swap:focus-visible {
+  color: var(--swap-hover-text, var(--swap-bg));
+  border-color: var(--swap-fg);
+  outline: 2px solid #81b4ff;
+  outline-offset: 3px;
+
+  font-family: var(--font-fam-light);
+}
+
+.button-swap:focus-visible::before {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .button-swap.button-swap,
+  .button-swap::before {
+    transition: none;
+  }
+}

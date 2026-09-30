@@ -1,9 +1,11 @@
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { startSmoothWheel } from '../utils/smoothWheel';
 
-function ScrollManager() {
-  const { key, pathname, search, hash } = useLocation();
+export default function ScrollManager() {
+  const { key, pathname, search, hash, state } = useLocation();
+  const previousPath = useRef(pathname);
+  const smoothSection = Boolean(state?.smoothSection);
 
   useLayoutEffect(() => {
     const previous = window.history.scrollRestoration;
@@ -12,30 +14,24 @@ function ScrollManager() {
   }, []);
 
   useLayoutEffect(() => {
-    function resetPosition() {
-      let targetId = hash.slice(1);
-      try { targetId = decodeURIComponent(targetId); } catch { /* Keep malformed hashes literal. */ }
-      const anchor = targetId ? document.getElementById(targetId) : null;
-      if (anchor) {
-        anchor.scrollIntoView({ block: 'start', behavior: 'instant' });
-      } else {
-        // Must be instant: don't animate from the old page's footer to the new page's top.
-        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-      }
-    }
+    const changedPage = previousPath.current !== pathname;
+    previousPath.current = pathname;
+    let id = hash.slice(1);
+    try { id = decodeURIComponent(id); } catch { /* Use malformed hashes literally. */ }
+    const target = id ? document.getElementById(id) : null;
+    const animate = smoothSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const top = () => window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (!target || changedPage) top();
+    if (target && !animate) target.scrollIntoView({ block: 'start', behavior: 'instant' });
 
-    resetPosition();
-    // Reapply after navigation-triggered effects (including drawer scroll-lock cleanup).
-    const resetFrame = window.requestAnimationFrame(resetPosition);
+    // Start after the new route commits. Drawer navigation is deferred until its lock is released.
+    const frame = requestAnimationFrame(() => {
+      if (target) target.scrollIntoView({ block: 'start', behavior: animate ? 'smooth' : 'instant' });
+      else top();
+    });
     const stopSmoothing = startSmoothWheel(window, document);
-
-    return () => {
-      window.cancelAnimationFrame(resetFrame);
-      stopSmoothing();
-    };
-  }, [key, pathname, search, hash]);
+    return () => { cancelAnimationFrame(frame); stopSmoothing(); };
+  }, [key, pathname, search, hash, smoothSection]);
 
   return null;
 }
-
-export default ScrollManager;
