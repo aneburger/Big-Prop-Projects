@@ -1,11 +1,23 @@
 import "../styles/LandingPage.css"
 import { Link } from 'react-router-dom';
 import '../styles/ButtonEffects.css';
+import { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 
 function LandingPage() {
+  const heroRef = useRef(null);
+  const reducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  // The layer has 20% overscan above/below, so 14% travel cannot expose its edges.
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '14%']);
   return (
     <div>
-        <div className="landing-body">
+        <div className="landing-body" ref={heroRef}>
+            <motion.div className="landing-parallax-background" aria-hidden="true"
+                style={{ y: reducedMotion ? 0 : backgroundY }} />
             <section className="landing-body-titles">
                 <h2 className="landing-body-h1">Protect what you have.</h2>
                 <h2 className="landing-body-h2">Build on what's possible.</h2>

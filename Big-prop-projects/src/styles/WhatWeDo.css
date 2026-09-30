@@ -51,3 +51,22 @@
 .about-us-btn svg {
     font-size: 1.6rem;
 }
+
+/* Keep the animated button wrapper content-sized without changing the layout. */
+.what-we-do-action {
+    width: fit-content;
+    max-width: 100%;
+}
+
+/* Keyboard focus must never land on visually hidden content during a stagger. */
+.what-we-do-content:focus-within>* {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .what-we-do-content>* {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

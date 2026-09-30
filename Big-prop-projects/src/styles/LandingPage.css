@@ -1,10 +1,21 @@
 .landing-body {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   min-height: 42rem;
   min-height: min(54rem, 100svh);
   padding: calc(var(--header-height) + 5rem) var(--page-inset) var(--section-space);
   display: flex;
   align-items: flex-end;
   color: white;
+  background: #3b4c62;
+}
+
+.landing-parallax-background {
+  position: absolute;
+  inset: -20% 0;
+  z-index: -1;
+  pointer-events: none;
   background: linear-gradient(90deg, #1c2e562b, #1c2e562b), url('../assets/landing.jpeg') center / cover no-repeat;
 }
 
@@ -98,11 +109,18 @@
   .landing-body {
     min-height: 42rem;
     min-height: max(38rem, 90svh);
-    background-image: linear-gradient(90deg, #05133250, #05133250), url('../assets/landing-smaller.jpeg');
+  }
+
+  .landing-parallax-background {
+    background-image: linear-gradient(90deg, #1c2e562b, #1c2e562b), url('../assets/landing-smaller.jpeg');
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .landing-parallax-background {
+    inset: 0;
+  }
+
   .landing-body-titles {
     animation: none;
   }
