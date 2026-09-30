@@ -3,6 +3,7 @@ import { Select } from '@base-ui/react/select';
 import { IoIosArrowForward } from 'react-icons/io';
 import { HiChevronDown, HiCheck } from 'react-icons/hi2';
 import AllProjectsCard from './AllProjectsCard';
+import SectionReveal from './SectionReveal';
 import '../styles/Projects.css';
 
 const projectTypes = [
@@ -22,19 +23,19 @@ function AllProjects() {
 
   return (
     <main className="all-projects-div">
-      <div className="all-projects">
+      <SectionReveal className="all-projects" onEnter delay={0.2}>
         <IoIosArrowForward aria-hidden="true" />
         <h1>ALL PROJECTS</h1>
-      </div>
+      </SectionReveal>
 
-      <div className="project-type-filter" role="group" aria-label="Filter by project type">
+      <SectionReveal className="project-type-filter" delay={0.4} role="group" aria-label="Filter by project type">
         {projectTypes.map(({ value, label }) => (
           <button key={value} type="button" aria-pressed={projectType === value}
             onClick={() => setProjectType(value)}>{label}</button>
         ))}
-      </div>
+      </SectionReveal>
 
-      <div className="project-filter-mobile">
+      <SectionReveal className="project-filter-mobile" delay={0.4}>
         <label id={id + '-label'} htmlFor={id}>Filter by project type:</label>
         <Select.Root items={projectTypes} value={projectType} onValueChange={setProjectType}>
           <Select.Trigger id={id} aria-labelledby={id + '-label'} className="project-filter-trigger">
@@ -56,12 +57,12 @@ function AllProjects() {
             </Select.Positioner>
           </Select.Portal>
         </Select.Root>
-      </div>
+      </SectionReveal>
 
       <div className="projects-grid">
-        <AllProjectsCard />
-        <AllProjectsCard />
-        <AllProjectsCard />
+        <SectionReveal className="project-card-reveal" delay={0.2}><AllProjectsCard /></SectionReveal>
+        <SectionReveal className="project-card-reveal" delay={0.4}><AllProjectsCard /></SectionReveal>
+        <SectionReveal className="project-card-reveal" delay={0.6}><AllProjectsCard /></SectionReveal>
       </div>
     </main>
   );

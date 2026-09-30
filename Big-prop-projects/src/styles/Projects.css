@@ -90,12 +90,20 @@
 }
 
 /* Layers: photograph, navy overlay, then white text. Only the photograph zooms. */
+.projects-page .project-card-reveal {
+  min-width: 0;
+}
+
+.projects-page .project-card-reveal>.all-projects-card-div {
+  height: 100%;
+}
+
 .projects-page .all-projects-card-div {
   position: relative;
   isolation: isolate;
   display: flex;
   align-items: flex-end;
- 
+
   width: 100%;
   max-width: 100%;
   min-width: 0;

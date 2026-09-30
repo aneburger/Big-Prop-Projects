@@ -7,6 +7,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import projectImg from "../assets/olive-hill-large.png";
 import ProjectGallery from "../components/ProjectGallery";
+import SectionReveal from '../components/SectionReveal';
 
 // Replace these src values with separate photos when they are available.
 const projectImages = Array.from({ length: 5 }, (_, index) => ({
@@ -20,33 +21,33 @@ function IndividualProject() {
     <div className="individual-project-page">
       <main className="individual-project-div">
 
-        <div className="back-to-projects">
+        <SectionReveal className="back-to-projects" onEnter delay={0.2}>
           <Link to="/projects">
             <IoIosArrowBack />
             <p>BACK</p>
           </Link>
-        </div>
+        </SectionReveal>
 
         <div className="individual-project-grid">
           <section className="project-info">
-            <h1>Olive Hill</h1>
-            <p className="project-description">Modern residential development with premium finishes.</p>
-            <p className="project-location"><IoLocationOutline />Brentwood Park, Benoni</p>
+            <SectionReveal as="h1" delay={0.35}>Olive Hill</SectionReveal>
+            <SectionReveal as="p" className="project-description" delay={0.6}>Modern residential development with premium finishes.</SectionReveal>
+            <SectionReveal as="p" className="project-location" delay={0.85}><IoLocationOutline />Brentwood Park, Benoni</SectionReveal>
           </section>
 
           <section className="project-button-section">
-            <p>Now, let's talk about your project.</p>
-            <div className="project-buttons">
+            <SectionReveal as="p" delay={0.3}>Now, let's talk about your project.</SectionReveal>
+            <SectionReveal className="project-buttons" delay={0.6}>
               <a className="project-contact-btn button-swap" href="#project-contact">
                 Contact Us
               </a>
               <a href="tel:+27810450505" className="project-nr-btn button-swap">+27 81 045 0505</a>
-            </div>
+            </SectionReveal>
           </section>
 
-          <div className="project-images">
+          <SectionReveal className="project-images" delay={0.45} amount={0.1}>
             <ProjectGallery images={projectImages} duration={5000} label="Olive Hill photographs" />
-          </div>
+          </SectionReveal>
         </div>
 
 
