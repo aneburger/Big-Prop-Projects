@@ -117,6 +117,52 @@
     grid-column: 1 / -1;
 }
 
+.contact-field-error {
+    margin: 0;
+    color: #ffc5c5;
+    font-size: .85rem;
+    line-height: 1.4;
+}
+
+.contact-field [aria-invalid='true'] {
+    border-color: #ffb2b2;
+}
+
+.contact-form-section :disabled,
+.contact-select-trigger[data-disabled] {
+    opacity: .65;
+    cursor: not-allowed;
+}
+
+.contact-form-status:empty {
+    display: none;
+}
+
+.contact-form-status:focus-visible {
+    outline: 2px solid #93befe;
+    outline-offset: 4px;
+}
+
+.contact-honeypot {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+
+.contact-recaptcha-notice {
+    grid-column: 1 / -1;
+    color: #c2cddd;
+    font-size: .75rem;
+    line-height: 1.5;
+}
+
+.contact-recaptcha-notice a {
+    color: inherit;
+    text-decoration: underline;
+}
+
 .contact-select-trigger {
     display: flex;
     justify-content: space-between;

@@ -7,12 +7,15 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node --env-file=.env server.js",
+    "test": "node --test contact.test.js"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
     "@fortawesome/react-fontawesome": "^3.5.0",
     "framer-motion": "^13.4.0",
+    "mailgun.js": "^14.0.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-icons": "^5.7.0",
