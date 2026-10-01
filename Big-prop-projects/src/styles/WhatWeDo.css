@@ -70,3 +70,22 @@
         transform: none !important;
     }
 }
+/* Match the small About label's optical chevron alignment. */
+.what-we-do-content .what-we-do {
+  align-items: center;
+  line-height: 1;
+}
+
+.what-we-do-content .what-we-do > p {
+  margin: 0;
+  line-height: 1;
+}
+
+.what-we-do-content .what-we-do > svg {
+  display: block;
+  flex: 0 0 auto;
+  width: 1em;
+  height: 1em;
+  transform: translateY(-.12em);
+}
+

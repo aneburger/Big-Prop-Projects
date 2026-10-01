@@ -374,3 +374,22 @@
     transition: none;
   }
 }
+/* Match the small About label's optical chevron alignment. */
+.service-types-page .back-to-services a {
+  align-items: center;
+  line-height: 1;
+}
+
+.service-types-page .back-to-services a > p {
+  margin: 0;
+  line-height: 1;
+}
+
+.service-types-page .back-to-services a > svg {
+  display: block;
+  flex: 0 0 auto;
+  width: 1em;
+  height: 1em;
+  transform: translateY(-.12em);
+}
+

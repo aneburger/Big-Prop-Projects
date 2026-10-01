@@ -186,3 +186,22 @@
     transition: none;
   }
 }
+/* Match the small About label's optical chevron alignment. */
+.projects-div .recent-projects {
+  align-items: center;
+  line-height: 1;
+}
+
+.projects-div .recent-projects > p {
+  margin: 0;
+  line-height: 1;
+}
+
+.projects-div .recent-projects > svg {
+  display: block;
+  flex: 0 0 auto;
+  width: 1em;
+  height: 1em;
+  transform: translateY(-.12em);
+}
+

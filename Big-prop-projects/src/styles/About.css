@@ -66,6 +66,24 @@
   flex: 0 0 auto;
 }
 
+/* Align the chevron optically with this font's uppercase label. */
+.about-page .about-us {
+  align-items: center;
+  line-height: 1;
+}
+
+.about-page .about-us>p {
+  margin: 0;
+  line-height: 1;
+}
+
+.about-page .about-us>svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  transform: translateY(-.12em);
+}
+
 .about-page .about-us-titles h1 {
   max-width: 28ch;
   margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
@@ -252,3 +270,22 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+/* Match the small About label's optical chevron alignment. */
+.about-page :is(.what-sets-us-apart, .who-we-are) {
+  align-items: center;
+  line-height: 1;
+}
+
+.about-page :is(.what-sets-us-apart, .who-we-are) > p {
+  margin: 0;
+  line-height: 1;
+}
+
+.about-page :is(.what-sets-us-apart, .who-we-are) > svg {
+  display: block;
+  flex: 0 0 auto;
+  width: 1em;
+  height: 1em;
+  transform: translateY(-.12em);
+}
+

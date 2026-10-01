@@ -80,3 +80,22 @@
         transition: none;
     }
 }
+/* Match the small About label's optical chevron alignment. */
+.partners-div .partners-and-clients {
+  align-items: center;
+  line-height: 1;
+}
+
+.partners-div .partners-and-clients > p {
+  margin: 0;
+  line-height: 1;
+}
+
+.partners-div .partners-and-clients > svg {
+  display: block;
+  flex: 0 0 auto;
+  width: 1em;
+  height: 1em;
+  transform: translateY(-.12em);
+}
+
