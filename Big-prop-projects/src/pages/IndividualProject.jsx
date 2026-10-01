@@ -4,19 +4,14 @@ import Footer from "../components/Footer"
 import Partners from "../components/Partners"
 import { IoIosArrowBack } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
-import projectImg from "../assets/olive-hill-large.png";
+import { Link, useSearchParams } from "react-router-dom";
+import { recentProjects } from '../data/recentProjects';
 import ProjectGallery from "../components/ProjectGallery";
 import SectionReveal from '../components/SectionReveal';
 
-// Replace these src values with separate photos when they are available.
-const projectImages = Array.from({ length: 5 }, (_, index) => ({
-  id: `olive-hill-${index + 1}`,
-  src: projectImg,
-  alt: 'Olive Hill residential development',
-}));
-
 function IndividualProject() {
+  const [searchParams] = useSearchParams();
+  const project = recentProjects.find(item => item.id === searchParams.get('project')) || recentProjects[0];
   return (
     <div className="individual-project-page">
       <main className="individual-project-div">
@@ -30,9 +25,9 @@ function IndividualProject() {
 
         <div className="individual-project-grid">
           <section className="project-info">
-            <SectionReveal as="h1" delay={0.35}>Olive Hill</SectionReveal>
-            <SectionReveal as="p" className="project-description" delay={0.6}>Modern residential development with premium finishes.</SectionReveal>
-            <SectionReveal as="p" className="project-location" delay={0.85}><IoLocationOutline />Brentwood Park, Benoni</SectionReveal>
+            <SectionReveal as="h1" delay={0.35}>{project.title}</SectionReveal>
+            <SectionReveal as="p" className="project-description" delay={0.6}>{project.description}</SectionReveal>
+            <SectionReveal as="p" className="project-location" delay={0.85}><IoLocationOutline />{project.location}</SectionReveal>
           </section>
 
           <section className="project-button-section">
@@ -46,7 +41,7 @@ function IndividualProject() {
           </section>
 
           <SectionReveal className="project-images" delay={0.45} amount={0.1}>
-            <ProjectGallery images={projectImages} duration={5000} label="Olive Hill photographs" />
+            <ProjectGallery key={project.id} images={project.images} duration={5000} label={`${project.title} photographs`} />
           </SectionReveal>
         </div>
 

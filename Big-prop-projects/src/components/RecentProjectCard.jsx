@@ -1,23 +1,21 @@
-import "../styles/RecentProjects.css"
-import oliveHillImg from "../assets/olive-hill.jpg"
-import centuryImg from "../assets/century.png"
-import theFallsImg from "../assets/theFalls.png"
-import eldoImg from "../assets/eldo-junction.png"
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { HiArrowLongUp } from 'react-icons/hi2';
+import { recentProjects } from '../data/recentProjects';
+import '../styles/RecentProjects.css';
 
-function RecentProjectCard() {
+export default function RecentProjectCard({ project = recentProjects[0] }) {
   return (
-    <div className="recent-project-div">
-        <img src={oliveHillImg} alt="olive-hill building"/>
-        <p className="recent-project-date">February 2025</p>
-        <div className="recent-project-text">
-            <h2>The Falls 2 Lifestyle Estate</h2>
-            <p className="recent-project-location">BRENTWOODPARK, BENONI</p>
-            <p className="recent-project-description">Modern residential development with premium finishes</p>
-            {/* Add arrow svg here */}
+    <Link className="recent-project-div" to={`/project?project=${project.id}`} aria-label={`View ${project.title}`}>
+      <img className="recent-project-image" src={project.image} alt="" loading="lazy" decoding="async" />
+      <time className="recent-project-date" dateTime={project.dateTime}>{project.date}</time>
+      <div className="recent-project-text">
+        <h2>{project.title}</h2>
+        <p className="recent-project-location">{project.location}</p>
+        <div className="recent-project-summary">
+          <p className="recent-project-description">{project.description}</p>
+          <span className="recent-project-arrow" aria-hidden="true"><HiArrowLongUp /></span>
         </div>
-    </div>
-  )
+      </div>
+    </Link>
+  );
 }
-
-export default RecentProjectCard

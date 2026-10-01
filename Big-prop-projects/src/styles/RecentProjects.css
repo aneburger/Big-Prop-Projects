@@ -1,90 +1,188 @@
 .projects-div {
-    padding: var(--section-space) var(--page-inset);
-    background: var(--blue-back-dark);
-    color: white;
+  --recent-offset: clamp(3rem, 16vw, 9rem);
+  padding: var(--section-space) var(--page-inset);
+  background: var(--blue-back-dark);
+  color: white;
 }
 
 .recent-projects {
-    display: flex;
-    align-items: center;
-    gap: .65rem;
-    font-size: .8rem;
-    letter-spacing: .12em;
-    font-family: var(--font-fam-light);
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  font-size: .8rem;
+  letter-spacing: .12em;
+  font-family: var(--font-fam-light);
 }
 
-.recent-project-sections:empty {
-    display: none;
+.recent-project-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 4.5vw, 3rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-bottom: var(--recent-offset);
+}
+
+.recent-project-reveal {
+  min-width: 0;
+}
+
+/* Positioning is separate from the transform used for scroll reveals. */
+.recent-project-reveal:nth-child(even) {
+  position: relative;
+  top: var(--recent-offset);
+}
+
+.recent-project-div {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  aspect-ratio: 4 / 5;
+  min-height: 24rem;
+  padding: clamp(.5rem, 1.2vw, .85rem);
+  padding-top: clamp(12rem, 29vw, 28rem);
+  border-radius: .4rem;
+  color: var(--blue-body-text, #172940);
+  text-decoration: none;
+  background: #243b55;
+}
+
+.recent-project-image {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.recent-project-date {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+  font-family: var(--font-fam-med);
+  font-size: clamp(.7rem, .6rem + .3vw, .9rem);
+  letter-spacing: .06em;
+  text-shadow: 0 1px 5px #172940a4;
+}
+
+.recent-project-text {
+  padding: clamp(.85rem, 1.8vw, 1.5rem);
+  background: white;
+}
+
+.recent-project-text h2 {
+  min-height: 2.3em;
+  margin: 0 0 .65rem;
+  font-family: var(--font-fam-light);
+  font-size: clamp(1.4rem, 1rem + 1.4vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: .025em;
+  max-width: 17ch;
+  overflow-wrap: anywhere;
+}
+
+.recent-project-location {
+  margin: 0 0 .35rem;
+  font-family: var(--font-fam-light);
+  color: #66768a;
+  font-size: clamp(.65rem, .55rem + .3vw, .85rem);
+  line-height: 1.4;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.recent-project-summary {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: .75rem;
+}
+
+.recent-project-description {
+  margin: 0;
+  max-width: 35ch;
+  font-family: var(--font-fam-light);
+  font-size: clamp(.75rem, .65rem + .3vw, .95rem);
+  line-height: 1.35;
+  letter-spacing: .065em;
+  overflow-wrap: anywhere;
+}
+
+.recent-project-arrow {
+  display: grid;
+  place-items: center;
+  flex: 0 0 2.4rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  /* transition: background-color .4s, color .4s; */
+  
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out, color .4s;
+}
+
+.recent-project-arrow svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  
+}
+
+.recent-project-div:is(:hover, :focus-visible) .recent-project-arrow {
+  /* background: #172940; */
+  color: #217aff;
+  transform: rotate(90deg);
+}
+
+.recent-project-div:focus-visible {
+  outline: 3px solid #81b4ff;
+  outline-offset: 5px;
 }
 
 .view-all-projects {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .view-all-projects-button {
-    display: inline-flex;
-    align-items: center;
-    gap: .8rem;
-    min-height: 3rem;
-    padding: .75rem 1.25rem;
-    background: var(--btn-back-light);
-    color: var(--blue-body-text);
-    font-size: .95rem;
-    text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  min-height: 3rem;
+  padding: .75rem 1.25rem;
+  background: var(--btn-back-light);
+  color: var(--blue-body-text);
+  font-size: .95rem;
+  text-decoration: none;
 }
 
+@media (max-width: 40rem) {
+  .recent-project-sections {
+    grid-template-columns: minmax(0, 1fr);
+    padding-bottom: 0;
+  }
 
-.recent-project-sections {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  .recent-project-reveal:nth-child(even) {
+    top: 0;
+  }
 
-    column-gap: 3em;
-    row-gap: 3em;
+  .recent-project-div {
+    min-height: 25rem;
+    padding-top: 15rem;
+  }
 }
 
-.recent-project-div .recent-project-date {
-    font-family: var(--font-fam-med);
-    letter-spacing: 5%;
-}
-
-.recent-project-div img {
-    border-radius: 0.5em;
-}
-
-.recent-project-div .recent-project-text {
-    background-color: white;
-    padding: 1em;
-
-    min-height: 17em;
-
-}
-
-.recent-project-div .recent-project-text h2 {
-    font-family: var(--font-fam-light);
-    color: var(--blue-body-text);
-    font-size: 2.7em;
-    font-weight: 100;
-    letter-spacing: 5%;
-
-    max-width: 9em;
-    line-height: 110%;
-    margin-bottom: 1em;
-}
-
-.recent-project-div .recent-project-text .recent-project-location {
-    font-family: var(--font-fam-light);
-    color: var(--blue-body-text);
-    letter-spacing: 7%;
-    opacity: 34%;
-}
-
-.recent-project-div .recent-project-text .recent-project-description {
-    font-family: var(--font-fam-light);
-    color: var(--blue-body-text);
-    letter-spacing: 7%;
-
-    font-size: 1.15em;
-    max-width: 23em;
-    line-height: 120%;
-    margin-top: 0.3em;
+@media (prefers-reduced-motion: reduce) {
+  .recent-project-arrow {
+    transition: none;
+  }
 }

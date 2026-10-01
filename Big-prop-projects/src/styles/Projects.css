@@ -2,8 +2,8 @@
 .projects-page {
   --projects-gutter: var(--page-gutter, clamp(1.25rem, 5vw, 5rem));
   --projects-space: var(--section-space, clamp(2.5rem, 6vw, 5.5rem));
-  --project-overlay-opacity: .48;
-  --project-hover-overlay-opacity: .28;
+  --project-overlay-opacity: .38;
+  --project-hover-overlay-opacity: .07;
   --project-muted-overlay-opacity: .88;
   color: var(--blue-body-text, #172940);
 }

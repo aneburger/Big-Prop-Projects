@@ -8,7 +8,8 @@ const links = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
   { to: '/#servicesH1', label: 'Services' },
-  { to: '/projects', label: 'Projects' },
+  { to: '/#recent-projects', label: 'Recent Projects' },
+  { to: '/projects', label: 'All Projects' },
 ];
 
 export default function Sidebar({ open, onOpenChange }) {
