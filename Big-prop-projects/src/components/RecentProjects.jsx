@@ -2,6 +2,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { HiArrowLongRight } from "react-icons/hi2";
 import "../styles/RecentProjects.css"
 import { Link } from "react-router-dom";
+import RecentProjectCard from "./RecentProjectCard";
 
 function RecentProjects() {
   return (
@@ -12,7 +13,10 @@ function RecentProjects() {
         </div>
 
         <div className="recent-project-sections">
-
+          <RecentProjectCard />
+          <RecentProjectCard />
+          <RecentProjectCard />
+          <RecentProjectCard />
         </div>
 
         <div className="view-all-projects">
