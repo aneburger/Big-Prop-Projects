@@ -16,7 +16,7 @@
   inset: -20% 0;
   z-index: -1;
   pointer-events: none;
-  background: linear-gradient(90deg, #1c2e562b, #1c2e562b), url('../assets/landing.jpeg') center / cover no-repeat;
+  background: linear-gradient(90deg, #1c2e560a, #1c2e560a), url('../assets/landing.jpeg') center / cover no-repeat;
 }
 
 .landing-body-titles {
@@ -101,7 +101,7 @@
   }
 
   .landing-parallax-background {
-    background-image: linear-gradient(90deg, #1c2e562b, #1c2e562b), url('../assets/landing-smaller.jpeg');
+    background-image: linear-gradient(90deg, #1c2e560a, #1c2e560a), url('../assets/landing-smaller.jpeg');
   }
 }
 
