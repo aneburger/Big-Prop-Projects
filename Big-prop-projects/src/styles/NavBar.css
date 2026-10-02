@@ -34,7 +34,7 @@
 
 .big-prop-logo {
   display: block;
-  width: clamp(8rem, 12vw, 10rem);
+  width: clamp(8rem, 12vw, 8rem);
   height: auto;
 }
 

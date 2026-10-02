@@ -51,7 +51,7 @@ h1 {
     --section-space: clamp(2.5rem, 6vw, 5.5rem);
     --service-section-space: clamp(2.5rem, 6vw, 3.5rem);
     --page-inset: var(--page-gutter);
-    --header-height: 4.75rem;
+    --header-height: 4rem;
 }
 
 html {
