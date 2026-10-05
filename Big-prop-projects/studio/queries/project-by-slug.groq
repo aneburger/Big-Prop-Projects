@@ -1,0 +1,6 @@
+*[_type == "project" && slug.current == $slug && !(_id in path("drafts.**"))][0]{
+  _id, title, "slug": slug.current, description, location, date,
+  images[]{
+    _key, _type, alt, crop, hotspot,
+    asset->{_id, _type, url, metadata{dimensions, lqip}}
+  }

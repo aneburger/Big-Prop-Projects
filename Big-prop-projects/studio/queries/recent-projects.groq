@@ -1,0 +1,8 @@
+*[_type == "project" && !(_id in path("drafts.**")) && defined(slug.current)]
+  | order(date desc, title asc)[0...4] {
+    _id, title, "slug": slug.current, description, location, date,
+    "coverImage": images[0]{
+      _key, _type, alt, crop, hotspot,
+      asset->{_id, _type, url, metadata{dimensions, lqip}}
+    }
+  }
