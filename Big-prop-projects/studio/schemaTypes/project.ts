@@ -2,6 +2,14 @@ import { defineArrayMember, defineField, defineType } from 'sanity'
 import { DocumentTextIcon } from '@sanity/icons/DocumentText'
 import { ImageIcon } from '@sanity/icons/Image'
 
+const projectTypes = [
+  { title: 'Painting', value: 'painting' },
+  { title: 'Waterproofing', value: 'waterproofing' },
+  { title: 'Residential Renovation', value: 'residential' },
+  { title: 'Commercial Renovation', value: 'commercial' },
+  { title: 'Development', value: 'development' },
+]
+
 export const project = defineType({
   name: 'project',
   title: 'Project',
@@ -13,6 +21,14 @@ export const project = defineType({
       description: 'The project name shown on cards and the individual project page.',
       validation: (rule) => rule.required().max(120).custom(value =>
         value && !value.trim() ? 'Enter a project title.' : true),
+    }),
+    defineField({
+      name: 'projectType', title: 'Project type', type: 'string',
+      description: 'Select the main type of work for this project. These values match the website filter categories.',
+      options: { list: projectTypes, layout: 'dropdown' },
+      validation: (rule) => rule.required().custom(value =>
+        !value || projectTypes.some(option => option.value === value)
+          ? true : 'Select a project type from the list.'),
     }),
     defineField({
       name: 'slug', title: 'URL slug', type: 'slug',
@@ -66,9 +82,10 @@ export const project = defineType({
     { title: 'Title, A–Z', name: 'titleAsc', by: [{ field: 'title', direction: 'asc' }] },
   ],
   preview: {
-    select: { title: 'title', location: 'location', date: 'date', media: 'images.0' },
-    prepare({ title, location, date, media }) {
-      return { title: title || 'Untitled project', subtitle: [location, date].filter(Boolean).join(' · '), media }
+    select: { title: 'title', projectType: 'projectType', location: 'location', date: 'date', media: 'images.0' },
+    prepare({ title, projectType, location, date, media }) {
+      const typeLabel = projectTypes.find(option => option.value === projectType)?.title
+      return { title: title || 'Untitled project', subtitle: [typeLabel, location, date].filter(Boolean).join(' · '), media }
     },
   },
 })
