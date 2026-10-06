@@ -15,19 +15,19 @@ const builder = createImageUrlBuilder(sanityConfig);
 
 export const projectsQuery = defineQuery(`
   *[_type == "project" && defined(slug.current)] | order(date desc, title asc, _id asc) {
-    _id, title, "slug": slug.current, description, location, date,
+    _id, title, projectType, "slug": slug.current, description, location, date,
     "cover": images[0] { _key, alt, asset, crop, hotspot }
   }
 `);
 export const recentProjectsQuery = defineQuery(`
   *[_type == "project" && defined(slug.current)] | order(date desc, title asc, _id asc)[0...4] {
-    _id, title, "slug": slug.current, description, location, date,
+    _id, title, projectType, "slug": slug.current, description, location, date,
     "cover": images[0] { _key, alt, asset, crop, hotspot }
   }
 `);
 export const projectQuery = defineQuery(`
   *[_type == "project" && slug.current == $slug][0] {
-    _id, title, "slug": slug.current, description, location, date,
+    _id, title, projectType, "slug": slug.current, description, location, date,
     "cover": images[0] { _key, alt, asset, crop, hotspot },
     images[] { _key, alt, asset, crop, hotspot }
   }
@@ -60,6 +60,7 @@ export function mapProject(document) {
     slug: document.slug,
     to: `/project?project=${encodeURIComponent(document.slug)}`,
     title: document.title || 'Untitled project',
+    projectType: document.projectType || '',
     description: document.description || '',
     location: document.location || '',
     dateTime: document.date || '',
