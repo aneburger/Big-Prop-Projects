@@ -4,6 +4,8 @@ import { IoIosArrowForward } from 'react-icons/io';
 import { HiChevronDown, HiCheck } from 'react-icons/hi2';
 import AllProjectsCard from './AllProjectsCard';
 import SectionReveal from './SectionReveal';
+import useProjects from '../hooks/useProjects';
+import ProjectsStatus from './ProjectsStatus';
 import '../styles/Projects.css';
 
 const projectTypes = [
@@ -17,6 +19,7 @@ const projectTypes = [
 
 function AllProjects() {
   const id = useId();
+  const { data: projects = [], ...status } = useProjects();
   // Visual selection only: no filtering or backend request is performed yet.
   // Both controls share state so the selection survives viewport changes.
   const [projectType, setProjectType] = useState('all');
@@ -60,9 +63,12 @@ function AllProjects() {
       </SectionReveal>
 
       <div className="projects-grid">
-        <SectionReveal className="project-card-reveal" delay={0.2}><AllProjectsCard /></SectionReveal>
-        <SectionReveal className="project-card-reveal" delay={0.4}><AllProjectsCard /></SectionReveal>
-        <SectionReveal className="project-card-reveal" delay={0.6}><AllProjectsCard /></SectionReveal>
+        {(status.loading || status.error || !projects?.length) && <ProjectsStatus {...status} />}
+        {projects?.map((project, index) => (
+          <SectionReveal key={project.id} className="project-card-reveal" delay={(index % 3 + 1) * 0.2}>
+            <AllProjectsCard title={project.title} image={project.cardImage} imageAlt={project.imageAlt} to={project.to} />
+          </SectionReveal>
+        ))}
       </div>
     </main>
   );

@@ -112,7 +112,7 @@ function ProjectGallery({ images, duration = 5000, label = 'Project photographs'
             aria-label={`Show photograph ${index + 1} of ${images.length}`}
             aria-current={active === index ? 'true' : undefined}
             onClick={() => select(index)} onKeyDown={(event) => navigateThumbnails(event, index)}>
-            <img src={image.src} alt="" loading="lazy" decoding="async" />
+            <img src={image.thumbnail || image.src} alt="" loading="lazy" decoding="async" />
           </button>
         ))}
       </div>

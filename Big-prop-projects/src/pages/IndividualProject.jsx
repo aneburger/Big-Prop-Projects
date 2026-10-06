@@ -4,14 +4,17 @@ import Footer from "../components/Footer"
 import Partners from "../components/Partners"
 import { IoIosArrowBack } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
-import { Link, useSearchParams } from "react-router-dom";
-import { recentProjects } from '../data/recentProjects';
+import { Link, Navigate, useSearchParams } from "react-router-dom";
+import useProjects from '../hooks/useProjects';
+import ProjectsStatus from '../components/ProjectsStatus';
 import ProjectGallery from "../components/ProjectGallery";
 import SectionReveal from '../components/SectionReveal';
 
 function IndividualProject() {
   const [searchParams] = useSearchParams();
-  const project = recentProjects.find(item => item.id === searchParams.get('project')) || recentProjects[0];
+  const slug = searchParams.get('project') || '';
+  const { data: project, ...status } = useProjects('detail', slug);
+  if (!slug) return <Navigate to="/projects" replace />;
   return (
     <div className="individual-project-page">
       <main className="individual-project-div">
@@ -23,7 +26,9 @@ function IndividualProject() {
           </Link>
         </SectionReveal>
 
-        <div className="individual-project-grid">
+        {(status.loading || status.error || !project) ? (
+          <ProjectsStatus {...status} empty="This project is no longer available. Use Back to view all projects." />
+        ) : <div className="individual-project-grid" key={project.id}>
           <section className="project-info">
             <SectionReveal as="h1" delay={0.35}>{project.title}</SectionReveal>
             <SectionReveal as="p" className="project-description" delay={0.6}>{project.description}</SectionReveal>
@@ -41,9 +46,10 @@ function IndividualProject() {
           </section>
 
           <SectionReveal className="project-images" delay={0.45} amount={0.1}>
-            <ProjectGallery key={project.id} images={project.images} duration={5000} label={`${project.title} photographs`} />
+            {project.images.length ? <ProjectGallery key={project.id} images={project.images} duration={5000} label={`${project.title} photographs`} />
+              : <ProjectsStatus empty="Photographs will be added soon." />}
           </SectionReveal>
-        </div>
+        </div>}
 
 
       </main>
