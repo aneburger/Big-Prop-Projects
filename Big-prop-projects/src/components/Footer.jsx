@@ -8,6 +8,7 @@ import logoImage from "../assets/full-logo.svg"
 import "../styles/Footer.css";
 import { Link } from "react-router-dom";
 import SectionReveal from './SectionReveal';
+import { site } from '../seo/site';
 
 function Footer() {
   return (
@@ -29,6 +30,8 @@ function Footer() {
 
             <SectionReveal className="get-in-touch-div" delay={0.2} margin="0px">
                 <h3>GET IN TOUCH</h3>
+                {/* <p>{site.street}, {site.locality}, {site.region}</p>
+                <p>Serving Pretoria and the wider Gauteng province.</p> */}
                 <div className="footer-call">
                     <PiPhoneLight />
                     <p><a href="tel:+27810450505" className="footer-big-prop-number">+27 81 045 0505</a></p>

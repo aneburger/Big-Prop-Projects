@@ -1,6 +1,7 @@
 import '../styles/Services.css';
 import { IoIosArrowBack } from 'react-icons/io';
-import { Link, Navigate, useSearchParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import NotFound from '../pages/NotFound';
 import ContactUs from './ContactUs';
 import Footer from './Footer';
 import Partners from './Partners';
@@ -9,11 +10,9 @@ import ScrollRevealText from './ScrollRevealText';
 import { servicePages } from '../data/servicePages';
 
 export default function ServicesTypes() {
-  const [searchParams] = useSearchParams();
-  // Preserve old /service links as the painting page.
-  const type = searchParams.get('type') || 'painting';
+  const { type } = useParams();
   const service = Object.hasOwn(servicePages, type) ? servicePages[type] : null;
-  if (!service) return <Navigate to="/#servicesH1" replace />;
+  if (!service) return <NotFound />;
 
   return (
     <div className="service-types-page" key={type}>
@@ -36,7 +35,7 @@ export default function ServicesTypes() {
           </div>
           <SectionReveal className="services-types-button" delay={0.3}>
             <p>{service.contactPrompt}</p>
-            <Link to={`/service?type=${type}#contact-us`} state={{ smoothSection: true }} className="button-swap">Contact Us</Link>
+            <Link to={`/services/${type}#contact-us`} state={{ smoothSection: true }} className="button-swap">Contact Us</Link>
           </SectionReveal>
         </div>
 

@@ -4,19 +4,22 @@ import Footer from "../components/Footer"
 import Partners from "../components/Partners"
 import { IoIosArrowBack } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
-import { Link, Navigate, useSearchParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import PageSeo from '../components/PageSeo';
+import NotFound from './NotFound';
+import { projectMeta } from '../seo/site';
 import useProjects from '../hooks/useProjects';
 import ProjectsStatus from '../components/ProjectsStatus';
 import ProjectGallery from "../components/ProjectGallery";
 import SectionReveal from '../components/SectionReveal';
 
 function IndividualProject() {
-  const [searchParams] = useSearchParams();
-  const slug = searchParams.get('project') || '';
+  const { slug = '' } = useParams();
   const { data: project, ...status } = useProjects('detail', slug);
-  if (!slug) return <Navigate to="/projects" replace />;
+  if (!status.loading && !status.error && !project) return <NotFound />;
   return (
     <div className="individual-project-page">
+      {project && <PageSeo {...projectMeta(project)} />}
       <main className="individual-project-div">
 
         <SectionReveal className="back-to-projects" onEnter delay={0.2}>

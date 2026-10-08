@@ -1,6 +1,7 @@
 import { createClient } from '@sanity/client';
 import { createImageUrlBuilder } from '@sanity/image-url';
 import { defineQuery } from 'groq';
+import { projectPath } from '../seo/site.js';
 
 export const sanityConfig = {
   projectId: import.meta.env?.VITE_SANITY_PROJECT_ID || 'df6rlsmo',
@@ -57,7 +58,7 @@ export function mapProject(document) {
   return {
     id: document._id,
     slug: document.slug,
-    to: `/project?project=${encodeURIComponent(document.slug)}`,
+    to: projectPath(document.slug),
     title: document.title || 'Untitled project',
     projectType: document.projectType || '',
     description: document.description || '',
