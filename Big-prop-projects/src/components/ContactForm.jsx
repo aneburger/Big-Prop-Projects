@@ -3,6 +3,7 @@ import { Select } from '@base-ui/react/select';
 import { HiChevronDown, HiCheck } from 'react-icons/hi2';
 import { budgets, projectTypes, timelines, limits, emptyContact, validateContact } from '../lib/contactValidation';
 import { getContactToken } from '../lib/recaptcha';
+import { validateUploads, uploadHelp } from '../lib/contactUploads';
 
 function FormSelect({ id, label, name, items, value, onValueChange, error, disabled }) {
   return (
@@ -42,6 +43,21 @@ export default function ContactForm() {
   const [submitting, setSubmitting] = useState(false);
   const busy = useRef(false);
   const summary = useRef(null);
+  const [images, setImages] = useState([]);
+
+  function chooseImages(event) {
+    const next = [...images, ...Array.from(event.target.files || [])];
+    event.target.value = '';
+    const error = validateUploads(next);
+    setErrors(previous => ({ ...previous, images: error ? `${error} This selection was not added.` : '' }));
+    setStatus('');
+    if (!error) setImages(next);
+  }
+  function removeImage(index) {
+    setImages(current => current.filter((_, itemIndex) => itemIndex !== index));
+    setErrors(previous => ({ ...previous, images: '' }));
+    setStatus('');
+  }
 
   function change(name, value) {
     const next = { ...values, [name]: value ?? '' };
@@ -59,11 +75,14 @@ export default function ContactForm() {
   function clear() {
     if (busy.current) return;
     setValues({ ...emptyContact }); setErrors({}); setStatus('');
+    setImages([]);
   }
   async function handleSubmit(event) {
     event.preventDefault();
     if (busy.current) return;
     const result = validateContact(values);
+    const uploadError = validateUploads(images);
+    if (uploadError) result.errors.images = uploadError;
     setErrors(result.errors);
     if (Object.keys(result.errors).length) {
       showMessage('Please check the highlighted fields and submit again.');
@@ -82,21 +101,25 @@ export default function ContactForm() {
         return;
       }
       setStatus('Sending your enquiry…');
-      timeout = setTimeout(() => controller.abort(), 25000);
+      timeout = setTimeout(() => controller.abort(), 120000);
+      const body = new FormData();
+      for (const [name, value] of Object.entries(result.values)) body.append(name, value);
+      body.append('captchaToken', captchaToken);
+      for (const image of images) body.append('images', image, image.name);
       const response = await fetch('/api/contact', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...result.values, captchaToken }), signal: controller.signal,
+        method: 'POST', body, signal: controller.signal,
       });
       const data = await response.json().catch(() => null);
       if (!response.ok || data?.success !== true) {
         if (data?.errors && typeof data.errors === 'object') {
           setErrors(Object.fromEntries(Object.entries(data.errors)
-            .filter(([key, value]) => key in emptyContact && typeof value === 'string')));
+            .filter(([key, value]) => (key in emptyContact || key === 'images') && typeof value === 'string')));
         }
         showMessage(data?.message || 'We could not send your enquiry. Please try again or call +27 81 045 0505.');
         return;
       }
       setValues({ ...emptyContact }); setErrors({});
+      setImages([]);
       showMessage('Thank you! Your enquiry has been submitted. We’ll be in touch.');
     } catch {
       showMessage('We could not confirm submission. Your details are still here. Please try again later or call +27 81 045 0505.');
@@ -141,6 +164,20 @@ export default function ContactForm() {
         <label htmlFor={`${id}-description`}>Brief description of your project needs *</label>
         <textarea {...fieldProps('description')} placeholder="Tell us a little about your project" required />
         {fieldError('description')}
+      </div>
+      <div className="contact-field contact-field-wide contact-upload-field">
+        <label htmlFor={`${id}-images`}>Project images (optional)</label>
+        <input id={`${id}-images`} type="file" name="images" accept=".png,.jpg,.jpeg,image/png,image/jpeg"
+          multiple disabled={submitting} onChange={chooseImages} aria-invalid={Boolean(errors.images)}
+          aria-describedby={`${id}-images-help${errors.images ? ` ${id}-images-error` : ''}`} />
+        <p className="contact-upload-help" id={`${id}-images-help`}>{uploadHelp}</p>
+        {images.length > 0 && <ul className="contact-upload-list">
+          {images.map((image, index) => <li key={`${image.name}-${index}`}>
+            <span>{image.name} ({(image.size / 1024 / 1024).toFixed(2)} MB)</span>
+            <button type="button" disabled={submitting} onClick={() => removeImage(index)} aria-label={`Remove ${image.name}`}>Remove</button>
+          </li>)}
+        </ul>}
+        {fieldError('images')}
       </div>
       <fieldset className="radio-buttons-div" disabled={submitting} aria-describedby={errors.timeline ? `${id}-timeline-error` : undefined}>
         <legend>When are you looking to get started? *</legend>

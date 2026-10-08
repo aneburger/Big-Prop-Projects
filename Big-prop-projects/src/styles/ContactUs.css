@@ -191,7 +191,7 @@
     line-height: 0;
 }
 
-.contact-select-icon > svg {
+.contact-select-icon>svg {
     display: block;
     width: 100%;
     height: 100%;
@@ -201,7 +201,7 @@
     transition: transform .2s ease;
 }
 
-.contact-select-trigger[data-popup-open] .contact-select-icon > svg {
+.contact-select-trigger[data-popup-open] .contact-select-icon>svg {
     transform: rotate(180deg);
 }
 
@@ -397,7 +397,83 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .contact-select-icon > svg {
+    .contact-select-icon>svg {
         transition: none;
     }
+}
+
+/* Optional image attachments: inherit the form's input colours and spacing. */
+.contact-upload-field input[type='file'] {
+    font-size: .85rem;
+    cursor: pointer;
+}
+
+.contact-upload-field input[type='file']::file-selector-button {
+    margin-right: .75rem;
+    padding: .55rem .8rem;
+    border: 0;
+    border-radius: .2rem;
+    background: #c1daff;
+    color: #172940;
+    font: inherit;
+    cursor: pointer;
+    transition: background-color .2s, color .2s;
+}
+
+.contact-upload-field input[type='file']:hover::file-selector-button {
+    background: #81b4ff;
+}
+
+.contact-upload-field input[type='file']:focus-visible {
+    outline: 2px solid #81b4ff;
+    outline-offset: 3px;
+}
+
+.contact-upload-help {
+    margin: 0;
+    color: #c2cddd;
+    font-size: .68rem;
+    line-height: 1.5;
+}
+
+.contact-upload-list {
+    list-style: none;
+    margin: .25rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: .05rem;
+}
+
+.contact-upload-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    font-size: .75rem;
+}
+
+.contact-upload-list li span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.contact-upload-list button {
+    flex-shrink: 0;
+    padding: .4rem;
+    background: transparent;
+    border: 0;
+    color: #c1daff;
+    text-decoration: underline;
+    font: inherit;
+    cursor: pointer;
+}
+
+.contact-upload-list button:focus-visible {
+    outline: 2px solid #81b4ff;
+    outline-offset: 2px;
+}
+
+.contact-upload-field :disabled {
+    opacity: .6;
+    cursor: not-allowed;
 }

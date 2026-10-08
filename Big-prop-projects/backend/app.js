@@ -3,12 +3,14 @@ import { isIP } from 'node:net';
 import { validateContact } from '../src/lib/contactValidation.js';
 import { sendMail } from './mailgun.js';
 import { verifyRecaptcha } from './recaptcha.js';
+import { uploadLimits } from '../src/lib/contactUploads.js';
+import { parseContactMultipart } from './contactUploads.js';
 
 const MAX_BYTES = 24 * 1024;
 const WINDOW_MS = 15 * 60 * 1000;
 const normalIP = value => value?.replace(/^::ffff:/, '') || 'unknown';
 
-export function createContactServer(config, { deliver = sendMail, verify = verifyRecaptcha, now = Date.now, maxRequests = 5 } = {}) {
+export function createContactServer(config, { deliver = (values, settings, attachments) => sendMail(values, settings, fetch, attachments), verify = verifyRecaptcha, now = Date.now, maxRequests = 5 } = {}) {
   const attempts = new Map();
   let lastSweep = 0;
   const server = createServer(async (request, response) => {
@@ -54,10 +56,14 @@ export function createContactServer(config, { deliver = sendMail, verify = verif
       response.setHeader('Retry-After', String(Math.ceil((entry.expires - current) / 1000)));
       return fail(429, 'Too many attempts. Please wait 15 minutes or call +27 81 045 0505.');
     }
-    if (request.headers['content-type']?.split(';')[0].trim().toLowerCase() !== 'application/json') {
-      return fail(415, 'Please send the form as JSON.');
+    const contentType = request.headers['content-type'] || '';
+    const mediaType = contentType.split(';')[0].trim().toLowerCase();
+    const multipart = mediaType === 'multipart/form-data';
+    const maxBytes = multipart ? uploadLimits.total + 64 * 1024 : MAX_BYTES;
+    if (!multipart && mediaType !== 'application/json') {
+      return fail(415, 'Please send a supported contact form.');
     }
-    if (Number(request.headers['content-length']) > MAX_BYTES) {
+    if (Number(request.headers['content-length']) > maxBytes) {
       request.resume(); return fail(413, 'The submitted form is too large.');
     }
     try {
@@ -66,13 +72,22 @@ export function createContactServer(config, { deliver = sendMail, verify = verif
       // Drain oversized chunked bodies without keeping them in memory.
       for await (const chunk of request) {
         size += chunk.length;
-        if (size > MAX_BYTES) {
+        if (size > maxBytes) {
           if (!response.writableEnded) fail(413, 'The submitted form is too large.');
         } else if (!response.writableEnded) chunks.push(chunk);
       }
       if (response.writableEnded) return;
       let payload;
-      try { payload = JSON.parse(Buffer.concat(chunks).toString('utf8')); }
+      let attachments = [];
+      try {
+        const body = Buffer.concat(chunks);
+        if (multipart) {
+          const parsed = await parseContactMultipart(body, contentType);
+          if (parsed.error) return reply(400, { success: false, message: 'Please check the selected images.', errors: { images: parsed.error } });
+          payload = parsed.payload;
+          attachments = parsed.attachments;
+        } else payload = JSON.parse(body.toString('utf8'));
+      }
       catch { return fail(400, 'The submitted form could not be read.'); }
       const { values, errors } = validateContact(payload);
       if (Object.keys(errors).length) return reply(400, { success: false, message: 'Please check the highlighted fields.', errors });
@@ -87,7 +102,7 @@ export function createContactServer(config, { deliver = sendMail, verify = verif
       } catch {
         return fail(503, 'Verification is temporarily unavailable. Please try again later.');
       }
-      try { await deliver(values, config); }
+      try { await deliver(values, config, attachments); }
       catch {
         // Never return provider diagnostics, keys or visitor data to the browser/logs.
         console.error('Contact email delivery could not be confirmed.');
@@ -98,7 +113,7 @@ export function createContactServer(config, { deliver = sendMail, verify = verif
       if (!response.writableEnded && !response.destroyed) fail(400, 'The submission was interrupted. Please try again.');
     }
   });
-  server.requestTimeout = 20000;
+  server.requestTimeout = 90000;
   server.headersTimeout = 10000;
   return server;
 }

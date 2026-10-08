@@ -2,7 +2,6 @@ import { createClient } from '@sanity/client';
 import { createImageUrlBuilder } from '@sanity/image-url';
 import { defineQuery } from 'groq';
 
-// These identify your public dataset; they are not API secrets.
 export const sanityConfig = {
   projectId: import.meta.env?.VITE_SANITY_PROJECT_ID || 'df6rlsmo',
   dataset: import.meta.env?.VITE_SANITY_DATASET || 'production',

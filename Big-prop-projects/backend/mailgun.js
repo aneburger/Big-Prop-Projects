@@ -43,9 +43,12 @@ export function makeMessage(values, config) {
   };
 }
 
-export async function sendMail(values, config, fetcher = fetch) {
+export async function sendMail(values, config, fetcher = fetch, attachments = []) {
   const body = new FormData();
   for (const [name, value] of Object.entries(makeMessage(values, config))) body.append(name, value);
+  for (const attachment of attachments) {
+    body.append('attachment', new Blob([attachment.bytes], { type: attachment.type }), attachment.name);
+  }
   const response = await fetcher(`${config.apiBase}/v3/${encodeURIComponent(config.domain)}/messages`, {
     method: 'POST', headers: { Authorization: `Basic ${Buffer.from(`api:${config.apiKey}`).toString('base64')}` },
     body, signal: AbortSignal.timeout(12000),
