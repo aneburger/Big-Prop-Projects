@@ -182,7 +182,7 @@
   border-bottom: 0;
 }
 
-/* Painting service page. Gutters remain left-aligned on wide monitors. */
+/* Shared service pages. Gutters remain left-aligned on wide monitors. */
 .service-types-page {
   --service-gutter: var(--page-gutter, clamp(1.25rem, 5vw, 5rem));
   --service-space: var(--service-section-space, clamp(2.5rem, 6vw, 5.5rem));
@@ -296,7 +296,7 @@
 
 .service-types-page .services-types-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--service-columns, 4), minmax(0, 1fr));
   align-items: stretch;
   gap: clamp(.25rem, 1.5vw, .4rem);
   padding: var(--service-space) var(--service-gutter);
@@ -374,22 +374,22 @@
     transition: none;
   }
 }
+
 /* Match the small About label's optical chevron alignment. */
 .service-types-page .back-to-services a {
   align-items: center;
   line-height: 1;
 }
 
-.service-types-page .back-to-services a > p {
+.service-types-page .back-to-services a>p {
   margin: 0;
   line-height: 1;
 }
 
-.service-types-page .back-to-services a > svg {
+.service-types-page .back-to-services a>svg {
   display: block;
   flex: 0 0 auto;
   width: 1em;
   height: 1em;
   transform: translateY(-.12em);
 }
-

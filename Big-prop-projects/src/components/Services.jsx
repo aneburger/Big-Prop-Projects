@@ -73,25 +73,25 @@ function Services() {
         </div>
 
         <div className="services-right-section">
-          <Link to="/service" className="service-section-link">
+          <Link to="/service?type=painting" className="service-section-link">
             <section className="paint-section">
               <h3>PAINTING SERVICES <IoIosArrowRoundForward /></h3>
               <p>Comprehensive painting services to enhance your property.</p>
             </section>
           </Link>
-          <Link to="/service" className="service-section-link">
+          <Link to="/service?type=waterproofing" className="service-section-link">
             <section className="waterproof-section">
               <h3>WATERPROOFING SERVICES <IoIosArrowRoundForward /></h3>
               <p>Comprehensive waterproofing services to protect your property.</p>
             </section>
           </Link>
-          <Link to="/service" className="service-section-link">
+          <Link to="/service?type=roofing" className="service-section-link">
             <section className="roof-section">
               <h3>ROOF INSTALLATION AND MAINTENANCE <IoIosArrowRoundForward /></h3>
               <p>Expert roofing solutions including repairs, maintenance, and complete roof installations.</p>
             </section>
           </Link>
-          <Link to="/service" className="service-section-link">
+          <Link to="/service?type=renovations" className="service-section-link">
             <section className="reno-section">
               <h3>RESIDENTIAL & COMMERCIAL RENOVATIONS <IoIosArrowRoundForward /></h3>
               <p>Transform existing spaces with expert renovation and alteration services tailored to your vision.</p>
