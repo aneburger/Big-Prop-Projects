@@ -46,8 +46,8 @@ function Footer() {
             <SectionReveal className="follow-us-div" delay={0.4} margin="0px">
                 <h3>FOLLOW US</h3>
                 <div className="socials-logos">
-                    <a href="https://instagram.com"><FaSquareInstagram /></a>
-                    <a href="https://facebook.com"><FaFacebookSquare /></a>
+                    <a href="https://www.instagram.com/bigpropprojects?stkn=dmVuZXhrNXBjMzlw"><FaSquareInstagram /></a>
+                    <a href="https://www.facebook.com/profile.php?id=61564967286594"><FaFacebookSquare /></a>
                 </div>
             </SectionReveal>
 
